@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>周青蓉</h1>
+</body>
+<script src="jqeury.js"></script>
+<script>
+    $.ajax({
+        url:"https://m.yaojunrong.com/book",
+        success(res){
+            let book = res.data[0];
+            let bookid = book._id
+            console.log(book);
+            $.ajax({
+                url:`https://m.yaojunrong.com/titles/${bookid}`,
+                success(res){
+                    let title = res.data[0]
+                    let titleid = res.data[0]._id
+                    console.log(title)
+                    $.ajax({
+                        url:`https://m.yaojunrong.com/article/${titleid}`,
+                        success(res){
+                            console.log(res.data.article.content)
+                        }
+                    })
+                }
+            })
+        }
+    })
+</script>
+</html>

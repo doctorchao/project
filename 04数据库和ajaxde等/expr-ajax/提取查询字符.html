@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .container{
+            padding: 10px,10px;
+        }
+        .container h1{
+            font-size: 25px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>标题在此</h1>
+        <div class="desc">
+            <span class="desc-item date">2019</span>
+            <span class="desc-item time">5:20</span>
+            <span class="desc-item author">liu</span>
+        </div>
+        <div class="container">
+            周青蓉啦
+        </div>
+    </div>
+</body>
+<script>
+    var ul = document.querySelector("div")
+    var search = location.search;
+    search = search.substring(1);
+    let id = strparse(search).id
+    console.log(id)
+    let path = `http://didi.yaojunrong.com/api/article/get?id=${id}`;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET",path,true);
+    // xhr.setRequestHeader()
+    xhr.onreadystatechange= () =>{
+        if(xhr.readyState == 4&&xhr.status == 200){
+            let res = JSON.parse(xhr.response)
+            console.log(res)
+            let date = new Date(res.data[0].createtime*1000)
+            let year = date.getFullYear()
+            let month = date.getMonth()+1
+            let day = date.getDate()
+            let formattime = `${year}-${month}-${day}`
+            let template = `
+            <h1>${res.data[0].title}</h1>
+            <div class="desc">
+                <span class="desc-item date">${formattime}</span>
+                <span class="desc-item time">5:20</span>
+                <span class="desc-item author">${res.data[0].author}</span>
+            </div>
+            <div class="container">
+                ${res.data[0].content}
+            </div>`
+            ul.innerHTML = template;
+        }
+    }
+    xhr.send();
+
+    // let a = "?id=5&w=3&qwe=3"
+    // let b = a.substring(1)
+    // console.log(b)  // 提取字符
+    // let obj = {};
+    // let arr = b.split("&")
+    // console.log(arr)
+    // arr.forEach(item =>{
+    //     let innerarr = item.split("=")
+    //     console.log(innerarr)
+    //     obj[innerarr[0]] = innerarr[1]
+    // })
+    // console.log(obj)
+    function strparse(str){
+        let obj = {};
+        let arr = str.split("&")
+        arr.forEach(item =>{
+            let innerarr = item.split("=")
+            obj[innerarr[0]] = innerarr[1]
+        })
+        return obj;
+    }
+    // console.log(strparse(search))
+</script>
+</html>

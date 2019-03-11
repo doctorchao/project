@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>周青蓉</h1>
+</body>
+<script>
+    // var b;
+    // setTimeout( function a(b){
+    //     console.log(b)
+    //     console.log("包子")
+    // }, 2000,55); 
+    var list1 = [
+        "安徒生童话",
+        "一千零一夜"
+    ]
+
+    var articles = [
+        "安徒生童话的内容",
+        "一千零一夜的内容"
+    ]
+
+    var ps = [
+        "安徒生童话的段落",
+        "一千零一夜的段落"
+    ]
+//     setTimeout(()=> {
+//     console.log(list1,"list");
+//     setTimeout(() => {
+//         console.log(articles,"articles");
+//         setTimeout(() => {
+//             console.log(ps,"ps")
+//         }, 2000)
+//     }, 2000)
+// }, 2000)        // 异步 队列 先进先出
+var step1 = new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve(list1)
+        }, 1000)
+    })
+    
+    step1.then(function (result){
+        console.log(result,"list");
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(articles)
+            }, 1000)
+        })
+    }).then(result => {
+        console.log(result,"articles")
+        return new Promise(resolve =>{
+            setTimeout(()=> {
+                resolve(ps)
+            }, 1000)
+        })
+    }).then(res=>{
+        console.log(res,"ps")
+    })
+</script>
+</html>

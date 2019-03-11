@@ -1,0 +1,24 @@
+一：var  const let 区别
+二：箭头函数怎么用
+计算机调度分配资源最小单位：进程
+浏览器设计为多进程，本身为主进程，每个窗口为一个子进程，插件也是一个子进程。
+JS单线程是指它的主线程（JS引擎线程）是单线程，JS中还有很多单线程。其线程排队依次执行。
+遇到异步任务会将其（回调函数）放入任务队列中等待执行。所有同步任务执行后，执行队列中的异步任务。
+（队列是先进先出，有定时器时，时间短的先执行。）
+异步事件：ajax获取数据 ，事件，定时器
+node是异步非阻塞IO模型
+
+npm install nrm 国内下载
+npm install nrm -g 全局下载
+npm  help  帮助
+npm  install 包名 本地安装 
+npm  install 包名 -g   全局安装 
+npm  uninstall 包名 删除包
+npm  update 包名  更新包
+npm  root  查看当前包的安装路径
+npm  root  -g   查看全局包的安装路径
+npm init -y   初始化
+
+json数据只有两种格式 数组，对
+// 函数没有返回语句 则返回undefined
+fs.read函数 里 data 返回值只在函数作用域有用

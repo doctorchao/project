@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>笔记本</title>
+    <link rel="stylesheet" href="../stylesheets/common.css">
+    <link rel="stylesheet" href="../stylesheets/reset.css">
+    <link rel="stylesheet" href="../stylesheets/index.css">
+    <link rel="stylesheet" href="../stylesheets/login.css">
+</head>
+<body>
+    <div class="header">
+        <div class="w1170 wrap">
+            <h1>云笔记</h1>
+            <div class="head-btn">
+                <form action=""> 
+                    <button type="submit" formaction="/write">写笔记</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="w1170 content">
+        <div class="left-box">
+            <img src="../images/banner.jpg" alt="">
+            <div class="desc">十三亿人都会用的云笔记</div>
+        </div>
+        <div id="abe" class="right-box">
+           <!-- <div class="login"> -->
+                <div class="login-box">
+                        <div class="item">
+                            <input type="text" placeholder="账号" name="email">
+                        </div>
+                        <div class="item">
+                            <input type="password" placeholder="密码" name="password">
+                        </div>
+                        <div class="item">
+                            <button id="abd" class="item-btn btn1"><span>登陆</span></button>
+                        </div>
+                    <form action="" method>
+                        <div class="item">
+                            <button class="item-btn btn2" formaction="/register"><span>注册</span></button>
+                        </div>
+                    </form>
+                </div>
+            <!-- </div> -->
+        </div>
+        
+        <div class="bottom-box">
+            <a href="/details" class="item">
+                <div class="item-top clear-f">
+                    <div class="item-left">
+                        <img src="../images/avatar1.jpg" alt="">
+                    </div>
+                    <div class="item-right">
+                        <div class="item-right-one">
+                            <span class="author-name">Alex</span>
+                            <h2>测试标题</h2>
+                        </div>
+                        <div class="item-right-two">
+                            <span class="row-item">浏览: 5</span>
+                            <span class="row-item">回复: 0</span>
+                            <span class="row-item">分类: </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content">
+
+                </div>
+            </a>
+            <a href="" class="item">
+                <div class="item-top clear-f">
+                    <div class="item-left">
+                        <img src="../images/avatar1.jpg" alt="">
+                    </div>
+                    <div class="item-right">
+                        <div class="item-right-one">
+                            <span class="author-name">Alex</span>
+                            <h2>测试标题</h2>
+                        </div>
+                        <div class="item-right-two">
+                            <span class="row-item">浏览: 5</span>
+                            <span class="row-item">回复: 0</span>
+                            <span class="row-item">分类: </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content">
+
+                </div>
+            </a>
+            <a href="" class="item">
+                <div class="item-top clear-f">
+                    <div class="item-left">
+                        <img src="../images/avatar1.jpg" alt="">
+                    </div>
+                    <div class="item-right">
+                        <div class="item-right-one">
+                            <span class="author-name">Alex</span>
+                            <h2>测试标题</h2>
+                        </div>
+                        <div class="item-right-two">
+                            <span class="row-item">浏览: 5</span>
+                            <span class="row-item">回复: 0</span>
+                            <span class="row-item">分类: </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content">
+
+                </div>
+            </a>
+            <a href="" class="item">
+                <div class="item-top clear-f">
+                    <div class="item-left">
+                        <img src="../images/avatar1.jpg" alt="">
+                    </div>
+                    <div class="item-right">
+                        <div class="item-right-one">
+                            <span class="author-name">Alex</span>
+                            <h2>测试标题</h2>
+                        </div>
+                        <div class="item-right-two">
+                            <span class="row-item">浏览: 5</span>
+                            <span class="row-item">回复: 0</span>
+                            <span class="row-item">分类: </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content">
+
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="../js/index.js"></script> -->
+<script>
+    var arr1 = document.getElementsByTagName("input")
+    var abd = document.querySelector(".btn1")
+    var abe = document.getElementById("abe")
+    console.log(arr1)
+    abd.onclick = function(){
+        axios.post("/login",{
+            email:arr1[0].value,
+            password:arr1[1].value
+        }).then( (res) =>{
+            if(res.data.code == 200){
+                alert(res.data.msg)
+                let template = `
+                <div data-v-d7445b78="" class="user-box">
+                    <div data-v-d7445b78="" class="user-box-item user-icon">
+                        <img data-v-d7445b78="" src="${res.data.data.avatar}">
+                    </div> 
+                    <div data-v-d7445b78="" class="name-item">
+                        萌新:  ${res.data.data.name}
+                    </div> 
+                    <div data-v-d7445b78="" class="email-item">
+                        email:  ${res.data.data.email}
+                    </div> 
+                    <div data-v-d7445b78="">
+                        <button data-v-d7445b78="" type="button" class="el-button el-button--warning" style="width: 100%; margin-top: 10px;">
+                            <!---->
+                            <!---->
+                            <span>
+                                退出登陆
+                            </span>
+                        </button>
+                    </div>
+                </div>`
+                abe.innerHTML = template
+            }else{
+                alert(res.data.msg)
+            }
+        })
+    }
+</script>
+</html>

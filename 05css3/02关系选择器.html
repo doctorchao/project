@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* .box1 h1{
+            color: yellow
+        } */
+        /* .box1>h1{
+            color: yellow
+        } */
+        /* .box1+h1{
+            color: yellow
+        } */
+        .box1~h1{
+            color: yellow
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box1">
+        <h1>外部标题</h1>
+        <div class="box2">
+            <h1>内部标题</h1>
+        </div>
+    </div> -->
+    <div class="box1">
+        第一个
+    </div>
+    <h1>第二个</h1>
+    <h1>第三个</h1>
+</body>
+<script>
+    // section div  选择section后面所有的div，是所有后代
+    // section>div  选择seciton后面儿子，不是所有后代
+    // div+span     选择div后面紧挨着的第一个span
+    // div~span     选择div后面所有的span
+</script>
+</html>

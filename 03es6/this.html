@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>123</h1>
+    <button id = "ct">即刻点击</button>
+    <button id = "bt">即刻点击</button>
+</body>
+<script>
+    alert("ss")
+    var obj = {
+        name: "王力宏",
+        logName: function () {
+            console.log(this.name)
+        }
+    }
+    obj.logName();
+    function a(){
+    console.log(this)
+}
+a();
+(function (){
+    console.log(this)
+})();
+var btn = document.querySelector("#ct","#bt")
+btn.onclick=function (){
+    console.log(this);
+}
+window.onclick=function (){
+    console.log(this);
+}
+</script>
+</html>
+

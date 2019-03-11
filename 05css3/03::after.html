@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box::after {
+            /* 必须先写content */
+            content: "我是一段文字";
+            color: #f00;
+            background: skyblue;
+        }
+        .box::before {
+            content: "我是插入到前边的";
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        我是前边的
+    </div>
+</body>
+</html>

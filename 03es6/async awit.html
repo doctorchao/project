@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="jqeury.js"></script>
+<script>
+    // async function dosomething(){
+//     await console.log(1)
+//     await console.log(2)
+//     await console.log(3)
+//     await console.log(4)
+// }
+// // dosomething()
+// dosomething().then(()=>{
+//     console.log("做完了")
+// })
+var step1 = new Promise(function(resolve,reject){
+    $.ajax({
+        url:"https://m.yaojunrong.com/book",
+        success(res){
+            let book = res.data[0];
+            let bookid = book._id
+            // console.log(book);
+            resolve(bookid)
+        }
+    })
+})
+// var step2 = step1.then(function(bookid){
+//     return new Promise(function(resolve,reject){
+//         $.ajax({
+//             url:`https://m.yaojunrong.com/titles/${bookid}`,
+//             success(res){
+//                 let title = res.data[0]
+//                 let titleid = res.data[0]._id
+//                 // console.log(title)
+//                 resolve(titleid)
+//             }
+//         })
+//     })
+// })
+// var step3 = step2.then(function(titleid){
+//     return new Promise(function(resolve,reject){
+//         $.ajax({
+//             url:`https://m.yaojunrong.com/article/${titleid}`,
+//             success(res){
+//                 let content = res.data.article.content
+//                 resolve(content)
+//             }
+//         })
+//     })
+// }).then(content =>{
+//     console.log(content)
+// })
+
+async function getbook(){
+    let bookid = await step1
+    console.log(bookid)
+    // let titleid = await step2
+    // console.titleid
+    let titleid = await new Promise(function(resolve,reject){
+        $.ajax({
+            url:`https://m.yaojunrong.com/titles/${bookid}`,
+            success(res){
+                let title = res.data[0]
+                let titleid = res.data[0]._id
+                // console.log(title)
+                resolve(titleid)
+            }
+        })
+    })
+    let content = await new Promise(function(resolve,reject){
+        $.ajax({
+            url:`https://m.yaojunrong.com/article/${titleid}`,
+            success(res){
+                let content = res.data.article.content
+                resolve(content)
+            }
+        })
+    })
+console.log(titleid)
+console.log(content)
+}
+getbook()
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">删除cookie</button>
+</body>
+<script>
+    // console.log(document.cookie)
+    // document.cookie = "周青蓉=小cookie"
+    // function getcookie(){
+    //     let cookie = document.cookie
+    //     let cookieArr = cookie.split("; ")
+    //     console.log(cookieArr)
+    //     let obj = {};
+    //     for(i=0;i<cookieArr.length;i++){
+    //         let arr = cookieArr[i].split("=")
+    //         obj[arr[0]] = arr[1]
+    //     }
+    //     return obj
+    // }
+    // console.log(getcookie())
+
+    function setcookie(key,value,time){
+        let date = new Date();
+        date.setSeconds(date.getSeconds()+time)
+        console.log(date)
+        let str = date.toUTCString();
+        document.cookie = `${key}=${value};expires = ${str}` 
+    }
+    // setcookie(1,2,120);
+    function deletecookie(key){
+        setcookie(key,null,-1)
+    }
+    setcookie("蒋林芝","girl",600)
+    var btn = document.getElementById("btn")
+    btn.onclick = function(){
+        deletecookie("蒋林芝")
+    }
+</script>
+</html>

@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+div {
+    display: block;
+}
+.user-box[data-v-d7445b78]{
+    padding-top: 30px;
+}
+.user-icon[data-v-d7445b78] {
+    text-align: center;
+}
+.name-item,.email-item[data-v-d7445b78] {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    line-height: 36px;
+}
+/* .email-item[data-v-d7445b78]{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    line-height: 36px;
+} */
+.el-button--warning {
+    color: #fff;
+    background-color: #e6a23c;
+    border-color: #e6a23c;
+}
+.el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid #dcdfe6;
+    /* color: #606266; */
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: 0;
+    margin: 0;
+    transition: .1s;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+img[data-v-d7445b78]{
+    margin: auto;
+    width: 150px;
+    height: 130px;
+    display: block;
+}

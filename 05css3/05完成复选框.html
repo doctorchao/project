@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    label{
+        color: red
+    }
+    input{
+        display: none;
+    }
+    .box{
+        display: inline-block;
+        position: relative;
+        width: 10px;
+        height: 10px;
+        border: 1px solid skyblue;
+        background: white
+    }
+    input[type="checkbox"]:checked~.box::after{
+        content: "";
+        position: absolute;
+        top:1px;
+        left:0px;
+        width: 8px;
+        height: 4px;
+        transform:rotateZ(-45deg);
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+        /* transform:rotateZ(-45deg) */
+    }
+    input[type="checkbox"]:checked~.box{
+        background: skyblue;
+    }
+</style>
+<body>
+    <label class="input-wrap">
+        <input type="checkbox">
+        <span class="box"></span>
+        <span class="input-title">
+            屠龙宝刀点击就送
+        </span>
+    </label>
+</body>
+</html>

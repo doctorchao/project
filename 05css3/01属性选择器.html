@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* .box{
+            width: 100px;
+            height: 100px;
+            background: yellow
+        } */
+        .box[title]{
+            background: red
+        }
+        .box[title="div-fir"]{
+            background: green
+        }
+        .box[title*="sec"]{
+            background: blue
+        }
+        .box[title^="th"]{
+            background: white
+        }
+        .box[title$="ou"]{
+            background: black
+        }
+        .box[title~="fif"]{
+            background: purple
+        }
+        .box[title|="six-"]{
+            background: orange
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: yellow
+        }
+    </style>
+</head>
+<body>
+    <div class="box" name=""></div>
+    <div class="box" title></div>
+    <div class="box" title="div-fir"></div>
+    <div class="box" title="div-sec"></div>
+    <div class="box" title="thdiv-thi"></div>
+    <div class="box" title="div-fou"></div>
+    <div class="box" title="div- fif"></div>
+    <div class="box" title="six-div-six"></div>
+
+</body>
+<script>
+    // 属性选择器优先级相同  后面的作用覆盖前面的  .box优先级最高
+    // input[title]         选择具有title的input元素
+    // input[title=”bz”]    选择具有title属性，具属性值为”bz”
+    // input[title *= “bz”] 选择具有title属性，且属性值中包含有”bz”
+    // input[title ^= “bz”] 选择具有title属性，且属性值中以”bz”开头
+    // input[title $= “bz”] 选择具有title属性，且属性值中以”bz”结束
+    // input[title ~= “bz”] 选择具有title属性，且属性值中”bz”是以空格分隔的独立部分
+    // input[title |= “bz”] 选择具有title属性，且属性值中以”bz”或”bz-”开头
+</script>
+</html>
