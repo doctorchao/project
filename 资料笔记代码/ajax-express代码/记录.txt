@@ -1,0 +1,13 @@
+<script src="./axios.js"></script>
+<script>
+    let path = "https://m.yaojunrong.com/book";
+    // axios.get(path).then(res => {
+    //     console.log(res);
+    // })
+</script>
+<script>
+    let path = "https://m.yaojunrong.com/book";
+    // axios.post(path,{"...."}).then(res => {
+    //     console.log(res);
+    // })
+</script>

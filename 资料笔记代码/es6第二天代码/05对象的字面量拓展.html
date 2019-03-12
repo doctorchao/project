@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var name = "Tom";
+    // function logName() {
+    //     console.log(this.name)
+    // }
+
+    var obj = {
+        name,
+        logName() {
+            console.log(this.name)
+        }
+    }
+
+    obj.logName();
+    console.log(obj);
+
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <ul id="ul">
+
+    </ul>
+</div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    var box = document.getElementById("box");
+    var ul = $("ul");
+    // box.innerHTML = "<h1>我是html字符串</h1>";
+    var arr = [
+        {
+            title: "新闻标题1",
+            author: "作者1"
+        },
+        {
+            title: "新闻标题2",
+            author: "作者2"
+        },
+        {
+            title: "新闻标题3",
+            author: "作者3"
+        }
+    ]
+
+    var obj = {
+        title: "新闻标题1",
+        author: "作者1"
+    }
+
+    for(var i = 0; i<arr.length; i++){
+        var li = document.createElement("li");
+        li.innerText = arr[i].title;
+        ul.appendChild(li);
+    }
+    console.log(obj)
+
+    // var str = "我是字符串";
+    // var str1 = new String("我是字符串");
+    // var num1 = 998;
+    // var num2 = new Number(3);
+    // console.log(num1 + num2)
+    // console.log(num2);
+    // console.log(str)
+    // console.log(str1)
+
+    var num = -2.4;
+    // console.log(parseInt(num));
+    console.log(num, "原始数据");
+    console.log(Math.ceil(num), "向上取整"); // 向上取整
+    console.log(Math.floor(num), "向下取整"); // 向下取整
+    console.log(Math.round(num), "四舍五入"); // 四舍五入
+    console.log(Math.abs(num), "绝对值"); //
+    console.log(Math.random()*50);  // [0,1)
+</script>
+</html>

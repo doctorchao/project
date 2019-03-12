@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度钱包</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	body {
+		background-color: pink;
+	}
+	.wallet{
+		width: 300px;
+		height: 600px;
+		margin: 100px auto;
+		position: relative;
+	}
+	.wallet .backface{
+		width: 300px;
+		height: 300px;
+		background:url("images/wallet.png") -305px bottom;
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform: rotateY(180deg);
+		backface-visibility: hidden;
+		transition: all 1s ease 0s;
+	}
+	.wallet .foreface{
+		width: 300px;
+		height: 300px;
+		background:url("images/wallet.png") left bottom;
+		position: absolute;
+		left: 0;
+		top: 0;
+		backface-visibility: hidden;
+		transition: all 1s ease 0s;
+	}
+
+	.wallet:hover .foreface{
+		transform: rotateY(180deg);
+	}
+	.wallet:hover .backface{
+		transform: rotate(360deg);
+	}
+	</style>
+</head>
+<body>
+	<div class="wallet">
+		<div class="foreface"></div>
+		<div class="backface"></div>
+	</div>
+</body>
+</html>

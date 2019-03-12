@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{width: 600px;height: 300px; overflow: hidden;}
+        .box img{width: 600px;height: 300px;}
+    </style>
+</head>
+<body>
+    <a href="">上一张</a>
+    <div class="box">
+        <img src="./imgs/01.jpg" alt="">
+        <img src="./imgs/02.jpg" alt="">
+        <img src="./imgs/03.jpg" alt="">
+    </div>
+    <a href="">下一张</a>
+    <script>
+        // 把图片的src都放到一个数组中
+        var arr = ["imgs/01.jpg","imgs/02.jpg","imgs/03.jpg"];
+        // 得拿img
+        var imgs = document.getElementsByTagName("img")
+        var as = document.getElementsByTagName("a");
+        as[0].onclick = function(){
+            arr.unshift(arr.pop());
+            for(var i=0; i<imgs.length; i++){
+                imgs[i].src = arr[i]
+            }
+            // 阻止默认事件
+            return false;
+        }
+        as[1].onclick = function(){
+            arr.push(arr.shift());
+            for(var i=0; i<imgs.length; i++){
+                imgs[i].src = arr[i]
+            }
+            // 阻止默认事件
+            return false;
+        }
+    </script>
+</body>
+</html>

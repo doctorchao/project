@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">确认要分手么？</button>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+        var isFenshou = confirm("确定要和我这么帅的男人分手么？");
+
+        if(isFenshou) {
+            console.log("好吧，女人都是大猪蹄子");
+            return
+        }
+        console.log("我就知道你还是爱我的~");
+    }
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{list-style-type: none;}
+        img{display: block;}
+        .box{width: 730px;height: 454px; margin: 50px auto; position: relative; overflow: hidden;}
+        .box .big-pic{
+            width: 4380px;
+            height: 454px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .box .big-pic a{
+            float: left;
+        }
+        .box .nav{position: absolute; bottom: 10px; left: 300px; width: 130px;;}
+        .box .nav li{float: left; width: 12px;height: 12px;line-height: 12px;
+        text-align: center; color: #ffffff; background: #000; font-size: 12px; margin: 0 4px;}
+        .box .nav li.on{
+            font-weight: bold;
+            background: red;
+        }
+    </style>
+    <script>
+        // js的入口函数
+        window.onload = function(){
+            var big = document.getElementById("big-pic");
+            var lis = document.getElementsByTagName("li");
+            var t1 = null;
+            var init = 0; // 计数器
+            // 上要big运动起来，肯定要用到定时器了，在css3中，是使用自定义动画
+
+            // 封装一个函数，这个函数的功能就是使用图片轮播
+            function start(){
+                t1 = setInterval(function(){
+                    init++;
+                    init %= 6;
+                    big.style.left=-730*init+"px";
+
+                    // 处理一下导航部分
+                    for(var i=0; i<lis.length; i++){
+                        lis[i].className = "";
+                    }
+                    lis[init].classList = "on";
+                },2000);
+            }
+            start();
+
+            // 要实现鼠标放上停止轮播，鼠标离开时开始轮播，要用到两个事件   mouseover  mouseout
+            big.onmouseover = function(){
+                // 要停止轮播了
+                clearInterval(t1);
+            }
+            big.onmouseout = function(){
+                // 还在继续轮播
+                start();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="big-pic" id="big-pic">
+            <a href=""><img src="./images/jd1.jpg" alt=""></a>
+            <a href=""><img src="./images/jd2.jpg" alt=""></a>
+            <a href=""><img src="./images/jd3.jpg" alt=""></a>
+            <a href=""><img src="./images/jd4.jpg" alt=""></a>
+            <a href=""><img src="./images/jd5.jpg" alt=""></a>
+            <a href=""><img src="./images/jd6.jpg" alt=""></a>
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

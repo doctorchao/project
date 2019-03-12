@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>div</div>
+</body>
+<script>
+    var div = document.getElementsByTagName("div")[0];
+    var oComputed = window.getComputedStyle(div);
+    console.log(oComputed.backgroundColor)
+</script>
+</html>

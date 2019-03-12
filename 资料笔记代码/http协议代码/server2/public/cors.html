@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>我是server2</h1>
+</body>
+<script src="/js/axios.js"></script>
+<script>
+    axios.get("http://localhost:3000/simpleRequest", {
+        params: {
+            sex: "man"
+        }
+    }).then(res => {
+        console.log(res, "简单请求");
+    })
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{width: 100px; height: 100px; background-color: gold;}
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    var div = document.getElementsByTagName("div")[0];
+    div.addEventListener("mouseenter",function(){
+        console.log("mouseenter");
+    });
+    div.addEventListener("mouseover",function(){
+        console.log("mouseover");
+    });
+</script>
+</html>

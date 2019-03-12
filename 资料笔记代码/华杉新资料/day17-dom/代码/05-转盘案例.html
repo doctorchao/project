@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #wrap{
+            background-image: url(images/38/turntable-bg.jpg);
+            width: 650px;
+            height: 600px;
+            margin: 10px auto;
+            position: relative;
+        }
+        #turntable{
+            position: absolute;
+            left: 117px;
+            top: 59px;
+            transform: rotate(0deg);
+            transition: all 3s ease 0s;
+        }
+        #pointer{
+            position: absolute;
+            left: 255px;
+            top: 155px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="wrap">
+        <img src="images/38/turntable.png" alt="" id="turntable">
+        <img src="images/38/pointer.png" alt="" id="pointer">
+    </div>
+</body>
+<script>
+    // 事件   事件有三要素：事件源  事件名  监听器
+    var pointer = document.getElementById("pointer");
+    var turntable = document.getElementById("turntable");
+    var click_count = 0;
+    var timer;
+    // 绑定事件
+    pointer.onclick = function(){
+        click_count++;
+        var gifs = ["未中奖","名单4999元","名单50元","名单10元","名单5元","免分期服务费","提高白条额度"];
+        // 把度数和gifs做一个对应
+        var degrees = [0,50,100,150,200,250,300];
+        // 从0~6之间随机一个整数，作为gifs索引值，这样就能得到上面的某个奖品
+        var gifs_index = Math.floor(Math.random()*7);
+        var degrees_index = gifs_index;
+        console.log(gifs_index)
+        turntable.style.transform = "rotate("+(3*360*click_count+degrees[degrees_index])+"deg)";
+        setTimeout(function(){
+            alert(gifs[gifs_index])
+        },3000)
+        // if(){
+
+        // }else{
+
+        // }
+    }
+</script>
+</html>

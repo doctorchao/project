@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style-type:none;
+            height:30px;
+            line-height:34px;
+        }
+        li b{
+            font-size:10px;
+            display:block;
+            width:18px;
+            height:18px;
+            line-height:18px;
+            text-align:center;
+            margin:8px 4px 0 4px;
+            float:left;
+            background-color:red;
+        }
+        /*隐藏空元素*/
+        li:empty{
+            display: none;
+        }
+
+        /*给非空的li加灰色下底边*/
+        li:not(:empty){
+            border-bottom: 1px solid gray;
+        }
+
+        /*具有非.special类的li标号字体颜色显示#5f5f5*/
+        li:not(.special){
+            color: #5f5f5f;
+        }
+
+        /*除第一个外，其它li的标号背景色显示为#29b6e9*/
+        li:not(:first-child)>b{
+            background-color: #29b6e9;
+        }
+    </style>
+</head>
+<body>
+<body>
+
+    最受欢迎女歌手排行榜
+    <ol>
+        <li><b>01</b>彭媛媛</li>
+        <li><b>02</b>宋英英</li>
+        <li><b>03</b>那拉英</li>
+        <li class="special"><b>04</b>姚贝娜</li>
+        <li></li>
+    </ol>
+    <br><br>
+    1. 隐藏空元素<br><br>
+    2. 给非空的li加灰色下底边<br><br>
+    3. 具有非.special类的li标号字体颜色显示#5f5f5f<br><br>
+    4. 除第一个外，其它li的标号背景色显示为#29b6e9<br><br>
+
+
+</body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>dom0事件绑定</button>
+    <button>解绑甲</button>
+</body>
+<script>
+    var btn1 = document.getElementsByTagName("button")[0];
+    var btn2 = document.getElementsByTagName("button")[1];
+    var f = function(){
+        alert('hello 甲')
+    }
+    btn1.addEventListener("click",f);
+    btn1.addEventListener("click",function(){
+        alert('hello 已')
+    });
+    btn2.onclick = function(){
+        btn1.removeEventListener("click",f);
+    }
+</script>
+</html>

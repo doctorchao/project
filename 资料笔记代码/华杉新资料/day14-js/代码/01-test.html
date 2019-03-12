@@ -1,0 +1,181 @@
+<script>
+    // 所谓的函数就是一个功能块，用来封装一段代码，达到代码重用的目的
+    // 定义或声明一个函数
+    // function f(){
+    //     console.log("f....")
+    // }
+    // 调用上面的函数   当你想使用这个功能块时，你就调用这个函数
+    // 如果不调用，只是声明函数，相当代码没有写，也就是说，我们声明了
+    // 一个函数，就是需要我在合适地方去调用它。
+    // f();
+    // f();
+    // f();
+    // f();
+
+    // 函数有两种写法：函数声明和函数表达式
+    // 函数声明
+    // f叫函数名  ()函数的标识，只有函数有这个标识，变量是没有的
+    // {} + 里面的代码  叫函数休，或叫功能块
+    // 函数声明由function关键字 + 函数名 + () + 函数体组成。
+    // function f(){
+    // }
+    // 函数调用  就是函数名+函数标识
+    // f();
+
+    // 函数表达式    f是本质是变量  var是用来声明变量
+    // function 是用来声明函数  
+    // var f = function(){
+    //     console.log("f...")
+    // }
+    // 函数要想被调用 ，一定要加上函数的标识 ()
+    // f();
+
+    // 函数声明和函数表达式的区别
+    // f();
+    // function f(){
+    //     console.log("hello")
+    // }
+
+    // JS代码执行分两步：预编译，执行
+    // 预编译期间作了两件事：变量提升，函数声明提升
+    // 从上到下执行JS代码
+
+    // 函数声明和函数表达式的区别
+    // f is not a function
+    // f();
+    // var f = function(){
+    //     console.log("haha")
+    // }
+   
+    // var sayHello = function (){
+    //     console.log("sayHello")
+    // }
+    // sayHello();
+
+    // 把九九乘法表封装成一个函数
+    // function jjcfb(){
+    //     var str = "";
+    //     for(var i=1; i<=9; i++){
+    //         for(var j=1; j<=i; j++){
+    //             str += j + "*" + i + "=" + j*i;
+    //             str += "  ";
+    //         }
+    //         str += "\n";
+    //     }
+    //     console.log(str)
+    // }
+    // jjcfb();
+    // jjcfb();
+    // jjcfb();
+    // jjcfb();
+    // jjcfb();
+    // jjcfb();
+    // jjcfb();
+    // jjcfb();
+    // jjcfb();
+
+    // // return 提供返回值     返回给了函数调用处     在哪调用函数，返回值就给谁
+    // function f(){
+    //     console.log("你好~");
+    //     return;
+    // }
+    // // f()是有值的   值是123   因为调用函数时，函数提供了返回值
+    // var res = f();
+    // console.log(res)
+
+    // 函数的参数分两种：实际参数和形式参数
+    // 形式参数，叫形参，在函数声明或函数表达式中的()中写的参数
+    // 实际参数，叫实参，在函数调用时的()中写的参数
+
+    // a  b叫形参
+    // 当调用函数时，会把1赋给a，把2赋给b
+    // function f(a,b,c){
+    //     // console.log(c)
+    //     // 在函数操作a,b，本质就是对实参的操作
+    //     return a+b+c;
+    // }
+    // // 1  2叫实参    函数调用的过程就是实参向形参赋值的过程
+    // var res = f("a","b","c");
+    // console.log(res)
+
+
+    // // 对象   对象一般使用{}来表示    {}中放属性
+    // var computer = {
+    //     "size":"14寸",
+    //     "color":"black",
+    //     "cpu":"4核",
+    //     online:function(){
+    //         console.log("上网...")
+    //     }
+    // }
+    // console.log(computer.size)
+    // computer.online();
+    // // 如何理解？
+    // console.log();
+
+    // 使用new的方式创建对象
+    // var obj = new Object();
+    // obj.name = "hello";
+    // obj.age = 110;
+    // obj.run = function(){
+    //     console.log("run....")
+    // }
+    // console.log(obj.name)
+    // console.log(obj.age)
+    // console.log(obj.run())
+
+
+    // 使用JS中的内置对象
+    // var d1 = new Date();
+    // // 在一个对象，有很多的属性
+    // var year = d1.getFullYear();
+    // var month = d1.getMonth()+1;
+    // var date = d1.getDate();
+    // var hours = d1.getHours();
+    // var minutes = d1.getMinutes();
+    // var seconds = d1.getSeconds();
+    // var res = "今天是"+year+"年"+month+"月"+date+", "+hours+":"+minutes+":"+seconds;
+    // document.write("<h1>"+res+"</h1>")
+
+
+    // 单体内置对象   不需要new，直接使用的对象  Math
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+    // console.log(Math.ceil(20+Math.random()*30))
+
+    // // 定义一个数组,一个数组中放了很多数，这个数，叫元素
+    // var arr = [1,2,3,true,"hello",undefined,null,{},[],function f(){}];
+    // console.log(arr[6])
+    // console.log(arr[7])
+    // console.log(arr[8])
+    // console.log(arr[9])
+    // console.log(arr[10])
+
+    // // 怎么访问数组中某个元素呢？  
+    // // 下标   索引
+
+    // var arr = ["a","b","c","d"];
+    // // for(var i=0; i<arr.length; i++){
+    // //     console.log(arr[i])
+    // // }
+    // arr.forEach(function(item){
+    //     console.log(item)
+    // })
+
+    // 一维数组
+    var arr = [];   // for   forEach
+
+    // 二维数组
+    var arr2 = [[]]    // 
+
+    // 三维数组
+    var arr3 = [[[]]]    // 
+
+</script>

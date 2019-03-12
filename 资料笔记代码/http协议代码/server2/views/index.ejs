@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>server2</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>我是server2</h1>
+    <p>我真的是server2</p>
+  </body>
+  <!--<script src="/js/axios.js"></script>-->
+
+  <!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+  <!--<script>-->
+    <!--axios.get("http://localhost:3000/getJson").then(res => {-->
+      <!--console.log(res);-->
+    <!--}).catch(err => {-->
+      <!--console.log(err)-->
+    <!--})-->
+  <!--</script>-->
+  <script src="/js/jquery.js"></script>
+  <!--<script>-->
+    <!--function something(res) {-->
+      <!--console.log(res);-->
+    <!--}-->
+
+    <!--const wd = "朱一龙";-->
+    <!--var script = document.createElement("script");-->
+    <!--script.src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/?wd=${wd}&cb=something`;-->
+    <!--document.body.appendChild(script);-->
+  <!--</script>-->
+  <script>
+    $.ajax({
+      url: "http://localhost:3000/getJson",
+      type: "GET",
+      dataType: "jsonp",
+      success(res){
+        console.log(res)
+      }
+    })
+  </script>
+</html>

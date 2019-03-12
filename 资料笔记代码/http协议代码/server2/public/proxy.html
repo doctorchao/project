@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>server2</h2>
+</body>
+<script src="/js/axios.js"></script>
+<script>
+    axios.post("/server1/noSimple", {
+        sex: "girl"
+    }).then(res => {
+        console.log(res);
+    })
+</script>
+</html>

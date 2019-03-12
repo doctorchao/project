@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        section{
+            width:1000px;
+            margin:0 auto;
+            background-color:#ccc;
+        }
+        div,p{
+            margin:20px 0 20px 50px;
+        }
+        /*选择section的div后代，加蓝色边框*/
+        /*section div{*/
+            /*border: 5px solid blue;*/
+        /*}*/
+
+        /*选择section的第一级p子代，加橙色边框*/
+        /*section>p{*/
+            /*border: 5px solid orange;*/
+        /*}*/
+
+        /*选择 金敬姬 后面紧挨着的第一个亲弟弟div，加绿边*/
+        /*.widow+div{*/
+            /*border: 5px solid green;*/
+        /*}*/
+
+        /*选择 金敬姬 后面紧挨着的第一个亲妹妹p，加红边*/
+        /*.widow+p{*/
+            /*border: 5px solid red;*/
+        /*}*/
+
+        /*选择 金敬姬 后面所有的亲弟弟div，加黑边*/
+        /*.widow~div{*/
+            /*border: 5px solid black;*/
+        /*}*/
+
+        /*选择 金敬姬 后面所有的亲妹妹p，加紫边*/
+        .widow~p{
+            border: 5px solid purple;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        金日成section
+        <div>金正日（男div）
+            <p>金惠敬（女p）</p>
+            <div>金正哲（男div）</div>
+            <div>金正恩（男div）</div>
+        </div>
+        <div>金万一（男div）</div>
+        <p class="widow">金敬姬（女p）（张成泽）</p>
+        <div>金英一（男div）</div>
+        <div>金平一（男div）</div>
+
+        <p>金庆真（女p）</p>
+    </section>
+    <br><br>
+    1. 选择section的div后代，加蓝色边框<br><br>
+    2. 选择section的第一级p子代，加橙色边框<br><br>
+    3. 选择 金敬姬 后面紧挨着的第一个亲弟弟div，加绿边<br><br>
+    4. 选择 金敬姬 后面紧挨着的第一个亲妹妹p，加红边<br><br>
+    5. 选择 金敬姬 后面所有的亲弟弟div，加黑边<br><br>
+    6. 选择 金敬姬 后面所有的亲妹妹p，加紫边<br><br>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 1. 中断程序的运行
+    // 2. 传参的作用；
+    // 3. return
+
+    function* doSomething() {
+        console.log(1);
+        let one = yield "return1";
+        yield console.log(one, "one");
+        yield console.log(3);
+        yield console.log(4);
+    }
+
+    var iterator = doSomething();
+    for(let value of iterator){
+        console.log(value)
+    }
+</script>
+</html>

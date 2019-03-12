@@ -1,0 +1,19 @@
+<script>
+// 当你调用foo(1)，会把foo压入到杯子中。
+// 在foo函数体中，又调用了bar这个函数
+// 此时，会把bar这个函数压入到栈中
+// 当bar这个函数执行完后，它会从弹出这个栈
+// 此时，foo就位于栈顶了
+// 当foo也执行完了，foo也要出栈
+// 当foo出栈完后，这个栈就为空了
+function bar(b) {
+    return b * 2;
+}
+function foo(a) {
+    return bar(a * 3);
+}
+console.log(foo(1));    //6
+
+//  除了上面的栈结构，还有一个叫队列的结构，在Js
+//  JS的主线程是单线程，那就意味着任务，只能一个一个执行，
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // find();查找数组某个元素
+    // findIndex();查找某个元素的索引值
+    // some();数组中是否有元素符合条件
+    // every();数组中是否所有的元素都符合条件
+
+    // var arr = [
+    //     {
+    //         name: "王力宏",
+    //         sex: "男人",
+    //         desc: "歌唱家"
+    //     },
+    //     {
+    //         name: "冯提莫",
+    //         sex: "女孩",
+    //         desc: "网红"
+    //     },
+    //     {
+    //         name: "PDD",
+    //         sex: "boy",
+    //         desc: "胖子"
+    //     }
+    // ]
+
+    // es5 => 找到其中是女孩的项目
+    // let findItem;
+    // arr.forEach(item => {
+    //     if(item.sex == '女孩'){
+    //         findItem = item;
+    //     }
+    // })
+    // console.log(findItem);
+
+
+    // es5 => 查找索引值
+    // let findIndex;
+    // arr.forEach((item, index) => {
+    //     if(item.sex == '女孩'){
+    //         findIndex = index;
+    //     }
+    // })
+    // console.log(findIndex);
+
+    // console.log(arr.findIndex(item => item.sex == '女孩'));
+
+    // console.log(arr.find(item => item.sex == '女孩'));
+
+
+    var arr = [
+        {
+            name: "Tom",
+            age: 19
+        },
+        {
+            name: "Jerry",
+            age: 12
+        },
+        {
+            name: "Alex",
+            age: 18
+        }
+    ]
+
+    // console.log(arr.some(item => item.age > 18));
+    console.log(arr.every(function (item, index, currArr) {
+        return item.age < 18;
+    }));
+</script>
+</html>

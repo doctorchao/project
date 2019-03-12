@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{margin: 0; padding: 0;}
+        #list li{
+            list-style-type: none;
+            border: 2px solid red;
+            text-align: center;
+            line-height: 30px;
+            margin: 10px auto;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">添加一行</button>
+    <hr>
+    <input type="text" id="user" placeholder="输入你要删除的行数">
+    <button id="del">删除</button>
+    <ul id="list">
+    </ul>
+    <script>
+        var add = document.getElementById("btn");
+        var user = document.getElementById("user");
+        var list = document.getElementById("list");
+        var del = document.getElementById("del")
+        add.onclick = function(){
+            var li = document.createElement("li");
+            li.innerHTML = user.value;
+            list.appendChild(li)
+            user.value = "";
+        }
+        del.onclick = function(){
+            var num = user.value;
+            if(num){
+                // 删除操作
+                // var lis = list.getElementsByTagName("li");
+                // list.removeChild(lis[num-1]);
+            }else{
+                alert("请输入具体的行数~")
+            }
+        }
+    </script>
+</body>
+</html>

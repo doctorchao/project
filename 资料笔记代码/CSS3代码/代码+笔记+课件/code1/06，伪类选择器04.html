@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        fieldset{
+            margin:50px;
+            padding:20px;
+            line-height:40px;
+        }
+        input[type="text"]:focus{
+            background-color: skyblue;
+        }
+
+        input[type="radio"]:checked+label{
+            font-weight: bold;
+        }
+        #nextStep:disabled{
+            background-color: red;
+        }
+        #nextStep:enabled{
+            font-weight: bold;
+        }
+        p:lang(zh){
+            font-weight: bold;
+        }
+        p:lang(en){
+            font-family: Verdana;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var agree = document.getElementById('agree');
+            var nextStep = document.getElementById('nextStep');
+
+            agree.onclick = function(){
+                //当用户点击checkbox的时候，需要判断，这个agree是否是选上状态。如果是，则nextStep可用。否则，nextStep不可用
+                if(agree.checked==true){
+                    nextStep.disabled=false;
+                }else{
+                    nextStep.disabled=true;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<body>
+    <fieldset>
+        <legend>表单</legend>
+        <form action="">
+            <label for="">姓名：</label>
+            <input type="text" name="username" id="username"><br>
+
+            <label for="">性别：</label>
+            <input type="radio" name="sex" id="man" value=""><label for="man">男</label>
+            <input type="radio" name="sex" id="woman" value=""><label for="woman">女</label>
+            <input type="radio" name="sex" id="baomi" value=""><label for="baomi">保密</label><br>
+
+            <input type="checkbox" id="agree"><label for="agree">我同意以上协议</label><br>
+
+            <input type="button" value="上一步">
+            <input type="button" value="下一步" id="nextStep" disabled>
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>lang</legend>
+        中文简体
+        <p lang="zh">中文简体</p>
+        Ti Amo
+        <p lang="en">Ti Amo</p>
+    </fieldset>
+</body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

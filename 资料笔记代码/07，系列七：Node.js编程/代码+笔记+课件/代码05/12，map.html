@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+       var arr = [1,2,3,4,5];
+
+       // map
+       var newArr = arr.map(function (num) {
+           return num*num;
+       })
+       console.info(newArr)
+
+       function f(num) {
+           return num*num;
+       }
+       var newArr2 = arr.map(f)
+       console.info(newArr2)
+
+
+
+
+
+       // 传统方式
+//        var newArr = [];
+//        for(var i=0; i<arr.length; i++){
+//            newArr[i] = arr[i]*arr[i]
+//        }
+//        console.info(newArr)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

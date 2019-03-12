@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+        figure{
+            overflow:hidden;
+        }
+        h2{
+            width:400px;
+            float:left;
+        }
+        section{
+            width:400px;
+            float:left;
+        }
+
+        /*section下的第二个div（每家的第二个儿子）加黄边*/
+        /*div:nth-of-type(2){*/
+            /*border: 5px solid yellow;*/
+        /*}*/
+
+        /*section下的第一个p（每家的第一个女儿）加橙色边*/
+        /*p:nth-of-type(1){*/
+            /*border: 5px solid orange;*/
+        /*}*/
+        /*p:first-of-type{*/
+            /*border: 5px solid orange;*/
+        /*}*/
+
+        /*section下的最后一个p（每家最小的女儿）加绿色边*/
+        /*p:last-of-type{*/
+            /*border: 5px solid green;*/
+        /*}*/
+
+        /*section下的倒数第二个div（每家的第二小的儿子）加紫边*/
+        /*div:nth-last-of-type(2){*/
+            /*border: 5px solid purple;*/
+        /*}*/
+
+        /*section下的唯一div（每家的独子）加蓝边*/
+        /*div:only-of-type{*/
+            /*border: 5px solid blue;*/
+        /*}*/
+
+        /*section下的唯一p（每家的独女）加粉边*/
+        /*p:only-of-type{*/
+            /*border: 5px solid pink;*/
+        /*}*/
+
+        /*section下的唯一div和唯一p（每家的独子和独女）加灰边*/
+        /*div:only-of-type,p:only-of-type{*/
+            /*border: 5px solid gray;*/
+        /*}*/
+
+        /*section下排在奇数的div（排行奇数的儿子）加红色*/
+        /*div:nth-of-type(2n+1){*/
+            /*border: 5px solid red;*/
+        /*}*/
+        /*div:nth-of-type(odd){*/
+            /*border: 5px solid red;*/
+        /*}*/
+
+        /*section下排在偶数的p（排行偶数的女儿）加深红色*/
+        /*div:nth-of-type(2n){*/
+            /*border: 5px solid red;*/
+        /*}*/
+        /*div:nth-of-type(even){*/
+            /*border: 5px solid red;*/
+        /*}*/
+
+        /*section下排名前2的div（大儿子和二儿子）加青色边*/
+        /*div:nth-of-type(-n+2){*/
+            /*border: 5px solid cyan;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <figure>
+        <h2>贾赦</h2>
+        <h2>贾政</h2>
+        <h2>贾敏</h2>
+
+        <section class="jiahe">
+            <div><img src="images/04/jialian.png" width="260" height="210"></div>
+            <p><img src="images/04/jiayingchun.png" width="260" height="210"></p>
+        </section>
+
+        <section class="jiazheng">
+            <div><img src="images/04/jiazhu.png" width="260" height="210"></div>
+            <p><img src="images/04/jiayuanchun.png" width="260" height="210"></p>
+            <div id="jiabaoyu"><img src="images/04/jiabaoyu.png" width="260" height="210"></div>
+            <p><img src="images/04/jiatanchun.png" width="260" height="210"></p>
+            <div><img src="images/04/jiahuan.png" width="260" height="210"></div>
+        </section>
+
+        <section class="jiamin">
+            <p><img src="images/04/lindaiyu.png" width="260" height="210"></p>
+        </section>
+    </figure>
+
+    <aside>
+        1. section下的第二个div（每家的第二个儿子）加黄边<br><br>
+        2. section下的第一个p（每家的第一个女儿）加橙色边<br><br>
+        3. section下的最后一个p（每家最小的女儿）加绿色边<br><br>
+        4. section下的倒数第二个div（每家的第二小的儿子）加紫边<br><br>
+        5. section下的唯一div（每家的独子）加蓝边<br><br>
+        6. section下的唯一p（每家的独女）加粉边<br><br>
+        7. section下的唯一div和唯一p（每家的独子和独女）加灰边<br><br>
+        8. section下排在奇数的div（排行奇数的儿子）加红色<br><br>
+        9. section下排在偶数的p（排行偶数的女儿）加深红色<br><br>
+        10. section下排名前2的div（大儿子和二儿子）加青色边<br><br>
+    </aside>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

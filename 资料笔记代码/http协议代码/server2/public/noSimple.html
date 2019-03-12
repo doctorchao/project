@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>server2</h1>
+</body>
+<script src="/js/axios.js"></script>
+<script>
+    axios.post("http://localhost:3000/noSimple", {
+        firstName: "dyyao",
+        lastName: "good"
+    }, {
+        withCredentials: true,
+    }).then(res => {
+        console.log(res);
+    })
+</script>
+<!--<script>-->
+    <!--// application/x-www-form-urlencoded 表单形式的ajax对象数据-->
+    <!--// xhr.send("sex=man&name=yaoming")-->
+
+    <!--// application/json -->
+
+    <!--// '{-->
+    <!--//     "sex": "man",-->
+    <!--//     "name": "yaoming"-->
+    <!--// }'-->
+    <!--// xhr.send('{}')-->
+<!--</script>-->
+</html>

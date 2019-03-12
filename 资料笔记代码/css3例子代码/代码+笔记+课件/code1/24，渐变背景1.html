@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+        div{
+            width:300px;
+            height:300px;
+            border:1px solid black;
+            margin:50px;
+            float:left;
+        }
+        div:nth-child(1){
+            background-image: -webkit-linear-gradient(left, red, blue);
+            background-image: -ms-linear-gradient(left, red, blue);
+            background-image: -moz-linear-gradient(left, red, blue);
+            background-image: -o-linear-gradient(left, red, blue);
+            background-image: linear-gradient(left, red, blue);
+        }
+        div:nth-child(2){
+            background-image: -webkit-linear-gradient(top, red, blue);
+        }
+        div:nth-child(3){
+            background-image: -webkit-linear-gradient(top left, red, blue);
+        }
+        div:nth-child(4){
+            background-image: -webkit-linear-gradient(top, red, blue, yellow);
+        }
+        div:nth-child(5){
+            background-image: -webkit-linear-gradient(top, red, blue, yellow, green);
+        }
+        div:nth-child(6){
+            background-image: -webkit-linear-gradient(top, red, blue 20%, yellow, green 80%);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

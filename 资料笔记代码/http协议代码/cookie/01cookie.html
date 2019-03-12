@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">删除</button>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    // console.log(document.cookie);
+    console.log(document.cookie);
+
+    function getCookie(){
+        let cookie = document.cookie;
+        let cookieArr = cookie.split("; ");
+        let obj = {};
+        console.log(cookieArr);
+        for(var i=0; i<cookieArr.length; i++){
+            let arr = cookieArr[i].split("=");
+            obj[arr[0]] = arr[1]
+        }
+        return obj
+    }
+
+    console.log(getCookie());
+
+    function setCookie(key, value, time){
+        let date = new Date();
+        date.setSeconds(date.getSeconds() + time);
+        let str = date.toUTCString();
+        document.cookie = `${key}=${value}; expires=${str}`
+    }
+
+    function deleteCookie(key) {
+        setCookie(key, null, -1);
+    }
+
+    setCookie("something", "this is something!", 120);
+    btn.onclick = function () {
+        deleteCookie("something");
+    }
+    // setCookie("like","computerGame",120);
+</script>
+</html>

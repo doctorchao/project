@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 1. 用于数组的去重;
+    // 可以利用对象属性的不允许重复出现的特性
+    // indexOf
+
+    // var arr = [2,4,6,8,8,9,2];
+    // var arr1 = [];
+    // var obj = {};
+    // var set = [...new Set(arr)];
+    // console.log(set);
+    // for(var i = 0; i<arr.length;i++){
+    //     if(!obj[arr[i]]){
+    //         obj[arr[i]] = 1;
+    //         arr1.push(arr[i])
+    //     }
+    // }
+
+    // arr.forEach(item => {
+    //     if(arr1.indexOf(item)==-1){
+    //         arr1.push(item)
+    //     }
+    // })
+    //
+    // console.log(arr1);
+
+    // const obj1 = {
+    //     name: 1
+    // }
+    // const obj2 = obj1;
+    //
+    // // 栈区地址
+    // const wset = new WeakSet([obj1,obj2]);
+    // console.log(wset);
+
+    const arr = [
+        [{name: "冯小刚",sex: "男人"}, "著名导演"],
+        [{name: "马化腾",sex: "男人"}, "著名CEO"],
+        [{name: "逢泽莉娜",sex: "女人"}, "著名网红"]
+    ]
+
+    const m = new Map(arr);
+    console.log(m);
+
+
+
+</script>
+</html>

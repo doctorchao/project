@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div{width: 300px;height: 300px;background: red; position: absolute;left: 500px; top: 50px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementsByTagName("button");
+            var box = document.getElementById("box");
+            var t1 = null;
+            btn[0].onclick = function(){
+                // 向左
+                clearInterval(t1);
+                t1 = setInterval(function(){
+                    var x = box.offsetLeft;
+                    box.style.left = x-5+"px"
+                },50);
+            }
+            btn[1].onclick = function(){
+                // 向右
+                 // 向左
+                 clearInterval(t1);
+                 t1 = setInterval(function(){
+                    var x = box.offsetLeft;
+                    box.style.left = x+5+"px"
+                },50);
+            }
+            btn[2].onclick = function(){
+                // 停止
+                clearInterval(t1);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button>向左</button>
+    <button>向右</button>
+    <button>停止</button>
+    <div id="box"></div>
+</body>
+</html>                

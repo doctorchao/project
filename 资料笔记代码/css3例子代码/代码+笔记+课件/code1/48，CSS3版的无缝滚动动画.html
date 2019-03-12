@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3版的无缝滚动动画</title>
+    <style>
+        *{margin: 0; padding: 0px;}
+        body{
+            background: black;
+        }
+        .donghua{
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .donghua ul{
+            list-style: none;
+            width: 1800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: run 10s linear 0s infinite;
+        }
+        img{
+            display: block;
+        }
+        .donghua li{
+            float: left;
+            cursor: pointer;
+        }
+
+        @keyframes run {
+            from{
+                left: 0;
+            }
+            to{
+                left: -1200px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="donghua">
+    <ul>
+        <li><img src="images/53/01.jpg"></li>
+        <li><img src="images/53/02.jpg"></li>
+        <li><img src="images/53/03.jpg"></li>
+        <li><img src="images/53/04.jpg"></li>
+        <li><img src="images/53/01.jpg"></li>
+        <li><img src="images/53/02.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

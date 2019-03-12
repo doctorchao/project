@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    "use strict";
+    // 在事件处理函数当中，this指向事件源
+
+    // 1. this的值永远指向函数的调用者
+    // 2. 在严格模式下，匿名函数的this指向undefined;
+    // var name = "吴京";
+    //
+    // var obj = {
+    //     name: "王力宏",
+    //     logName: function () {
+    //         console.log(this.name)
+    //     }
+    // }
+    // function logName() {
+    //     console.log(this.name)
+    // }
+    //
+    // window.logName()
+
+    // obj.logName();
+    // var btn = document.querySelector("#btn");
+    // btn.onclick = function () {
+    //     console.log(this);
+    // }
+
+
+    // var fun1 = function () {
+    //     console.log(this)
+    // }
+    //
+    // window.fun1();
+    // setTimeout(function() {
+    //     console.log(this)
+    // }, 300)
+    (function() {
+        console.log(this)
+    })()
+</script>
+</html>

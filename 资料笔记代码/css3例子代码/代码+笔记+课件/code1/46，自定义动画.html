@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 250px;
+            height: 250px;
+            background: url("images/eight.jpg");
+            position: absolute;
+            top: 300px;
+            left: 10px;
+            background-repeat: no-repeat;
+
+            /*1. 从左向右移动(一次)*/
+            /*animation: go 5s ease 0s;*/
+
+            /*2. 从左向右移动(一次，并停留在终点)*/
+            /*animation: go 5s ease 0s forwards;*/
+
+            /*3. 从左向右移动(延迟2秒才开始动画)*/
+            /*animation: go 5s ease 2s forwards;*/
+
+            /*4. 从左向右移动(3次)*/
+            /*animation: go 5s ease 0s forwards 3;*/
+
+            /*5. 从左向右交替移动5次*/
+            /*animation: go 3s ease 0s 5 alternate;*/
+
+            /*6. 从左向右交替移动(无限次)*/
+            /*animation: go 3s ease 0s infinite alternate;*/
+
+            /*7. 从左向右先快后慢移动*/
+            -webkit-animation: -webkit-km 3s ease 0s forwards;
+
+        }
+
+
+
+
+        @keyframes  go{
+            from{
+                left: 10px;
+            }
+            to{
+                left: 1000px;
+            }
+        }
+
+        @-webkit-keyframes  -webkit-km{
+            0%{
+                left: 10px;
+            }
+            40%{
+                left: 800px;
+            }
+            100%{
+                left: 1000px;
+            }
+        }
+
+        @keyframes  km{
+            0%{
+                left: 10px;
+            }
+            40%{
+                left: 800px;
+            }
+            100%{
+                left: 1000px;
+            }
+        }
+
+        @keyframes  km{
+            0%{
+                left: 10px;
+            }
+            40%{
+                left: 800px;
+            }
+            100%{
+                left: 1000px;
+            }
+        }
+
+        @keyframes  km{
+            0%{
+                left: 10px;
+            }
+            40%{
+                left: 800px;
+            }
+            100%{
+                left: 1000px;
+            }
+        }
+
+        @keyframes  km{
+            0%{
+                left: 10px;
+            }
+            40%{
+                left: 800px;
+            }
+            100%{
+                left: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    1. 从左向右移动(一次)<br><br>
+    2. 从左向右移动(一次，并停留在终点)<br><br>
+    3. 从左向右移动(延迟2秒才开始动画)<br><br>
+    4. 从左向右移动(3次)<br><br>
+    5. 从左向右交替移动5次<br><br>
+    6. 从左向右交替移动(无限次)<br><br>
+    7. 从左向右先快后慢移动<br><br>
+
+    <div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

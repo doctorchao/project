@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{margin: 0; padding: 0;}
+        img{width: 100%; height: 400px;}
+    </style>
+</head>
+<body>
+    <h1 id="logo">京东网</h1>
+    <script>
+        var img = document.createElement("img");
+        img.src = "./imgs/01.jpg";
+        var h1 = document.getElementById("logo");
+        document.body.insertBefore(img,h1)
+        window.setTimeout(function(){
+            img.parentNode.removeChild(img)
+        },3000);
+    </script>
+</body>
+</html>

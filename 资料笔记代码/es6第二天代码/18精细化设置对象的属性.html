@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        name: "王力宏"
+    }
+
+    Object.defineProperty(obj, "sex", {
+        configurable: false,
+        enumerable: false,
+        get:function() {
+            if(obj.name == '李小冉'){
+                return  "女孩"
+            } else if(obj.name == "王力宏") {
+                return "男孩"
+            }
+        },
+        set:function(value) {
+            if(value == "女孩"){
+                console.log("这个女孩是李小冉")
+            } else if(value == "男孩"){
+                console.log("这个男孩是王力宏")
+            }
+        }
+    })
+
+    console.log(obj.sex)
+    console.log(Object.getOwnPropertyDescriptor(obj, "sex"));
+    console.log(obj);
+
+    // var str1 = "字符串1";
+    // str2 = "字符串2";
+    //
+    // delete str1;
+    // delete str2;
+    // console.log(str1);
+    // console.log(str2);
+</script>
+</html>

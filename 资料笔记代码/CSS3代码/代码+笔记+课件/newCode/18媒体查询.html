@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid #000;
+            margin: 0 auto;
+        }
+        .box {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background: skyblue;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            margin: 10px 25px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .box {
+                width: 33.33333%;
+                margin: 10px 0;
+            }
+        }
+
+        @media screen and (max-width: 960px) {
+            .box {
+                width: 50%;
+                margin: 10px 0;
+            }
+        }
+            /*.box:nth-child(4n) {*/
+                /*margin-right: 0;*/
+            /*}*/
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

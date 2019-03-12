@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="box">
+        <h1 id="item">这是老的h1</h1>
+    </div>
+    <script>
+        var div = document.getElementById("box");
+        var item = document.getElementById("item");
+        var newH1 = document.createElement("h1");
+        newH1.innerHTML = "这是新的h1"
+        div.replaceChild(newH1,item)
+    </script>
+</body>
+</html>

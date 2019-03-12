@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>我是网页一</h1>
+    <button>跳转到网页二</button>
+    <button>返回</button>
+    <button>前进</button>
+</body>
+<script>
+    var btns = document.querySelectorAll("button");
+
+    btns[0].onclick = function () {
+        location.href = "./08网页2.html"
+    }
+
+    btns[1].onclick = function () {
+        // history.back();
+        history.go(-1);
+    }
+
+    btns[2].onclick = function () {
+        // history.forward();
+        history.go(0);
+    }
+
+
+    console.log(btns)
+</script>
+</html>

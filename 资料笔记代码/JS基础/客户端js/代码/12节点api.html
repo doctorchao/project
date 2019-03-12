@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+    <!--我是注释-->
+    <li>我是内容1</li>
+    <!--我是注释-->
+    <li>我是内容2</li>
+</ul>
+
+<div id="box">
+    <h1 id="title">要被删除的内容</h1>
+    <button id="btn">删除自己</button>
+</div>
+</body>
+<script>
+    var lis = document.querySelectorAll("li");
+    var ul = document.getElementById("ul");
+    var title = document.getElementById("title");
+    var btn = document.getElementById("btn");
+
+    // ul.onclick = function () {
+    //     console.log(this.childNodes)
+    // }
+
+    var arr = ul.children;
+    console.log(arr);
+
+    for(var i = 0; i<arr.length; i++){
+        if(arr[i].nodeName == "LI") {
+            arr[i].style.color = "#f00";
+        }
+        // arr[i].style.color = "#f00";
+    }
+
+    // for(var i=0; i< lis.length; i++){
+    //     lis[i].onclick = function () {
+    //         console.log(this.parentNode)
+    //     }
+    // }
+
+    btn.onclick = function () {
+        title.parentNode.removeChild(title);
+    }
+</script>
+</html>

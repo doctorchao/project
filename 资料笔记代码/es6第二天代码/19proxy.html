@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let sign = {
+    //     _appkey: "666",
+    //     desc: "Alex的密钥"
+    // }
+    //
+    // Object.defineProperty(sign, "_appid",{
+    //     get() {
+    //         return "12345678"
+    //     },
+    //     set() {
+    //         console.log("该值不应该修改")
+    //     }
+    // })
+    // ====> es6
+
+    let proxy = new Proxy({
+        _appid: "12345678",
+        _appkey: "666",
+        desc: "Alex的密钥"
+    }, {
+        get(target, property, receiver) {
+            return target[property]
+        },
+        set(target, property, value, receiver) {
+            console.log("该对象的任何内容都不应该修改");
+            console.log(`要修改的属性是${property}`);
+            console.log(`要修改的值是${value}`);
+        }
+    })
+
+</script>
+</html>

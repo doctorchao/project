@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .father{
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            position: relative;
+            margin: 0 auto;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+<script>
+    var div = document.getElementsByClassName("son")[0];
+    console.log(div.offsetLeft)
+    console.log(div.offsetTop)
+</script>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // load是加载的意思   这里的加载就是指加载html文档
+        // 说到事件：事件的三要素  事件源   事件    监听器
+        // load事件，当整个Html文档加载完毕后，它会触发load事件
+        // window.onload = function(){}  叫js的入口函数
+        window.onload = function(){
+            // 获取全选/全不选的多选框
+            var checkedAllBox = document.getElementById("checkedAllBox");
+            // 获取4个item
+            var items = document.getElementsByName("items");
+
+            // 全 选
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
+            checkedAllBtn.onclick = function(){
+                // 遍历items
+                for(var i=0; i<items.length; i++){
+                    items[i].checked=true;
+                }
+                checkedAllBox.checked = true;
+            }
+            // 全不选
+            var checkedNoBtn = document.getElementById("checkedNoBtn");
+            checkedNoBtn.onclick = function(){
+                for(var i=0; i<items.length; i++){
+                    items[i].checked=false;
+                }
+                checkedAllBox.checked = false;
+            }
+            // 反 选
+            var checkedRevBtn = document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick = function(){
+                // checkedAllBox  设置成选中的状态
+                checkedAllBox.checked = true;
+                for(var i=0; i<items.length; i++){
+                    // 判断多选框的状态
+                    // if(items[i].checked){
+                    //     // 说明此时，框已被选中，则设置成没有选中的状态
+                    //     items[i].checked = false;
+                    // }else{
+                    //     // 说明此时，框没有被选中，则设置成选中的状态
+                    //     items[i].checked = true;
+                    // }
+                    items[i].checked = !items[i].checked;
+                    
+                    // 判断四个多选框是否全选
+                    // 只要有一个没有选中，就不是全选
+                    if(!items[i].checked){
+                        // 进入这个{}，说明不是全选状态
+                        checkedAllBox.checked = false;
+                    }
+                }
+            }
+            // 提 交
+            var sendBtn = document.getElementById("sendBtn");
+            sendBtn.onclick = function(){
+                for(var i=0; i<items.length; i++){
+                    if(items[i].checked){
+                        alert(items[i].value);
+                    }
+                }
+            }
+            // checkedAllBox
+            checkedAllBox.onclick = function(){
+                for(var i=0; i<items.length; i++){
+                    items[i].checked = this.checked;
+                }
+            }
+            // 处理Items
+            // 如果4个item全都选中，则checkedAllBox也应该选中
+            // 如果4个item有一个没有选中，则checkedAllBox也应该不选中
+            for(var i=0; i<items.length; i++){
+                items[i].onclick = function(){
+                    checkedAllBox.checked = true;
+                    for(var j=0; j<items.length; j++){
+                        // 判断4个多选框是否全选
+                        // 只要有一个没选中，就不是全选
+                        if(!items[j].checked){
+                            // 说明不是全选状态
+                            checkedAllBox.checked = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="POST">
+        你爱好的运动是？<input type="checkbox" id="checkedAllBox">全选/全不选 <br>
+        <input type="checkbox" name="items" value="足球">足球  
+        <input type="checkbox" name="items" value="篮球">篮球  
+        <input type="checkbox" name="items" value="羽毛球">羽毛球  
+        <input type="checkbox" name="items" value="乒乓球">乒乓球   <br>
+
+        <input type="button" id="checkedAllBtn" value="全 选">
+        <input type="button" id="checkedNoBtn" value="全不选">
+        <input type="button" id="checkedRevBtn" value="反 选">
+        <input type="button" id="sendBtn" value="提 交">
+    </form>
+</body>
+<script>
+    // 之前是在Html最后面写js代码
+    // xxxxxxxxxxxxxx
+    // var checkedAllBtn = document.getElementById("checkedAllBtn");
+    // console.log(checkedAllBtn)
+    // 如果js代码写在最后面，入口函数是不需要写的
+</script>
+</html>

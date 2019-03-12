@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背面不可见</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	div{
+		width: 300px;
+		height: 300px;
+		border: 1px solid red;
+		margin: 100px auto;
+		perspective: 500px;
+	}
+	div img{
+		transition: all 1s ease 0s;
+		backface-visibility: hidden;
+	}
+	div:hover img{
+		transform: rotateY(180deg);
+	}
+	</style>
+</head>
+<body>
+	<div><img src="images/41.jpg"></div>
+</body>
+</html>

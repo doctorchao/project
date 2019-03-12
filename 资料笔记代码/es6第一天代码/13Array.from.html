@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>我是内容1</li>
+    <li>我是内容2</li>
+    <li>我是内容3</li>
+    <li>我是内容4</li>
+    <li>我是内容5</li>
+</ul>
+</body>
+<script>
+    var lis = document.querySelectorAll("li");
+    var ul = document.querySelector("ul");
+    var arr = Array.from(lis);
+    arr = arr.sort((prev, curr,index) => {
+        // sort() 方法用于对数组的元素进行排序
+        // 对数组的引用。请注意，数组在原数组上进行排序，不生成副本。
+        // 如果调用该方法时没有使用参数，将按字母顺序对数组中的元素进行排序，
+        // 说得更精确点，是按照字符编码的顺序进行排序。
+
+        var currText = curr.innerText;
+        var prevText = prev.innerText;
+        return (currText[currText.length -1] - prevText[prevText.length -1])
+    });
+    arr.map(item => {
+        ul.appendChild(item);
+    })
+    console.log(arr);
+</script>
+</html>

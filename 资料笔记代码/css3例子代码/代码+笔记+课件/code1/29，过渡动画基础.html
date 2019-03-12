@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过渡动画基础</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	img{
+		display:block;
+		margin:20px;
+	}
+	img:nth-of-type(1){
+		/* transition一定要加上默认样式中，不能加在hover状态中 */
+		transition: width 3s ease 0s;
+	}
+	img:nth-of-type(1):hover{
+		width: 400px;
+	}
+
+	img:nth-of-type(2){
+		transition: height 2s ease 1s;
+	}
+	img:nth-of-type(2):hover{
+		height: 400px;
+	}
+
+	img:nth-of-type(4) {
+		transition: width 1s ease 0s, height 1s ease 0s;
+	}
+	img:nth-of-type(4):hover{
+		width: 400px;
+		height: 400px;
+	}
+
+	img:nth-of-type(5) {
+		/* all 表示所有发生变化的属性都产生过渡动画 */
+		transition: all 1s ease 0s;
+	}
+	img:nth-of-type(5):hover{
+		width: 400px;
+		height: 400px;
+	}
+	div{
+		width: 100px;
+		height: 100px;
+		border: 1px solid black;
+		background-color: green;
+		text-align: center;
+		-webkit-transition: all 2s ease 0s;
+		-o-transition: all 2s ease 0s;
+		-ms-transition: all 2s ease 0s;
+		-moz-transition: all 2s ease 0s;
+		transition: all 2s ease 0s;
+	}
+	div:hover{
+		width: 400px;
+		height: 400px;
+		font-size: 50px;
+		border: 20px solid black;
+		color: white;
+		background-color: blue;
+		border-radius: 50%;
+		padding: 50px;
+	}
+	</style>
+</head>
+<body>
+	<img src="images/eight.jpg" width="100" height="100">
+	<img src="images/eight.jpg" width="100" height="100">
+	<img src="images/eight.jpg" width="100" height="100">
+	<img src="images/eight.jpg" width="100" height="100">
+	<img src="images/eight.jpg" width="100" height="100">
+	<div>过渡动画</div>
+</body>
+</html>

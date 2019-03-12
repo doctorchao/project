@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .high {
+            color: #f00;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+    let box = document.querySelector("#box");
+    let str1 = "我是";
+    let str2 = "中国人";
+
+    function hilight(string, ...values) {
+        let myValues = values.map(item => `<span class="high">${item}</span>`);
+        console.log(myValues);
+        return string.reduce((prev, curr, index) => {
+            console.log(index)
+            return `${prev}${curr}${myValues[index]||''}`
+        }, "")
+    }
+
+    let str3 = str1 + str2 + "，我们中国人很聪明。";
+    let str4 = hilight`${str1}${str2},我们中国人很聪明。`;
+    console.log(str4)
+    console.log(str3)
+    box.innerHTML = str4;
+// 标签模板字符串
+// 模板字符串的功能，不仅仅是上面这些。它可以紧跟在一个函数名后面，
+// 该函数将被调用来处理这个模板字符串。
+// 这被称为“标签模板”功能（tagged template）。
+// 标签模板其实不是模板，而是函数调用的一种特殊形式。“标签”指的就是函数，
+// 紧跟在后面的模板字符串就是它的参数。
+// 但是，如果模板字符里面有变量，就不是简单的调用了，而是会将模板字符串
+// 先处理成多个参数，再调用函数
+</script>但是
+</html>

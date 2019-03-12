@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--过渡动画-->
+    <!--1. 要有过渡动画-->
+    <!--2. 要有过渡动画的时间-->
+    <!--3. 要有发生变化的属性-->
+
+    <!--动画-->
+    <!--1. 声明一个动画-->
+    <!--2. 在元素上添加动画-->
+    <!--3. 添加的动画要有时间-->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            border: 1px solid #000;
+            /*animation: go linear 10s;*/
+            animation-name: go;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            /*animation-iteration-count: 2;*/
+            animation-fill-mode: backwards;
+        }
+
+        @keyframes go{
+            10% {
+                transform: translate(0, 0)
+            }
+            20% {
+                transform: translate(200px, 0);
+            }
+            30% {
+                transform: translate(200px, 200px);
+            }
+            100% {
+                transform: translate(500px, 500px)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

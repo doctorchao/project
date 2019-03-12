@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #parent {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+        #child {
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+
+<div id="parent">
+    <div id="child">
+        
+    </div>
+</div>
+
+</body>
+<script>
+    var parent = document.getElementById("parent");
+    var child = document.getElementById("child");
+
+    child.onclick = function () {
+        console.log("我是子节点，被惦记了")
+    }
+
+    parent.onclick = function (ev) {
+        console.log("我是父节点，被惦记了");
+        console.log(ev.target)
+    }
+</script>
+</html>

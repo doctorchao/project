@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr = [2,4,6,8];
+    var result = arr.reduce(function (prev, curr, index){
+        console.log(prev, "prev")
+        console.log(curr, "curr")
+        console.log(index)
+        return prev + curr
+    }, 0)
+    console.log(result)
+    reduce方法  
+// 整个reduce的结果是最后一次计算的返回值。切记是最后一次的返回值。
+// 回调函数第一次执行时，accumulator 和currentValue的取值有两种情况：如果调用reduce()时提供了initialValue，
+// accumulator取值为initialValue，currentValue取数组中的第一个值；如果没有提供 initialValue，
+// 那么accumulator取数组中的第一个值，currentValue取数组中的第二个值
+
+// var arr = [1,2,3,4,5]                //此例没有initialvalue
+// arr.reduce((accumulator, currentValue) => acc * current,initialValue) //返回值是120
+</script>
+</html>

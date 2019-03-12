@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+</body>
+<script>
+    var h1 = document.getElementById("title");
+
+    setInterval(function () {
+        var now = new Date();
+
+        // console.log(now.setDate(now.getDate() + 10));;
+        // console.log(now);
+        var year = now.getFullYear(); // 获取今天是哪一年
+        var month = now.getMonth() + 1; // 获取今天是哪一个月份
+        var date = now.getDate(); // 获取今天是几号
+        var day = now.getDay(); // 获取今天是星期几
+        var hour = now.getHours(); // 获取现在是多少时
+        var min = now.getMinutes(); // 获取现在是多少分
+        var seconds = now.getSeconds(); // 获取现在是多少秒
+        var minSeconds = now.getMilliseconds(); // 获取现在是多少毫秒
+        var unix = now.getTime();
+        console.log(unix);
+
+        function fixZero(num) {
+            if(num>=10){
+                return "" + num;
+            } else {
+                return "0" + num;
+            }
+        }
+
+        h1.innerText = "现在是"
+            + year + "年"
+            + fixZero(month) + "月"
+            + fixZero(date) + "日"
+            + " " + fixZero(hour) + ":"
+            + fixZero(min) + ":"
+            + fixZero(seconds)
+    }, 1000)
+</script>
+</html>

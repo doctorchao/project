@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrap{
+            background-image: url(images/38/turntable-bg.jpg);
+            width: 650px;
+            height: 600px;
+            margin: 10px auto;
+            position: relative;
+        }
+        #turntable{
+            position: absolute;
+            left: 117px;
+            top: 59px;
+            transform: rotate(0deg);
+            transition: all 3s ease 0s;
+        }
+        #pointer{
+            position: absolute;
+            left: 255px;
+            top: 155px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 1,得到pointer, turntable
+            var pointer = document.getElementById('pointer');
+            var turntable = document.getElementById("turntable");
+            // 记录点击次数
+            var count = 0;
+            // 2，给pointer注册点击事件
+            pointer.onclick = function () {
+                count++;
+                // 记录旋转的度数
+                var degrees = [0, 56, 108, 160, 208, 260, 308];
+                // 0~6随机数
+                var index = Math.floor(Math.random()*7);
+                // 设置转到的一个度数
+                turntable.style.transform = "rotate(" + (3*360*count + degrees[index]) +"deg)";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <img src="images/38/turntable.png" alt="" id="turntable">
+        <img src="images/38/pointer.png" alt="" id="pointer">
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

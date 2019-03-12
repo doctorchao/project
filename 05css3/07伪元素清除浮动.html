@@ -17,11 +17,17 @@
             width: 200px;
             height: 50px;
             border: 1px solid #000;
+            background: #b700ff49;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both
         }
     </style>
 </head>
 <body>
-    <ul>
+    <ul class="clearfix">
         <li>我是内容1完全二群二群二群翁群翁群</li>
         <li>我是内容2</li>
         <li>我是内容3</li>

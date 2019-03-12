@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    // var id = 1;
+    // var obj = {};
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // obj["user-"+id] = id++;
+    // var btn = document.querySelector("#btn");
+    // console.log(obj)
+
+    let keys = ["name", "age"];
+    let values = ["Tom", "18"];
+
+    var obj = {
+        [keys.shift()]: values.shift(),
+        [keys.shift()]: values.shift(),
+    }
+    console.log(obj);
+
+</script>
+</html>

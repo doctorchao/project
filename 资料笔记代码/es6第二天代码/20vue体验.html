@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container">
+    <input type="text" id="input" v-model="text">
+    <h1 id="title" v-text="text"></h1>
+</div>
+</body>
+<script src="./vue.js"></script>
+<!--<script>-->
+    <!--var input = document.querySelector("#input")-->
+    <!--var title = document.querySelector("#title")-->
+    <!--var obj = {-->
+        <!--text: "一段文字"-->
+    <!--}-->
+
+    <!--input.value = obj.text;-->
+    <!--title.innerText = obj.text;-->
+    <!--Object.defineProperty(obj, "text", {-->
+        <!--set(value) {-->
+            <!--input.value = value;-->
+            <!--title.innerText = value;-->
+        <!--},-->
+        <!--get() {-->
+            <!--return input.value;-->
+        <!--}-->
+    <!--})-->
+    <!--input.oninput = function () {-->
+        <!--obj.text = this.value;-->
+    <!--}-->
+<!--</script>-->
+<!--<script>-->
+    <!--var vm = new Vue({-->
+        <!--el: "#container",-->
+        <!--data: {-->
+            <!--text: "一段文字"-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+<script>
+    var input = document.querySelector("#input")
+    var title = document.querySelector("#title")
+    var obj = {
+        text: "一段文字"
+    }
+
+    var proxy = new Proxy(obj, {
+        get(target, property, receiver){
+            return target[property]
+        },
+        set(target, property, value, receiver){
+            target[property] = value;
+            input.value = value;
+            title.innerText = value;
+        }
+    })
+
+    input.oninput = function () {
+        proxy.text = this.value;
+    }
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<!--this 的指向。-->
+<!--1. this的指向永远指向调用者。只有在调用的时候才能确定。-->
+<!--2. 在严格模式下，匿名函数this的指向指向undefined;-->
+
+<!--构造器函数-->
+<!--1. 首字母要大写，不能用箭头函数去做构造器函数。-->
+
+<!--new 做了哪四件事？-->
+<!--1. 生成一个新的对象；-->
+<!--2. 把构造器函数中的this指向新生成的对象；-->
+<!--3. 将新生成的对象通过__proto__指向构造器函数的原型对象。-->
+<!--4. 返回新生成的对象-->
+
+<!--let const-->
+<!--1. 不允许重复声明；-->
+<!--2. block scoped(块级作用域)；-->
+<!--3. 声明的变量在const声明的情况下，不允许修改。-->
+<!--4. 声明的变量尽管会变量提升，但是，不可用。（提升的变量放到了内存的暂时性死区，不可用）-->
+
+<!--箭头函数-->
+<!--let fun1 = ()=> {-->
+<!--}-->
+<!--1. 简明语法;-->
+<!--2. 声明即绑定this的指向;指向父级上下文；-->
+<!--3. 隐式返回（当只有一行代码的时候，又需要return，那么，可以省略大括号，和return）-->
+<!--4. 只存在一个参数的时候，可以省略小括号-->
+
+<!--箭头函数不适用的三种情况-->
+<!--1. 事件处理函数-->
+<!--2. 构造器函数-->
+<!--3. 在要使用arguments 对象的地方，不能使用箭头函数（箭头函数没有arguments对象）-->
+<script>
+    // babel
+    // 将js代码转换成es5的代码
+    // babel-cli
+    // 1. npm install babel-cli --save-dev
+    // 2. 新建一个自己写js的文件,在里边写es6的代码。
+    // 3. 新建一个.babelrc
+    // 4. {
+    //     "presets": ["env"]
+    // }
+    // 5. npx babel 文件名 -w -o 输入文件的名字;
+    function MakePerson(name, sex, shengao) {
+        this.name = name;
+        this.sex = sex;
+        this.shengao = shengao;
+    }
+
+    var person1 = new MakePerson("王力宏", "1", "185");
+
+    console.log(person1);
+</script>
+</html>

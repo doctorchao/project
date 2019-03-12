@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // scrollTop是一个属性  不是方法  所以不要带()
+        // console.log(document.body.scrollTop)
+        // console.log(document.documentElement.scrollTop)
+
+        // 兼容性写法   能力检测
+        var st;
+        if(document.body.scrollTop){
+            st = document.body.scrollTop;
+        }else{
+            st = document.documentElement.scrollTop;
+        }
+        // 放心地使用st
+        console.log(st)
+
+        // 简化？  使用三元运算符进行简化
+        var nst = document.body.scrollTop ? document.body.scrollTop : document.documentElement.scrollTop;
+
+        // 还有更简单的   ||
+        var nnst = document.body.scrollTop || document.documentElement.scrollTop;
+    </script>
+</body>
+</html>

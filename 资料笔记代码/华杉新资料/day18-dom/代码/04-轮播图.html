@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{list-style-type: none;}
+        img{display: block;}
+        #outer{
+            width: 520px;
+            height: 333px;
+            margin: 50px auto;
+            background-color: greenyellow;
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }  
+        #imgList{
+            width: 2600px;
+            position: absolute;
+            left: 0px;
+        }
+        #imgList li{
+            float: left;
+            margin: 0 10px;
+        }     
+         #navDiv{
+             position: absolute;
+             bottom: 15px;
+             /* outer 520   125    520-125   395/2   */
+             left: 197px;
+         }
+         #navDiv a{
+             width: 15px;
+             height: 15px;
+             float: left;
+             background-color: rgba(255, 0, 0, .5);
+             margin: 0 5px;
+         }
+         #navDiv a:hover{
+             background-color: black;
+         }
+    </style>
+    <script>
+        window.onload = function(){
+            // 获取ul
+            var imgList = document.getElementById("imgList");
+            // 图片的索引
+            var index = 0;
+            // 获取所有的a标签
+            var allA = document.getElementsByTagName("a");
+            for(var i=0; i<allA.length; i++){
+                allA[i].num = i;
+                allA[i].onclick = function(){
+                    // 获取超连接的索引
+                    index = this.num;
+                    // 可以切换图片了
+                    // 0   0
+                    // 1   -520
+                    // 2   -1040
+                    imgList.style.left = -520*index+"px"
+                    setA();
+                }
+            }
+            // 用来设置选中的a的颜色
+            function setA(){
+                for(var i=0; i<allA.length; i++){
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "black"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+            <li><img src="./img/5.jpg" alt=""></li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

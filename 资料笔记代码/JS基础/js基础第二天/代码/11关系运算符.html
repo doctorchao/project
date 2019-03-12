@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    {
+        let str2 = "我是es6定义的字符串";
+    }
+    // block scoped
+    // function scoped
+    function test() {
+        var str = "998";
+        var num = 998;
+
+        function second() {
+            console.log(str);
+        }
+        second();
+    }
+    test()
+    console.log(str)
+
+    console.log(str)
+    console.log(str > num);
+</script>
+</html>

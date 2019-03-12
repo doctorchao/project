@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="./jqeury.js"></script>
+<script>
+    $.ajax({
+        url: "https://m.yaojunrong.com/book",
+        success(res) {
+            let book = res.data[154];
+            let bookId = book._id;
+            console.log(book);
+
+            $.ajax({
+                url: `https://m.yaojunrong.com/titles/${bookId}`,
+                success(res) {
+                    let title = res.data[14];
+                    let titleId = res.data[14]._id;
+                    console.log(title)
+
+                    $.ajax({
+                        url: `https://m.yaojunrong.com/article/${titleId}`,
+                        success(res){
+                            console.log(res.data.article.content);
+                        }
+                    })
+                }
+            })
+        }
+    })
+</script>
+</html>

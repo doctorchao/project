@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .nodeSmall{width: 50px; height: 50px; background: url("./imgs/2/xt.png") no-repeat; position: fixed; right: 10px; top: 40%;}
+        .nodeSmall a{width: 50px; height: 50px;display: block;}
+        .erweima{
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+        .show{ display: block;}
+        .hide{ display: none;}
+    </style>
+    <script>
+        window.onload = function(){
+            var xt = document.getElementById("xt");
+            var dt = document.getElementsByClassName("erweima")[0];
+            xt.onmouseover = function(){
+                dt.className = "erweima show"
+                // alert("hello")
+            }
+            xt.onmouseout = function(){
+                dt.className = "erweima hide"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="nodeSmall">
+        <a href="" id="xt"></a>
+        <div class="erweima hide">
+            <img src="./imgs/2/456.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

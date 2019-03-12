@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转中心点控制</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	div{
+		width:400px;
+		height:400px;
+		margin:100px auto;
+	}
+	div img{
+		/* 默认的 */
+		/*transform-origin: 50% 50%;*/
+
+		/*让图片从左上角进行旋转*/
+		/*transform-origin: left top;*/
+		/*transform-origin: 0 0;*/
+		/*transform-origin: 0%  0%;*/
+
+		/*让图片从左下角进行旋转*/
+		/*transform-origin: left bottom;*/
+		/*transform-origin: 0 250px;*/
+		/*transform-origin: 0 100%;*/
+
+		transform-origin: 200px 200px;
+
+
+
+		transition: all 1s ease 0s;
+
+	}
+	div:hover img{
+		transform: rotate(180deg);
+	}
+	</style>
+</head>
+<body>
+	<div><img src="images/39.jpg"></div>
+</body>
+</html>

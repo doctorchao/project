@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            perspective: 2000px;
+            height: 1000px;
+            transform-style: preserve-3d;
+        }
+        body:hover .container {
+            transform: rotateX(720deg) rotateY(720deg);
+        }
+        .container {
+            transform-style: preserve-3d;
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            transition: all linear 5s;
+            /*transform: rotateX(-45deg) rotateY(45deg);*/
+        }
+        .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            font-size: 100px;
+            line-height: 400px;
+        }
+        .box:nth-child(1) {
+            background: url('./images/46/1.jpg') no-repeat;
+            transform: translateZ(200px);
+         }
+        .box:nth-child(2) {
+            background: url('./images/46/2.jpg') no-repeat;
+            transform: rotateX(90deg) translateZ(200px);
+        }
+        .box:nth-child(3) {
+            background: url('./images/46/3.jpg') no-repeat;
+            transform: rotateX(180deg) translateZ(200px);
+        }
+        .box:nth-child(4) {
+            background: url('./images/46/4.jpg') no-repeat;
+            transform: rotateX(270deg) translateZ(200px);
+        }
+        .box:nth-child(5) {
+            background: url('./images/46/5.jpg') no-repeat;
+            transform: rotateY(90deg) translateZ(200px);
+        }
+        .box:nth-child(6) {
+            background: url('./images/46/6.jpg') no-repeat;
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            1
+        </div>
+        <div class="box">
+            2
+        </div>
+        <div class="box">
+            3
+        </div>
+        <div class="box">
+            4
+        </div>
+        <div class="box">
+            5
+        </div>
+        <div class="box">
+            6
+        </div>
+    </div>
+</body>
+</html>

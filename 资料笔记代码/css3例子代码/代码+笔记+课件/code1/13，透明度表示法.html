@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>透明度表示法</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	div.box{
+		width:200px;
+		height:200px;
+		background-image:url(images/15.jpg);
+		margin:100px;
+		padding:100px;
+		float:left;
+	}
+
+	/*rgba*/
+	.box:first-child div{
+		width:200px;
+		height:200px;
+		background-color:rgba(0, 0, 255, .3);
+	}
+
+	/*opacity*/
+	.box2{
+		width:200px;
+		height:200px;
+		background-color:blue;
+		opacity:.3;
+		filter:alpha(opacity=30);
+	}
+
+	/*transparent*/
+	box.nth-child(3) div{
+		width:200px;
+		height:200px;
+		background-color:transparent;
+
+	}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div>rgba</div>
+	</div>
+
+	<div class="box">
+		<div class="box2">opacity</div>
+	</div>
+
+	<div class="box">
+		<div>transparent</div>
+	</div>
+</body>
+</html>

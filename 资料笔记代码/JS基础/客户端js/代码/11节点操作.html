@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td,th {
+            padding: 10px 15px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    序号: <input type="text">
+    <br>
+    姓名:<input type="text">
+    <br>
+    性别： <input type="text">
+    <br>
+    <button id="add">添加</button>
+    <button id="sort">排序</button>
+</div>
+
+
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    3
+                </td>
+                <td>
+                    王力宏
+                </td>
+                <td>
+                    男人
+                </td>
+                <td>
+                    <button>
+                        删除
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2
+                </td>
+                <td>
+                    岳云鹏
+                </td>
+                <td>
+                    男人
+                </td>
+                <td>
+                    <button>
+                        删除
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    周杰伦
+                </td>
+                <td>
+                    男人
+                </td>
+                <td>
+                    <button>
+                        删除
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                    迪丽热巴
+                </td>
+                <td>
+                    女人
+                </td>
+                <td>
+                    <button>
+                        删除
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    // parentNode 父节点
+    // childNodes  子节点
+    // children  孩子们
+    // remove   删除
+
+    var btns = document.querySelectorAll("table button");
+    var inputs = document.querySelectorAll(".container input");
+    var addBtn = document.querySelector(".container #add");
+    var tBody = document.querySelector("#table tbody");
+    var sort = document.querySelector(".container #sort");
+
+    for(var i = 0; i<btns.length; i++){
+        btns[i].onclick = function () {
+            this.parentNode.parentNode.remove();
+        }
+    }
+
+    addBtn.onclick = function () {
+        console.log("触发")
+        var num = inputs[0].value;
+        var username = inputs[1].value;
+        var sex = inputs[2].value;
+
+        var tr = document.createElement("TR");
+        var td1 = document.createElement("TD");
+        var td2 = document.createElement("TD");
+        var td3 = document.createElement("TD");
+        var td4 = document.createElement("TD");
+        var handleBtn = document.createElement("BUTTON");
+
+        handleBtn.onclick = function() {
+            this.parentNode.parentNode.remove();
+        }
+        td1.innerText = num;
+        td2.innerText = username;
+        td3.innerText = sex;
+        handleBtn.innerText = "删除";
+        td4.appendChild(handleBtn);
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+
+        console.log(111)
+        tBody.appendChild(tr);
+
+
+        for(var i = 0; i < inputs.length; i++){
+            inputs[i].value = "";
+        }
+
+    }
+
+
+
+    sort.onclick = function() {
+        var trs = table.tBodies[0].children;
+        var arr = [];
+        for(var i = 0; i < trs.length; i++){
+            arr.push(trs[i]);
+        }
+
+        arr.sort(function(curr, next) {
+            return next.querySelector("td").innerText - curr.querySelector("td").innerText;
+        });
+        console.log(arr);
+        arr.forEach(function (item) {
+            tBody.appendChild(item);
+        })
+    }
+</script>
+</html>

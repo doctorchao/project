@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #f00;
+        }
+        /*.box[title] {*/
+            /*background: #ff0;*/
+        /*}*/
+        /*.box[title=second-title]{*/
+            /*border: 2px solid #000;*/
+        /*}*/
+        /*.box[title *= le] {*/
+            /*background: #409eff;*/
+        /*}*/
+        /*.box[title ^= title] {*/
+            /*background: #ff6700;*/
+        /*}*/
+        /*.box[title $= title]{*/
+            /*background: #ff0;*/
+        /*}*/
+        /*.box[title ~= "one"]{*/
+            /*background: #0ff;*/
+        /*}*/
+        .box[title|= first] {
+            background: #ff0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" title="first"></div>
+
+<div class="box" title="first-box"></div>
+<div class="box" title="three-box"></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>我是内容1</li>
+    <li>我是内容2</li>
+    <li>我是内容3</li>
+    <li>我是内容4</li>
+    <li>我是内容5</li>
+</ul>
+</body>
+<script>
+
+    var lis = document.getElementsByTagName("li");
+    // 创建数组的两种方法
+    // var arr = [2, "4", true, {}];
+    // var arr1 = new Array(8);
+    // console.log(arr);
+    // console.log(arr1);
+
+    // 数组的基本操作
+
+    // var arr = [];
+    //
+    // arr[0] = "第一个元素";
+    // arr[1] = "第二个元素";
+    // console.log(arr)
+
+    var arr = [
+        {
+            name: "王力宏",
+            age: 18,
+            sex: "男人"
+        },
+        {
+            name: "陈冠希",
+            age: 28,
+            sex: "男人"
+        }
+    ]
+
+    // for(var i = 0; i<arr.length; i++){
+    //     console.log(arr[i], "索引值是"+ i);
+    // }
+
+    // arr.forEach(function (item, index, array) {
+    //     console.log(array);
+    //     console.log(item, "索引值是" + index)
+    // })
+    // console.log(lis);
+    // var arr1 = []
+    // for(var i = 0; i < lis.length; i++){
+    //     arr1[i] = lis[i];
+    // }
+    //
+    // arr1.forEach(item => {
+    //     item.style.background = "#409eff";
+    // })
+
+    var obj = {
+        name: "陈乔恩",
+        age: 19,
+        sex: "少女"
+    }
+
+    obj.desc = "一段描述"
+
+    // for(var key in arr) {
+    //     console.log(arr[key]);
+    // }
+    arr.desc = "这是数组";
+
+    // for(var key in arr) {
+    //     console.log(key, arr[key])
+    // }
+
+
+    arr.forEach(function (item) {
+        console.log(item)
+    })
+    // console.log(i)
+</script>
+</html>

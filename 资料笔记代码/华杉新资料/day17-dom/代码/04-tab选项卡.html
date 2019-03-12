@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{list-style: none;}
+        body{font-size: 12px; background: pink;}
+
+        .tab{width: 300px;margin: 100px auto; background-color: #fff;}
+        .tab .options{height: 30px; line-height: 30px;}
+        .tab .options span{width: 60px; display: inline-block; text-align: center; }
+        .tab .options span.on{border-bottom: 2px solid orange; font-weight: bold;}
+        .tab .main{padding: 10px 0;}
+        .tab .main ul{display: none;}
+        .tab .main ul.active{display: block;}
+        .tab .main ul li{padding-left: 15px; line-height: 20px;}
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="options">
+            <span class="on">公告</span><span>规则</span><span>论坛</span><span>安全</span><span>公益</span>
+        </div>
+        <div class="main">
+            <ul class="active">
+                <li><a href="">阿里苏宁发布,"新三体"战略 打造未来十年格局</a></li>
+                <li><a href="">高诚信会员无条件信任 200余万广告商品被处罚</a></li>
+            </ul>
+            <ul>
+                <li><a href="">出售假冒商品规则变更 商品发布数量限制变更</a></li>
+                <li><a href="">中国质造市场管理规范变更 淘宝网营销规则变更</a></li>
+            </ul>
+            <ul>
+                <li><a href="">淘宝招募卖家志愿者 阿里推出兼职神器</a></li>
+                <li><a href="">700家热风淘宝路 是赚钱还是骗子</a></li>
+            </ul>
+            <ul>
+                <li><a href="">淘宝用户必备神器 卖家账户安全9守则</a></li>
+                <li><a href="">支付宝实名认证信息 账户没钱也被骗？</a></li>
+            </ul>
+            <ul>
+                <li><a href="">阿里联合公益计划启动 一图看懂联合公益计划</a></li>
+                <li><a href="">公益宝贝卖家发票索取 公益机构淘宝开店攻略</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    // 得到所有的span
+    var spans = document.getElementsByTagName("span");
+    // 得到所有的ul
+    var uls = document.getElementsByTagName("ul")
+    // 利用for循环给每个span注册一个事件
+    for(var i=0; i<spans.length; i++){
+        // 给每个span加一个index属性，值为i
+        spans[i].index = i;
+        spans[i].onmouseover = function(){
+            // 做两件事，一个是处理上半部分，另一个处理下半部分
+            // 处理上半部分 鼠标放到span上时，把所在的span的class都清空
+            for(var j=0; j<spans.length; j++){
+                spans[j].className = ""
+            }
+            this.className = "on"
+            // 处理下半部分 鼠标放到span上时，把所有的ul都隐藏了，把当前的ul显示出来
+            for(var k=0; k<spans.length; k++){
+                uls[k].style.display = "none"
+            }
+            // 把当前的ul显示出来
+            uls[this.index].style.display = "block"        
+        }
+    }
+
+
+
+    // 给每个span注册事件
+    // spans[0].onmouseover = function(){
+    //     alert("鼠标滑动到第一个span上了....");
+    // }
+    // spans[1].onmouseover = function(){
+    //     alert("鼠标滑动到第一个span上了....");
+    // }
+    // spans[2].onmouseover = function(){
+    //     alert("鼠标滑动到第一个span上了....");
+    // }
+    // spans[3].onmouseover = function(){
+    //     alert("鼠标滑动到第一个span上了....");
+    // }
+    // spans[4].onmouseover = function(){
+    //     alert("鼠标滑动到第一个span上了....");
+    // }
+</script>
+</html>

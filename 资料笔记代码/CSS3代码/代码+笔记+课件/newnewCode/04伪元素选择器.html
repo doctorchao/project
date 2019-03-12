@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box::after {
+            content: "我是一段文字";
+            color: #f00;
+            background: skyblue;
+        }
+        .box:before {
+            content: "我是插入到前边的";
+            color: #ff0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    我是前边的
+</div>
+</body>
+</html>

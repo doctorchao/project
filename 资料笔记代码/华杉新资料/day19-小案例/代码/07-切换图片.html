@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{font-size: 14px; background: pink;}
+        h3{margin: 50px;}
+        ul{list-style-type: none; margin-left: 100px;}
+        ul li{float: left; margin-left: 10px;}
+        #image{margin-left: 100px; width: 400px; }
+        p{margin-left: 100px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var aArr = document.getElementsByTagName("a");
+            var p = document.getElementsByTagName("p")[0];
+            var image =document.getElementById("image");
+            for(var i=0; i<aArr.length; i++){
+                aArr[i].onclick = function(){
+                    image.src = this.href;
+                    p.innerHTML = this.title;
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>切换图片</h3>
+    <ul>
+        <li>
+            <a href="./imgs/2/1.jpg" title="图片1">
+                <img src="./imgs/2/1-small.jpg" width="100" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="./imgs/2/2.jpg" title="图片2">
+                <img src="./imgs/2/2-small.jpg" width="100" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="./imgs/2/3.jpg" title="图片3">
+                <img src="./imgs/2/3-small.jpg" width="100" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="./imgs/2/4.jpg" title="图片4">
+                <img src="./imgs/2/4-small.jpg" width="100" alt="">
+            </a>
+        </li>
+    </ul>
+    <div style="clear:both"></div>
+    <img src="./imgs/2/placeholder.png" id="image" alt="">
+    <p style="clear:both">请选择图片</p>
+</body>
+
+</html>

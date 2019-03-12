@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_993868_z1cbmjrp5r.css">
+    <style>
+        .icon-Star {
+            font-size: 30px;
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+<i class="iconfont icon-Star"></i>
+<!--<input type="text" style="font-size: 20px;" data-index="998" id="input">-->
+</body>
+<script>
+    var input = document.getElementById("input");
+
+    console.log(input.getAttribute("data-index"));
+    input.setAttribute("data-index", "888")
+</script>
+</html>

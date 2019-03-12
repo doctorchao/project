@@ -1,0 +1,49 @@
+<script>
+    // JS的主线程是单线程，除了主线程，还有其它的线程
+    // var a = 110;
+    // console.log(a);
+    // 代码执行到这里时，还会新开一个线程，叫定时器线程
+    // window.setTimeout(()=>{},1000);
+    // 上面的两个线程是不会同时执行的，说白了，同一时刻，只能运行一个线程
+</script>
+
+<!-- 
+    栈：数据结构，水杯，把一个任务（鸡蛋），放到一个水杯。它有一个特点，先放进去的，后面才能执行。
+    队列：数据结构，先放进去的，先执行。
+
+    在JS中，多个线程是排队执行。
+ -->
+
+ <script>
+    // function foo() {
+    //     setTimeout(function() {
+    //         console.log(1);
+    //     }, 0)
+    //     console.log(2);
+    // }
+    // function bar() {
+    //     setTimeout(function() {
+    //         console.log(3);
+    //     }, 0);
+    //     console.log(4);
+    // }
+    // foo();
+    // bar();
+
+
+        function foo() {
+            setTimeout(function() {console.log(1);}, 2000)
+            console.log(2);
+        }
+        function bar() {
+            setTimeout(function() {console.log(3);}, 1000);
+            console.log(4);
+        }
+        function baz() {
+            setTimeout(function() {console.log(5);}, 0)
+            console.log(6);
+        }
+        foo();
+        bar();
+        baz();
+ </script>

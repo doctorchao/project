@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*.container>h1 {*/
+            /*color: #f00;*/
+        /*}*/
+        .box~h1{
+            color: #409eff;
+        }
+        input:checked {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<input type="checkbox">
+<!--<div class="container">-->
+    <!--<h1>我是外边的标题</h1>-->
+    <!--<div class="box">-->
+        <!--<h1>我是里边的标题</h1>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="box">
+    我是盒子
+</div>
+<h1 class="box-sister">
+    我是隔了一个位置的姐姐
+</h1>
+<h1 class="box-brother">
+    我是紧挨着的兄弟
+</h1>
+
+</body>
+</html>

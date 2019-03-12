@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var str = "字符串";
+    // console.log("同步代码开始");
+    // setTimeout(() => {
+    //     console.log(str);
+    // }, 0);
+    // console.log("同步代码结束");
+
+
+    // 1, 5, 2, 4, 3
+
+    // js 是单线程语言。任务分为宏任务和微任务。
+    // script 算宏任务，setTimeout, setInterval
+    // promise
+    // 1, 3, 5, 4, 2
+
+    // 宏任务 = ["console.log(2)"]
+    // 微任务 = [“console.log(4)”]
+    // console.log("1");
+    // setTimeout(() => {
+    //     console.log("2");
+    // })
+    // var promise1 = new Promise(function (resolve, reject) {
+    //     console.log("3");
+    //     resolve();
+    // })
+    // promise1.then(res => {
+    //     console.log("4")
+    // })
+    // console.log("5");
+
+    // pendding ("进行中");
+    // success("成功状态");
+    // fail("")
+    // var promise = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //         reject("对不起！我没挣到，给不了你想要的！")
+    //         resolve("转个身，我就中了五百万！要不你再考虑考虑")
+    //     }, 3000)
+    // })
+    // promise.then(res => {
+    //     console.log(res)
+    // }).catch(err => {
+    //     console.log(err)
+    // })
+</script>
+</html>

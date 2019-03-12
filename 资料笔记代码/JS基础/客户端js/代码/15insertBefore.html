@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="text">
+<button id="add">发送</button>
+<ul id="ul">
+
+</ul>
+</body>
+<script>
+    var text = document.getElementById("text");
+    var addBtn = document.getElementById("add");
+    var ul = document.getElementById("ul");
+
+
+    addBtn.onclick = function () {
+        var li = document.createElement("LI");
+        li.innerText = text.value;
+        text.value = "";
+        if(ul.children[0]) {
+            ul.insertBefore(li, ul.children[0]);
+        } else {
+            ul.appendChild(li);
+        }
+    }
+</script>
+</html>

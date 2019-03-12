@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <h1>这是一个h1</h1>
+        <h2>这是一个h2</h2>
+        <h3 id="item">这是一个h3</h3>
+    </div> 
+    <script>
+        var p = document.createElement("p");
+        p.innerHTML = "这是一个p标签"
+
+        // 父元素.insertBefore(新元素，指定的元素)
+        var div = document.getElementById("box")
+        var h3 = document.getElementById("item")
+        div.insertBefore(p,h3)
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // function one() {
+    //     var str1 = "我是外部函数定义的变量";
+    //
+    //     function two() {
+    //         var innerStr1 = "我是内部函数定义的变量";
+    //
+    //         console.log(str1)
+    //     }
+    //     two()
+    //     console.log(innerStr1);
+    // }
+
+    // 作用域在你函数定义的时候就决定了，不会随着函数在哪里调用而改变作用域。
+    var name = "岳云鹏";
+    function logName() {
+        console.log(name);
+    }
+
+    function test() {
+        var name = "张云雷";
+
+        logName();
+    }
+
+    test();
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .back {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,.5);
+        }
+        .confirm {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 500px;
+            height: 100px;
+            padding: 20px 15px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="back">
+    <div class="confirm">
+        <div>
+            <i>X</i>
+        </div>
+        <div>
+            确定要和我分手么？
+        </div>
+        <div>
+            <button id="btn">确认</button>
+            <button>取消</button>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    var back = document.querySelector(".back");
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+        back.style.display = "none";
+        window.open("http://www.baidu.com")
+
+    }
+
+</script>
+</html>

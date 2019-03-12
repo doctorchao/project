@@ -1,0 +1,27 @@
+const http = require("http")
+const fs = require("fs")
+const ejs = require("ejs")
+const path = require("path")
+var port = 3000
+http.createServer((req,res)=>{
+    switch (req.url){
+        case "/":
+        case "/index":
+            // file就是index.html的绝对路径
+            var file = path.join(__dirname, "index.html");
+            var datas = fs.readFileSync(file, "utf8")
+            res.write(datas)
+            res.end();
+            break;
+        default:
+            // 读取图片， css， js
+            var file = path.join(__dirname, req.url);
+            if (fs.existsSync(file) && fs.statSync(file).isFile()){
+                res.end(fs.readFileSync(file));
+            }
+            break;
+    }
+}).listen(port,()=>{
+    // console.log("服务器已经在"+port+"端口已经运行起来了...")
+    console.log(`服务器已经在${port}端口已经运行起来了...`)
+})

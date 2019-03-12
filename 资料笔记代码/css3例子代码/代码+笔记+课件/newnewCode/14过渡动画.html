@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*第一:要有过度动画被定义*/
+        /*第二: 要有发生变化的属性。*/
+        /*第三: 要有过渡动画的时间。*/
+        .box {
+            width: 100px;
+            height: 50px;
+            background: #f0f;
+            /*transition-property: margin-left;*/
+            /*transition-duration: 2s;*/
+            /*transition-timing-function: linear;*/
+            transition: all ease 5s;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<button id="btn">动起来</button>
+</body>
+<script>
+    var btn = document.querySelector("#btn");
+    btn.onclick = function (){
+        var box = document.querySelector(".box");
+        box.style.marginLeft = "600px";
+        box.style.marginTop = "500px";
+        box.style.backgroundColor = "#f00"
+    }
+</script>
+</html>

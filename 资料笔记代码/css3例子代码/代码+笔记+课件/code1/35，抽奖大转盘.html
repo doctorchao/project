@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抽奖大转盘</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	
+	div#turntable-wrapper{
+		width:650px;
+		height:600px;
+		background-image:url(images/38/turntable-bg.jpg);
+		position:relative;
+		margin:10px auto;
+	}
+	div#turntable-wrapper .turntable{
+		position:absolute;
+		left:116px;
+		top:59px;
+		transform:rotate(0deg);
+		transition:all 3s ease 0s;
+	}
+	div#turntable-wrapper #pointer{
+		position:absolute;
+		left:255px;
+		top:155px;
+		cursor:pointer;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+		//取数据模块
+		var pointer = document.getElementById('pointer');
+		var turntable = document.getElementById('turntable');
+		var click_count = 0;
+		var timer;
+
+		//事件模块
+		pointer.onclick = function(){
+			click_count++;
+
+			//点击抽奖按钮，是为了抽奖
+			var gifts = ['未中奖', '免单4999元', '免单50元', '免单10元', '免单5元', '免费分期服务费', '提高白条额度'];
+			//度数通过索引值和gifts对应
+			var degrees = [0, 56, 108, 160, 208, 260, 308];
+
+			//从0-6之间随机抽取一个整数，作为gifts的索引值,对应的gifts[]就是应该得到的奖品
+			var gifts_index = Math.floor(Math.random()*7);
+			var degrees_index = gifts_index;
+
+			//要转到的度数就应该是degrees[degrees_index]
+			turntable.style.transform = "rotate("+(3*360*click_count+degrees[degrees_index])+"deg)";  //click_count表示点击次数
+
+			clearTimeout(timer);
+			timer = setTimeout(function(){
+				alert(gifts[gifts_index]);
+			}, 3000);
+		}
+
+	}
+	</script>
+</head>
+<body>
+	<div id="turntable-wrapper">
+		<img src="images/38/turntable.png" class="turntable" id="turntable">
+		<img src="images/38/pointer.png" id="pointer">
+	</div>
+</body>
+</html>

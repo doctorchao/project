@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var tina1 = Symbol("Tina");
+    var tina2 = Symbol("Tina");
+
+    var className = {
+        [tina1]: "女孩子",
+        [tina2]: "男孩子"
+    }
+
+    // for(let key in className) {
+    //     console.log(key)
+    // }
+    var arr = Object.getOwnPropertySymbols(className);
+    console.log(arr);
+    arr.forEach(item => {
+        console.log(className[item])
+    })
+
+    // console.log(className)
+</script>
+</html>

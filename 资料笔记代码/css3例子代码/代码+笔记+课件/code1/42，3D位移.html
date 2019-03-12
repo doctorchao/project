@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D位移</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	div{
+		width:300px;
+		height:300px;
+		border:1px solid blue;
+		margin:50px;
+		float:left;
+		perspective:600px;
+	}
+	div img{
+		border:1px solid orange;
+	}
+
+	/*1. 向X轴正向移动50px*/
+	div:nth-of-type(1) img{
+		/*transform: translate(50px, 0);*/
+		/*transform: translateX(50px);*/
+		transform: translate3D(50px, 0, 0);
+	}
+
+
+	/*2. 向Y轴负向移动50px*/
+	div:nth-of-type(2) img{
+		/*transform: translate(0, -50px);*/
+		/*transform: translateY(-50px);*/
+		transform: translate3D(0, -50px, 0);
+	}
+
+
+
+	/*3. 同时向X轴正向移动50px，再向Y轴负向移动50px*/
+	div:nth-of-type(3) img{
+		/*transform: translate(50px, -50px);*/
+		/*transform: translateX(50px) translateY(-50px);*/
+		transform: translate3D(50px, -50px, 0);
+	}
+
+
+	/*向Z轴负向移动50px*/
+	div:nth-of-type(4) img{
+		transform: translateZ(-50px);
+		transform: translate3D(0px, 0px, -50px);
+	}
+
+
+	/*5. 向Z轴正向移动50px*/
+	div:nth-of-type(5) img{
+		/*transform: translateZ(50px);*/
+		transform: translate3D(0px, 0px, 50px);
+	}
+
+
+	/*向X轴正向移动50px，向Y轴负向移动50px，向Z轴负向移动50px*/
+	div:nth-of-type(6) img{
+		transform: translate3D(50px, -50px, -50px);
+	}
+
+	</style>
+</head>
+<body>
+	1. 向X轴正向移动50px<br><br>
+
+2. 向Y轴负向移动50px<br><br>
+
+3. 同时向X轴正向移动50px，再向Y轴负向移动50px<br><br>
+
+4. 向Z轴负向移动50px<br><br>
+
+5. 向Z轴正向移动50px<br><br>
+
+6. 向X轴正向移动50px，向Y轴负向移动50px，向Z轴负向移动50px<br><br>
+
+<div><img src="images/44.jpg"></div>
+<div><img src="images/44.jpg"></div>
+<div><img src="images/44.jpg"></div>
+<div><img src="images/44.jpg"></div>
+<div><img src="images/44.jpg"></div>
+<div><img src="images/44.jpg"></div>
+</body>
+</html>

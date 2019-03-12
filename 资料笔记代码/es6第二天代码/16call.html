@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        name: "姚明",
+        logName(something) {
+            console.log(something);
+            console.log(this.name)
+        }
+    }
+
+    var obj1 = {
+        name: "江疏影"
+    }
+
+    // obj.logName("参数");
+    obj.logName.call(obj1, "参数");
+</script>
+</html>

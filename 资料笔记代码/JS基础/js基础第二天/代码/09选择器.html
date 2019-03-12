@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            display: block;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+<label>
+    <input type="checkbox" id="all"> 全选
+</label>
+<label>
+    <input type="checkbox" id="reverse"> 取反
+</label>
+
+<div id="box">
+    <label>
+        <input type="checkbox" name="sports" value="1"> 足球
+    </label>
+    <label>
+        <input type="checkbox" name="sports" value="2"> 乒乓球
+    </label>
+    <label>
+        <input type="checkbox" name="sports" value="3"> 网球
+    </label>
+    <label>
+        <input type="checkbox" name="sports" value="4"> 篮球
+    </label>
+</div>
+
+</body>
+<script>
+    var all = document.getElementById("all");
+    var reverse = document.getElementById("reverse");
+    var box = document.getElementById("box");
+    var checkboxs = box.getElementsByTagName("input");
+
+
+    all.onchange = function () {
+        if(all.checked){
+            for(var i = 0; i < checkboxs.length; i++){
+                checkboxs[i].checked = true;
+            }
+        } else {
+            for(var i = 0; i < checkboxs.length; i++){
+                checkboxs[i].checked = false;
+            }
+        }
+    }
+
+    reverse.onchange = function () {
+        for(var j = 0; j < checkboxs.length; j++){
+            checkboxs[j].checked = checkboxs[j].checked ? false : true;
+        }
+    }
+
+    console.log(false?"真的": "假的", "第二个")
+</script>
+</html>

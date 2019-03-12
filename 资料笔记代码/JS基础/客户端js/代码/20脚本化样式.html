@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            background: pink;
+        }
+        #box.active {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" >切换显示</button>
+    <div id="box"></div>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+
+    // btn.onclick = function () {
+    //     if(box.currentStyle){
+    //         box.style.display = box.currentStyle.display == "block"? "none": "block";
+    //     } else {
+    //         box.style.display = getComputedStyle(box).display == "block"? "none": "block";
+    //     }
+    //
+    // }
+
+    btn.onclick = function () {
+        if(box.className.indexOf("active") == -1) {
+            box.className = "active";
+        } else {
+            box.className = "";
+        }
+    }
+</script>
+</html>

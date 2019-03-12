@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        123
+    </div>
+
+    <div id="container">456</div>
+</body>
+<script>
+    // var box = document.getElementById("box");
+    // var container = document.getElementById("container");
+
+
+    // var str = "我是字符串";
+    // var str2 = "我是第二个字符串";
+    // console.log(parseInt(str));
+    //
+    // if(isNaN(parseInt(str))){
+    //     console.log("是真的")
+    // } else {
+    //     console.log("是假的")
+    // }
+
+
+    // function setStyle(el) {
+    //     el.style.fontSize = "50px";
+    //     el.style.color = "#f00";
+    //     el.style.width = "100px";
+    //     el.style.height = "100px";
+    //     el.style.background = "skyblue";
+    // }
+
+    // setStyle(box);
+    // setStyle(container);
+
+    // function makePerson(name, sex, desc) {
+    //     return {
+    //         name: name,
+    //         sex: sex,
+    //         desc: desc
+    //     }
+    // }
+
+    // console.log( makePerson("王力宏", "男人", "中国歌星"))
+    // console.log( makePerson("陈乔恩", "女人", "中国演员"))
+
+    // 1. 创造一个新的对象。
+    // 2. 将构造器函数内部的this指向新生成的对象。
+    // 3. 将新生成的对象通过__proto__指向构造器函数的原型对象。
+    // 4. 返回新生成的对象
+
+    // function MakePerson(name, sex, desc) {
+    //     this.name = name;
+    //     this.sex = sex;
+    //     this.desc = desc;
+    // }
+    //
+    // var person1 = new MakePerson("王力宏", "男人", "中国歌星")
+    // var person2 = new MakePerson("陈乔恩", "女人", "中国演员")
+    //
+    // console.log(person1)
+    // console.log(person2)
+
+    var f1 = function () {
+        console.log(1)
+        console.log(2)
+        return 998
+    }
+
+    console.log(f1());;
+</script>
+</html>

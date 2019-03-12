@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景起源</title>
+	<style>
+	html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0}
+	div{
+		background-image: url("images/23.jpg");
+		background-repeat:no-repeat;
+		background-position: left top;
+		background-color: #cccccc;
+		width: 200px;
+		height: 200px;
+		margin: 50px;
+		padding: 50px;
+		border: 50px solid transparent;
+	}
+		div:nth-child(2){
+			background-origin: border-box;
+		}
+	div:nth-child(3){
+		background-origin: content-box;
+	}
+	</style>
+</head>
+<body>
+	<div>背景起源 padding-box</div>
+	<div>背景起源 border-box</div>
+	<div>背景起源 content-box</div>
+</body>
+</html>

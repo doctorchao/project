@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var num1 = 998;
+    // var num2 = 666;
+    //
+    // var temp = num1;
+    // num1 = num2;
+    // num2 = temp;
+    //
+    // console.log(num1, "num1");
+    // console.log(num2, "num2");
+    // 1. 允许重复声明
+    // 2. 可以遗漏声明(变量先定义后使用)
+    // 3.function scoped函数作用域
+    // 4. 变量的是遵循就近原则
+    // var str = "is a  str";
+    // var str = "second Str";
+
+    // str = "three str";
+    // console.log(str);
+    //
+    // console.log(str);
+    var text = "全局变量";
+
+    function logSome() {
+        // var text = "今天下午好热"; // 局部变量
+        console.log("函数内部", text);
+    }
+    logSome();
+    console.log(text);
+</script>
+</html>

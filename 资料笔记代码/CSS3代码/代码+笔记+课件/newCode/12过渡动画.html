@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #btn {
+            position: fixed;
+            top: 200px;
+            left: 50%;
+            font-size: 20px;
+        }
+        .box {
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*left: 0;*/
+            width: 100px;
+            height: 100px;
+            background: deepskyblue;
+            transition: all linear 2s;
+            /*transition-property: left;*/
+            /*transition-timing-function: linear;*/
+            /*transition-duration: 2s;*/
+            /*transition-delay: 2s;*/
+        }
+        /*body {*/
+            /*height: 500px;*/
+        /*}*/
+        /*body:hover .box {*/
+            /*left: 500px;*/
+        /*}*/
+        /*1. 要声明一个过渡动画。*/
+        /*2. 要有过渡动画的时间。*/
+        /*3. 要有属性发生变化。*/
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div class="box">
+        文字
+    </div>
+</body>
+<script>
+    var oBtn = document.querySelector('#btn');
+    var oDiv = document.querySelector('.box');
+
+    oBtn.onclick = function () {
+        oDiv.style.transform = 'translate3d(500px, 500px, 0)'
+        // oDiv.style.marginTop = '500px'
+        oDiv.style.width = '500px'
+        oDiv.style.fontSize = '50px'
+        oDiv.style.backgroundColor = '#f00'
+    }
+</script>
+</html>

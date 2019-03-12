@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="./jqeury.js"></script>
+<script>
+    var step1 = new Promise((resolve) => { // 获取图书id
+        $.ajax({
+            url: "https://m.yaojunrong.com/book",
+            success(res) {
+                let book = res.data[154];
+                let bookId = book._id;
+                // console.log(book);
+                resolve(bookId)
+            }
+        })
+    })
+
+   let step2 = step1.then(bookId => { // 获取所有目录的id
+        return new Promise(resolve => {
+            $.ajax({
+                url: `https://m.yaojunrong.com/titles/${bookId}`,
+                success(res) {
+                    let title = res.data[14];
+                    let titleId = res.data[14]._id;
+                    resolve(titleId)
+                }
+            })
+        })
+    })
+
+    let step3 = step2.then(titleId => {
+        return new Promise(resolve => {
+            $.ajax({
+                url: `https://m.yaojunrong.com/article/${titleId}`,
+                success(res){
+                    resolve(res.data.article.content)
+                }
+            })
+        })
+
+    })
+
+    step3.then(content => {
+        console.log(content)
+    })
+</script>
+</html>

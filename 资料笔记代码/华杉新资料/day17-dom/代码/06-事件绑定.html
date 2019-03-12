@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="alert('hello')">HTML级别的事件绑定</h1>
+    <button>dom0事件绑定</button>
+</body>
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    btn.addEventListener("click",function(){
+        alert('hello1')
+    });
+    btn.addEventListener("click",function(){
+        alert('hello2')
+    });
+
+
+    // btn.onclick = function(){
+    //     alert('hello1')
+    // }
+    // btn.onclick = function(){
+    //     alert('hello2')
+    // }
+    // btn.onclick = function(){
+    //     alert('hello3')
+    // }
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="text">
+<button id="add">发送</button>
+<div class="container">
+
+</div>
+<img src="https://img.alicdn.com/tfs/TB12dzfDbvpK1RjSZPiXXbmwXXa-520-280.jpg_q90_.webp"
+     onload="alert('你被公鸡el')"
+     alt="">
+</body>
+<script src="node_modules/dompurify/dist/purify.js"></script>
+<script>
+    var box = document.querySelector(".container");
+    var input = document.querySelector("input");
+    var btn = document.querySelector("#add");
+
+    btn.onclick = function () {
+        box.innerHTML = DOMPurify.sanitize(input.value);
+    }
+
+    // box.innerHTML = "<h1>一段话</h1>"
+</script>
+</html>
