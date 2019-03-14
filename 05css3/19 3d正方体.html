@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bbox{
+            width: 250px;
+            height: 250px;
+            margin: 350px auto;
+            /* border: 1px solid #000; */
+        }
+        .box{
+            position: relative;
+            transform-style: preserve-3d;
+            /* transform: rotateX(80deg) */
+            transition: transform ease 4s;
+            perspective: 500px
+        }
+        li{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            text-align: center;
+            line-height: 225px;
+            font-size: 100px;
+            list-style: none;
+            color: yellow
+        
+            
+        }
+        li:nth-child(1){
+            background: url("./images/43/baby.png") no-repeat;
+            transform: translateZ(125px);
+            
+        }
+        li:nth-child(2){
+            background: url("./images/43/baby.png") no-repeat;
+            transform: rotateX(90deg) translateZ(125px)
+        }
+        li:nth-child(3){
+            background: url("./images/43/xiaoming.png") no-repeat;
+            transform: rotateX(180deg) translateZ(125px)
+        }
+        li:nth-child(4){
+            background: url("./images/43/xiaoming.png") no-repeat;
+            transform: rotateX(270deg) translateZ(125px)
+        }
+        li:nth-child(5){
+            background: url("./images/43/taxin.jpg") no-repeat;
+            transform: rotateY(90deg) translateZ(125px)
+        }
+        li:nth-child(6){
+            background: url("./images/43/yingla.jpg") no-repeat;
+            transform: rotateY(-90deg) translateZ(125px)
+        }
+        body:hover .box{
+            transform: rotateX(720deg) rotateY(720deg)
+        }
+    </style>
+</head>
+<body>
+    <div class="bbox">
+        <ul class="box">
+            <li class="box-item">1</li>
+            <li class="box-item">2</li>
+            <li class="box-item">3</li>
+            <li class="box-item">4</li>
+            <li class="box-item">5</li>
+            <li class="box-item">6</li>
+            <!-- <li class="box-item"><img src="./images/43/baby.png" alt=""></li>
+            <li class="box-item"><img src="./images/43/baby.png" alt=""></li>
+            <li class="box-item"><img src="./images/43/xiaoming.png" alt=""></li>
+            <li class="box-item"><img src="./images/43/xiaoming.png" alt=""></li>
+            <li class="box-item"><img src="./images/43/taxin.jpg" alt=""></li>
+            <li class="box-item"><img src="./images/43/yingla.jpg" alt=""></li> -->
+        </ul>
+    </div>
+</body>
+</html>

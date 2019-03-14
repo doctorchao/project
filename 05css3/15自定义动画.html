@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*1. 必须要存在定义好的动画。*/
+        /*2. 必须存在动画的时间。*/
+        /*3. 动画必须添加到元素上。*/
+        .box {
+            width: 100px;
+            height: 50px;
+            background: #409eff;
+            /* animation-name: go;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-play-state: paused;     */
+            /*!*animation-delay: 2s;*!   延迟时间   之后才运行*/
+            animation-fill-mode:forwards;
+            /*!*决定停在终点还是起点*!*/
+            /*animation-iteration-count: infinite;   运行次数*/
+            animation: go ease 2s;
+        }
+        @keyframes go {
+            from {
+                margin-left: 0px;
+            } to {
+                margin-left: 500px;
+            }
+        }
+        /* html:hover .box {
+            animation-play-state: running;
+        } */
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

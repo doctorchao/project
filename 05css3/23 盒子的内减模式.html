@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding:0px; 
+        }
+        /* .box{   大小会随着 padding 和margin 增大而变大
+            padding: 10px 10px;
+            width: 100px;
+            height: 50px;
+            background: red;
+            border: 20px solid #000;
+        } */
+        .box{     /* 总的大小不变，内部随着边距的变大而变小 */
+            box-sizing: border-box;
+            padding: 10px 10px;
+            width: 100px;
+            height: 50px;
+            background: red;
+            border: 20px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

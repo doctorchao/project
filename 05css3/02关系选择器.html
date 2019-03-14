@@ -9,15 +9,15 @@
         /* .box1 h1{
             color: yellow
         } */
-        /* .box1>h1{
+        .box1>div{
             color: yellow
-        } */
+        }
         /* .box1+h1{
             color: yellow
         } */
-        .box1~h1{
+        /* .box1~h1{
             color: yellow
-        }
+        } */
     </style>
 </head>
 <body>
@@ -29,14 +29,18 @@
     </div> -->
     <div class="box1">
         第一个
+        <h1>22</h1>
+        <div>div2</div>
     </div>
+    <div>div3</div>
+    <h2>胡乱插入</h2>
     <h1>第二个</h1>
     <h1>第三个</h1>
 </body>
 <script>
     // section div  选择section后面所有的div，是所有后代
     // section>div  选择seciton后面儿子，不是所有后代
-    // div+span     选择div后面紧挨着的第一个span
+    // div+span     选择div后面紧挨着的 中间没有标签的第一个span
     // div~span     选择div后面所有的span
 </script>
 </html>
