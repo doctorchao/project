@@ -57,7 +57,7 @@
 // console.log(b)
 
 // 箭头函数  map foreach
-var arr = [1,2,3,4]
+// var arr = [1,2,3,4]
 // arr.forEach(function (a){   // 这个函数这里没有返回值
 //     console.log(a*2)
 // })

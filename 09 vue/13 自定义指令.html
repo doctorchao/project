@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <com-a v-if="isShowDom"></com-a> 
+        <button @click="addDom">dom切换显示</button>
+    </div>
+    <input type="text" id="abc">
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    // 自定义指令用于操作DOM
+    // document.querySelector("#abc").focus();  //原生js dom自动聚焦
+    // 注册一个全局自定义指令  Vue.directive("指令名",{指令方法函数})
+    // 可在全局使用新的 v-focus 属性
+    // 在实例和组件中 directives:{"指令名":{指令方法函数}}
+    // 可在模板中任何元素上使用新的 v-focus 属性
+    var comA = {
+        template: `
+            <input type="text" class="input" v-focus/>
+        `,
+        directives: {
+            "focus": {
+                inserted(el) {   // dom元素刚刚插入、加载时执行  el: dom元素本身
+                    el.focus();
+                }
+            }
+        }
+    }
+    new Vue({
+        components: {
+            'com-a': comA
+        },
+        el: "#app",
+        data: {
+            isShowDom: true
+        },
+        // mounted() { // dom挂载完成的钩子函数  只执行一次
+        //     document.querySelector(".input").focus();
+        // },
+        methods: {
+            addDom() {
+                this.isShowDom =!this.isShowDom
+            }
+        },
+        created(){
+            // vue 实例不能直接操作dom 所以下面是错误的
+            // document.querySelector(".input").focus()
+        }
+    })
+    </script>
+</html>

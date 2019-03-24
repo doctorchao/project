@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #a{
+            background: skyblue
+        }
+        #b{
+            background: pink
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 id="a" v-if="purelove">喜欢周青蓉妹子</h1>
+        <!-- <h1 v-if="!purelove">喜欢蒋林芝妹子</h1> -->
+        <h1 id="b" v-else>喜欢蒋林芝妹子</h1>
+        <!-- <h1 v-show="purelove">喜欢周青蓉妹子</h1>  -->
+        
+        <!-- v-if因为会重新创建或删除dom元素  v-show不会  所以在性能上没有show这么快速
+        当里边的值是false时，会移除dom元素，当是true的时候会创造dom元素移入
+        v-show 则是切换其style 显示
+        经常使用切换显示则用v-show 反之则v-if -->
+
+        <button v-on:click="toggle">切换显示</button>
+    </div>
+
+
+    <div id="app1">
+        <ul>
+            <li v-for="(girl,index) in girls">
+                {{index+1}} 我喜欢{{girl.name}}{{girl.sex}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            purelove:true,
+        },
+        methods:{
+            toggle(){
+                this.purelove =!this.purelove
+                console.log(this.purelove)
+            }
+        }
+    })
+
+    var girls = [
+        {
+            name:"周青蓉",
+            sex:"妹子"
+        },
+        {name:"蒋林芝"},
+        {name:"吴芊盈"},
+    ]
+    var app1 = new Vue({
+        el:"#app1",
+        data:{
+            girls,
+        //     girls:[
+        //         {
+        //             name:"周青蓉",
+        //             sex:"妹子"
+        //         },
+        //         {name:"蒋林芝"},
+        //         {name:"吴芊盈"},
+        //     ]
+        } 
+    })
+</script>
+</html>

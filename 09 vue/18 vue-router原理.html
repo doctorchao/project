@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+<script>
+    // vue-router 页面跳转原理  以下两个
+    var page1 = {
+        template:   `
+            <div>
+                <h1>我是第一页</h1>
+                <a href="#/page2">跳转到第二页</a>
+            </div>
+        `
+    }
+
+    var page2 = {
+        template:   `
+            <div>
+                <h1>我是第二页</h1>
+                <a href="#/">跳转到第一页</a>
+            </div>
+        `
+    }
+
+    var app = document.querySelector("#app");
+    app.innerHTML = page1.template;
+
+    window.onhashchange = function () {
+        var hash = location.hash;
+        console.log(hash)
+        if(hash == "#/page2"){
+            app.innerHTML = page2.template;
+        } else if(hash == "#/"){
+            app.innerHTML = page1.template;
+        }
+    }
+    var obj = {};
+    history.pushState(obj,"/page2","index.html")
+    // 改变地址 但不会做什么  甚至不会检查index.html是否存在
+    app.innerHTML=page2.template
+</script>
+</html>

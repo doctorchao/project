@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h1>{{msg}}</h1>   
+        <!-- 只会渲染成文本 即使msg为<h1></h1>等标签元素 -->
+        <br><input type="text" v-model="msg">
+    </div>
+    <div id="app1">
+        <h2 v-bind:title="msg">鼠标悬停此处查看动态绑定的提示信息</h2>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({    // 类似mongose骨架一样
+        el:"#app",
+        data:{
+            msg:"我叫周青蓉"
+        }
+    })
+    var app1 = new Vue({
+        el:"#app1",
+        data:{
+            msg:`页面加载于${new Date().toLocaleTimeString()}`
+        }
+    })
+</script>
+</html>

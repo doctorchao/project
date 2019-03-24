@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        /* #app{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+        } */
+        /* #app1{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+        } */
+        .btn {
+            /*width: 100px;*/
+            height: 40px;
+            line-height: 40px;
+            background: #fff;
+            color: #409eff;
+            font-size: 20px;
+            -webkit-appearance: none;
+        }
+        .btn:active {
+            background: #409eff;
+            color: #fff;
+        }
+        .parent1 {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        .child1 {
+            width: 100px;
+            height: 50px;
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+<div id="app1">
+    <!-- <dy-button>第一个按钮</dy-button>
+    <dy-button>第二个按钮</dy-button>
+    <hs-button>我的按钮</hs-button> -->
+</div>
+<div id="app">
+    <!-- <hs-button>我的按钮</hs-button> -->
+    <!-- <dy-button>第一个按钮</dy-button> -->
+    <parent></parent>
+    <dy-child></dy-child>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    // var obj={
+    //     template:`<button class="btn"><slot></slot></button>`
+    // }
+    // var obj = {
+    //     template: `<button class="btn" v-on:click="handelClick">
+    //                     <slot></slot>
+    //                 </button>`,
+    //     data() {
+    //         return {
+    //             msg: "我是按钮"
+    //         }
+    //     },
+    //     methods: {
+    //         handelClick() {
+    //             console.log(this.msg)
+    //         }
+    //     },
+    //     created() {
+    //         console.log("按钮初始化完成")
+    //     }
+    // }
+    // Vue.component("hs-button", obj);  //全局注册
+    // var app =new Vue({
+    //     components:{
+    //         "dy-button":obj,
+    //     },
+    //     el:"#app",
+    //     data:{
+            
+    //     }
+    // })
+    // 以上为局部注册组件 局部注册只能在注册域使用
+
+    
+// app内局部注册的dy-button不能再app1内使用  而全局hs-button在app  app1都能用
+
+    var child = {
+        template: `
+            <h1 class="child1">我是子组件</h1>
+        `
+    }
+    // Vue.component("dy-child", child); // 全局注册
+
+    var parent = {       // 组件可继承实例中所有属性和方法  包括components
+        components: {
+            "dy-child": child
+        },                
+        // 全局祖册组件可在任意实例内部使用   局部注册只能在注册域使用
+        template: `
+            <div class="parent1">
+                <slot></slot>
+            </div>
+        `
+    }
+    var app =new Vue({
+        // components:{
+        //     "dy-button":obj,
+        // },
+        components: {
+            "parent": parent
+        },
+        el: "#app",
+        data:{
+            msg:"123"
+        }
+    })
+
+    // 1. 定义组件
+    // var name = "王力宏";
+    // var obj = {
+    //     template: `<button class="btn" v-on:click="handelClick">
+    //                     <slot></slot>
+    //                 </button>`,
+    //     data() {
+    //         return {
+    //             msg: "我是按钮"
+    //         }
+    //     },
+    //     methods: {
+    //         handelClick() {
+    //             console.log("做某件事")
+    //         }
+    //     },
+    //     created() {
+    //         console.log("按钮初始化完成")
+    //     }
+    // }
+    // // 局部注册组件
+    // var child = {
+    //     template: `45
+    //         <h1 class="child">我是子组件</h1>
+    //     `
+    // }
+    // Vue.component("dy-child", child);
+
+    // var parent = {
+    //     // components: {
+    //     //     "dy-child": child
+    //     // },
+    //     template: `
+    //         <div class="parent">
+    //             <slot></slot>
+    //         </div>
+    //     `
+    // }
+
+
+    // Vue.component("hs-button", obj);
+
+    // var vm = new Vue({
+    //     components: {
+    //         "dy-button": obj, // 注册组件
+    //         "parent": parent
+    //     },
+    //     el: "#app",
+    //     data: {
+    //         activeName2: ""
+    //     }
+    // })
+</script>
+</html>

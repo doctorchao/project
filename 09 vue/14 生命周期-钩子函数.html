@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- {{msg}} 只会渲染成文本   可在下面用v-html-->
+        <!-- <div v-text="msg"></div> -->
+        {{msg}}
+        <com-a v-if="show"></com-a>  
+        <!-- 不能用v-show 因为v-show不会删除和重建dom -->
+        <button @click="show=!show">toggle</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var comA = {
+        template: `
+            <h1 id="title">{{msg}}</h1>
+        `,
+        data() {
+            return {
+                msg: "蒋林芝"
+            }
+        },
+        beforeCreate() {
+            console.log(this.msg, "beforeCreated 实例化之前")
+        },
+        created() {
+            console.log(this.msg, "created")
+        },
+        beforeMount(){
+            console.log(this.msg, "beforemount")
+            console.log(document.querySelector("#title"), "beforemount");
+            // 访问不到dom
+        },
+        mounted(){
+            console.log(this.msg, "mounted");
+            console.log(document.querySelector("#title"), "mounted");
+            resize = function () {  // _代表私有属性
+                console.log(document.body.clientWidth||document.documentElement.clientWidth)
+            }
+            abc = function(){
+                console.log("abc")
+            }
+
+            window.addEventListener("resize",resize)
+        },
+        beforeDestroy() {
+            console.log(this.msg, "beforeDestroy");
+            window.removeEventListener("resize",resize)
+            abc();
+
+        },
+        destroyed() { // 组件移除后的钩子
+            console.log("组件被移除了")
+            
+        }
+    }
+    var app = new Vue({
+        components: {
+            "com-a": comA
+        },
+        el: "#app",
+        data: {
+            msg:"<h1>周青蓉</h1> ",
+            show:true
+        },
+        // beforeCreate() {
+        //     console.log(this.msg, "beforeCreated 实例化之前")
+        // },
+        // created() {
+        //     console.log(this.msg, "created")
+        // },
+        // beforeMount(){
+        //     console.log(this.msg, "beforemount")
+        // },
+        // mounted(){
+        //     console.log(this.msg, "mounted");
+        // }
+    })
+    </script>
+</html>

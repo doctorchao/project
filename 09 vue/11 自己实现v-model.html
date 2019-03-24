@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">  
+        <!-- vue实例data中arr[]无法与此绑定 只能和子组件data绑定-->
+        <!-- <my-checkbox v-model="arr" @give-value="getvalue"></my-checkbox> -->
+
+        <!-- <el-checkbox-group v-model="checkList">
+            <el-checkbox label="A"></el-checkbox>
+            <el-checkbox label="B"></el-checkbox>
+            <el-checkbox label="C"></el-checkbox>
+            <el-checkbox label="禁用" disabled></el-checkbox>
+            <el-checkbox label="选中且禁用" disabled></el-checkbox>
+        </el-checkbox-group> -->
+        <my-checkbox :options="options" v-model="arr"></my-checkbox>
+        <!-- <my-checkbox :options="options" :value="arr" @input=getvalue></my-checkbox> -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var mycheckbox={
+        props:{
+            options:Array,
+            value:Array,
+        },
+        template:`<div>
+            <h1>我喜欢的妹子</h1>
+            <label v-for="(item,index) in options" :key="index">
+                {{item.label}}
+                <input type="checkbox" :value="item.value" v-model="currentvalue">
+            </label>
+        </div>`,
+        data(){
+            return{
+                currentvalue:[]
+            }
+
+        },
+        watch:{
+            currentvalue(value){
+                console.log(value)
+                this.$emit("input",value)  
+                //通过触发一个$emit("自定义事件名", "自定义事件需要传出的值")
+            },
+             
+        },
+        created(){
+            this.currentvalue=this.value
+        }
+        // methods:{
+        //     getvalue(){
+        //         this.$emit("give-value",this.currentvalue)
+        //     }
+            //通过触发一个$emit("自定义事件名", "自定义事件需要传出的值")
+        // }
+    }
+    var app = new Vue({
+        components:{
+            "my-checkbox":mycheckbox
+        },
+        el: "#app",
+        data: {
+            checkList:["C","禁用"],
+            arr:["2"],
+            options:[{
+                value:"1",
+                label:"周青蓉"
+            },
+            {
+                value:"2",
+                label:"蒋林芝"
+            },
+            {
+                value:"3",
+                label:"史瑞雪"
+            }]
+        },
+        methods:{
+            getvalue(value){
+                this.arr=value
+            }
+        }
+    })
+    </script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        .active{
+            background: red;
+        }
+        .width{
+            width: 200px;
+        }
+        .btn1{
+            line-height: 30px;
+            border-radius: 3px;
+        }
+        .btn2{
+            background: #409eff;
+            color: white;
+        }
+        .btn3{
+            background: pink;
+            color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <el-button @click="addclass">默认按钮</el-button>   <!-- 两种写法一样 -->
+        <el-button type="primary" v-on:click="iswidth=!iswidth">主要按钮</el-button>
+        <el-button type="success">成功按钮</el-button>
+        <el-button type="primary" size = "small">小按钮</el-button>
+
+        <div class="box" v-bind:class="{active:isactive,width:iswidth}"></div>
+        <br>
+        <my-btn>注册按钮</my-btn>
+        <my-btn type="btn2">新注册按钮</my-btn>
+        <my-btn name="btn3">新新注册按钮</my-btn>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var btn = {
+        props:{
+            type:String,
+            name:String
+        },
+        template:`<button class="btn1" :class="{btn2:this.type=='btn2',btn3:this.name=='btn3'}">
+                <slot></slot>
+                {{type||name}}
+            </button>`,
+        created(){
+            console.log(this.type,"父组件传进来的值1")
+            console.log(this.name,"父组件传进来的值2")
+        }
+    }
+    var app = new Vue({
+        components:{
+            "my-btn":btn,
+        },
+        el:"#app",
+        data:{
+            isactive:false,
+            iswidth:false,
+        },
+        methods:{
+            addclass(){
+                this.isactive=!this.isactive
+            }
+        }
+    })
+</script>
+</html>

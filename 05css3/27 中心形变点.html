@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            /* flex-wrap: wrap; */
+        }
+        li{
+            position: relative;
+            margin: 20px;
+            width: 258px;
+            height: 258px;
+        }
+        li div{
+            position: absolute;
+            width: 258px;
+            height: 258px;
+            border-radius: 50%;
+        }
+        .bottom{
+            background: url("./images/43/baby.png") no-repeat;
+            /* z-index: 10; */
+        }
+        .top{
+            background: url("./images/43/xiaoming.png") no-repeat;
+            transition: transform ease 1s;
+
+        }
+        li:nth-child(1) .top{
+            /* transform-origin: left;    形变位置*/
+            transform-origin: bottom;    
+        }
+        ul:hover .top{
+            /* transform: rotateY(180deg) */
+            transform: rotateX(180deg)
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <div class="bottom"></div>
+                <div class="top"></div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

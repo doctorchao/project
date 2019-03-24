@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">  
+        <!-- vue实例data中arr[]无法与此绑定 只能和子组件data绑定-->
+        <my-checkbox v-model="arr" @give-value="getvalue"></my-checkbox>
+
+        <el-checkbox-group v-model="checkList">
+            <el-checkbox label="A"></el-checkbox>
+            <el-checkbox label="B"></el-checkbox>
+            <el-checkbox label="C"></el-checkbox>
+            <el-checkbox label="禁用" disabled></el-checkbox>
+            <el-checkbox label="选中且禁用" disabled></el-checkbox>
+        </el-checkbox-group>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+        // 自定义事件
+    // 子组件向父组件传值的步骤
+    //1. 子组件内部的值发生变化
+    // 2. 通过触发一个$emit("自定义事件名", "自定义事件需要传出的值")
+
+    // 父组件向子组件传值
+
+    // 1. 在子组件内部声明props
+    // props: {
+    //     "传入的值": String(类型声明)
+    // }
+    // 2. 父组件通过在组件的标签的属性传值 
+    // 例如: <button type="primary"></button>那么这个type就是传入的属性名
+    var mycheckbox={
+        template:`<div>
+            <h1>我喜欢的妹子</h1>
+            <label>
+                周青蓉
+                <input type="checkbox" value="周青蓉" v-model="currentvalue">
+            </label>
+            <label>
+                蒋林芝
+                <input type="checkbox" value="蒋林芝" v-model="currentvalue">
+            </label>
+            <label>
+                史瑞雪
+                <input type="checkbox" value="史瑞雪" v-model="currentvalue">
+            </label>
+            <label>
+                吴芊盈
+                <input type="checkbox" value="吴芊盈" v-model="currentvalue">
+            </label>
+            <button @click="tovalue">传值</button>
+        </div>`,
+        data(){
+            return{
+                currentvalue:[]
+            }
+
+        },
+        // watch:{
+        //     currentvalue(value){
+        //         console.log(value)
+        //         this.$emit("give-value",value)  
+        //         //通过触发一个$emit("自定义事件名", "自定义事件需要传出的值")
+        //     }
+        // },
+        methods:{
+            tovalue(){
+                this.$emit("give-value",this.currentvalue)
+            }
+            //通过触发一个$emit("自定义事件名", "自定义事件需要传出的值")
+        }
+    }
+    var app = new Vue({
+        components:{
+            "my-checkbox":mycheckbox
+        },
+        el: "#app",
+        data: {
+            checkList:["C","禁用"],
+            arr:[]
+        },
+        methods:{
+            getvalue(value){
+                console.log("得到子组件数据",value)
+            }
+        }
+    })
+    </script>
+</html>

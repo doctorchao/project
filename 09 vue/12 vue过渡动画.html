@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .box1 {
+            opacity: 1;
+            width: 300px;
+            height: 100px;
+            background: #f00;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: #ff0;
+            transition: all ease 4s;
+        }
+        .fade-out {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        /*元素插入之前生效， 元素插入之后第一帧移除   整体开始第一帧呈现的状态*/
+        .fade-enter {
+            background: yellow;
+            width: 100px;
+        }
+        .fade-enter-to {
+            background: blue;
+            width: 100px;
+        }
+        .fade-leave {
+            background:  purple;
+            width: 100px;       
+        }
+        /*active 代表整个过度过程的样式  动画进行时的状态*/
+        .fade-enter-active {
+            transition: all linear 2s;
+        }
+        .fade-leave-active {
+            transition: all linear 2s;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <transition name="fade">
+        <div class="box1" v-show="!isShow"></div>
+    </transition>
+    <button @click="isShow = !isShow">切换</button>
+
+
+    <div class="box2" :class="{'fade-out': isOut}">
+
+    </div>
+    <button @click="isOut = !isOut">绑定类名</button>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            isShow: true,
+            isOut: false
+        },
+        methods: {
+
+        }
+    })
+</script>
+</html>

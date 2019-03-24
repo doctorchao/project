@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+        <a href=""></a>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+<script>
+    var page1 = {
+        // 不推荐使用a标签跳转  因为a标签默认刷新页面
+        // 路径加了# 也不刷新 因为哈希字符串变化不刷新页面
+        template:`<div>
+            <h1>我是第一页</h1>
+            <router-link to="/page2">不刷新去第二页</router-link>
+            <a href="#page2">a标签不刷新去第二页</a>
+        </div>`
+    }
+    var page2 = {
+        template:`<div>
+            <h1>我是第二页</h1>
+            <router-link to="/">不刷新去第一页</router-link>
+        </div>`
+    }
+
+    var router = new VueRouter({
+        routes:[
+            {
+                path:"/",
+                component:page1
+            },
+            {
+                path:"/page2",
+                component:page2
+            }
+        ]
+    })
+    var app = new Vue({
+        router,
+        components:{
+            "page1":page1,
+            "page1":page2
+        },
+        el: "#app",
+        data: {
+            
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function makeperson(name,sex){
+        this.name = name;
+        this.sex = sex;
+        // return {
+        //     name:name,
+        //     sex:sex,
+        // }
+    }
+    // makeperson.nickname = "包子"
+    makeperson.prototype.nickname ="包子"
+    var person1 = new makeperson("周青蓉","妹子")
+    console.log(person1)
+    console.log(person1.nickname)
+</script>
+</html>

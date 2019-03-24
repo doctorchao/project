@@ -1,0 +1,32 @@
+npm i vue-cli -g
+vue init webpack demo
+
+
+window._remove    _remove表示私有属性 
+
+@click=""    v-on:click=""  是一样的
+v-bind:class="{}"  :class="{}"  是一样的   v-bind可省
+
+
+.preventdefalut  阻止默认事件
+resolve 解析
+
+mounted()  dom挂载完成的钩子函数  只执行一次
+在vue实例中无法直接操作dom 除非dom加载完成 例如mounted()钩子函数  它只执行一次
+
+有dom时才用原生js去操作dom元素
+inserted(){}  // dom元素刚刚插入、加载时执行  可多次执行
+
+vue router 一般拿来做单页面应用
+
+不推荐使用a标签跳转  因为a标签默认刷新页面
+路径加了# 也不刷新 因为哈希字符串变化不刷新页面
+
+
+
+
+
+华硕飞行堡垒6 8300    i7 8750  1060 6g  128+1T
+宏碁Acer暗影骑士3 8300
+联想Y7000 
+戴尔显卡内存不太行

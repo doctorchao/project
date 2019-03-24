@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .parent {
+            width: 300px;
+            height: 300px;
+            background: #f00;
+        }
+        .child {
+            width: 100px;
+            height: 100px;
+            background: #ff0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <com-a @click="toggle"></com-a>  无法触发 -->
+        <!-- dom元素上都可以触发事件  但组件上需要
+        加.native触发组件根元素上事件或自身 -->
+        <com-a @click.native="toggle"></com-a>
+
+        <!-- .prevent阻止事件 -->
+        <!-- <a href="http://www.baidu.com" @click.prevent="turn">百度一下</a> -->
+        <a href="http://www.baidu.com" @click="turn">百度一下</a>
+
+        <div class="parent" @click="clickParent">
+            <!-- <div class="child" @click="clickChild"></div> -->
+            <div class="child" @click.stop="clickChild"></div>
+        </div>
+    </div>
+    <div class="container"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var comA = {
+        template: `
+        <div class="container">
+            <h1 id="title">{{msg}}</h1>
+        </div>
+        `,
+        data() {
+            return {
+                msg: "蒋林芝"
+            }
+        },
+    }
+    var app = new Vue({
+        components: {
+            "com-a": comA
+        },
+        el: "#app",
+        data: {
+            msg:"<h1>周青蓉</h1> ",
+            show:true
+        },
+        methods:{
+            toggle(){
+                console.log("事件触发了")
+            },
+            turn($event){
+                $event.preventDefault();
+                console.log("事件被阻止了")
+
+            },
+            clickParent() {
+                console.log("parent被点击了")
+            },
+            clickChild() {
+                console.log("child被点击了")
+            },
+            // clickChild($event) {   // 原生dom方法
+            //     $event.stopPropagation();
+            //     console.log("child被点击了")
+            // }
+        }
+    })
+    </script>
+</html>

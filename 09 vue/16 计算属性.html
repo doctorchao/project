@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>被替换了</h1>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    // computed:{}   watch:{}
+    var coma = {
+        // template:`<div id="#app">
+        //     <h1>组件内容占据</h1>
+        // </div>`
+        template:`<div id="#app">
+            我喜欢的妹子:<input type="text" v-model="name">
+            <br>
+            我喜欢的原因:<input type="text" v-model="reason">
+            <br>
+            <h2>所以 {{result}}</h2>
+        </div>`,
+        // <h2>所以 {{name+"长得"+reason}}</h2>
+        data(){
+            return {
+                name:"",
+                reason:""
+
+            }
+        },
+        // watch:{
+        //     name(val) {
+        //         this.result = val + this.reason
+        //     },
+        //     reason(val) {
+        //         this.result = this.name + val;
+        //     }
+        // },
+        computed:{
+            result(){
+                return this.name+this.reason
+            }
+        }
+
+
+    }
+    
+    var app = new Vue({
+        components:{
+            "com-a":coma
+        },
+        el: "#app",
+        data: {
+           
+        },
+        template:"<com-a/>"
+    })
+    </script>
+</html>

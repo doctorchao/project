@@ -3,7 +3,7 @@ for (let i = 0; i < 3; i++){
     // let i = " qwe";
     console.log(i);
 };
-// for in  用于遍历 对象
+// for in  语句用于遍历数组或者对象的属性（对数组或者对象的属性进行循环操作）。
 //  var a = 12;
 //  var b = 22;
 //  [a,b] = [b,a];
