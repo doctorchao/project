@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <div id="app" v-cloak>
+    <div id="app" v-cloak>  <!-- v-clock 可在vue.js加载完成前不让{{msg}}文本显示 -->
         <h1>{{msg}}</h1>   
         <!-- 只会渲染成文本 即使msg为<h1></h1>等标签元素 -->
         <br><input type="text" v-model="msg">
