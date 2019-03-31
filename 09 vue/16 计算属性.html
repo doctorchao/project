@@ -20,9 +20,9 @@
 <script>
     // computed:{}   watch:{}
     var coma = {
-        // template:`<div id="#app">
+        // template:`<div id="app1">  这个id可任意起名
         //     <h1>组件内容占据</h1>
-        // </div>`
+        // </div>`,
         template:`<div id="#app">
             我喜欢的妹子:<input type="text" v-model="name">
             <br>
@@ -38,14 +38,14 @@
 
             }
         },
-        // watch:{
-        //     name(val) {
-        //         this.result = val + this.reason
-        //     },
-        //     reason(val) {
-        //         this.result = this.name + val;
-        //     }
-        // },
+        watch:{
+            name(val) {
+                this.result = val + this.reason
+            },
+            reason(val) {
+                this.result = this.name + val;
+            }
+        },
         computed:{
             result(){
                 return this.name+this.reason

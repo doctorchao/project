@@ -1,0 +1,34 @@
+arr1.concat(arr2,arr3)数组拼接    es5
+arr1=[...arr2,...arr3]           es6剩余参数 字符拓展
+
+加!important 可覆盖住行内样式
+第一步：
+使用脚手架初始化一个项目文件  vue init webpack 项目名
+00
+本项目未装有sass
+第二步：
+安装一些开发过程中需要的依赖包
+--save-dev (开发依赖最终不会加入项目代码)
+npm install node-sass sass-loader --save-dev  (sass支持)
+npm install normalize.css --save (安装初始化样式)
+npm install axios --save (ajax库)
+npm install moment --save(处理时间的库)
+npm install mint-ui --save(ui库)
+npm install amfe-flexible --save(淘宝设备适配方案)
+npm install vue-awesome-swiper --save (基于swiper轮播图封装的vue组件)
+npm install swiper --save (还的加个这个)
+
+第三步：按需引入
+npm install babel-plugin-component --save-dev(按需引入)
+
+能够模块化的东西一律模块化
+组件上使用v-for 要 :key='index'
+
+脱标 会造成一个div忽略另一个div所占空间
+
+查看ip地址
+windows ipconfig
+mac ifconfig
+
+webpack支持手机端查看修改cobfig文件
+host:'0.0.0.0'

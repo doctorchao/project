@@ -10,6 +10,7 @@
     <div id="app">
         <router-view></router-view>
         <a href=""></a>
+        <page1></page1>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -17,7 +18,7 @@
 <script>
     var page1 = {
         // 不推荐使用a标签跳转  因为a标签默认刷新页面
-        // 路径加了# 也不刷新 因为哈希字符串变化不刷新页面
+        // but路径加了# 也不刷新 因为哈希字符串变化不刷新页面
         template:`<div>
             <h1>我是第一页</h1>
             <router-link to="/page2">不刷新去第二页</router-link>
@@ -45,10 +46,11 @@
     })
     var app = new Vue({
         router,
-        components:{
-            "page1":page1,
-            "page1":page2
-        },
+        // components:{     //在router中已声明  如果不用page1/2 标签
+        //                  //这里可不用再声明
+        //     "page1":page1,
+        //     "page1":page2
+        // },
         el: "#app",
         data: {
             

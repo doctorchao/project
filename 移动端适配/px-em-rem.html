@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        html{
+            font-size: 10px;
+        }
+        body{
+            font-size: 16px;
+        }
+        .box{
+            display: flex;
+            justify-content: space-around
+
+        }
+        .a {
+            /* 未设置font-size时以html标准字体为基准 */
+            /* html标准字体大小16px */
+            /* Chrome浏览器默认最小字体为12px  往小设置也是显示12px */
+            
+            /* font-size: 1em;       相对body 为16px */
+            font-size: 30px;  
+            width: 15em;                /* 450px */
+            height: 15em;
+            background: yellow;
+            position: relative;
+        }
+        .b {
+            left: 10px;
+            font-size: 0.5em;           /* 15px */ 
+            width: 20em;                /* 300px */
+            height: 20em;
+            background: orange;
+            position: absolute;
+        }
+        .c {
+            left: 10px;
+            font-size: 2rem;           /* 20px */ 
+            /* 相对html 所以是20px */
+            width: 5em;                /* 100px */ 
+            height: 5em;
+            background: pink;
+            position: absolute;
+        }
+
+        
+        .a1 {
+            font-size: 20px;  
+            width: 400px;               
+            height: 400px;
+            background: yellow;
+            position: relative;
+        }
+        .b1 {
+            left: 10px;
+            font-size: 12px;         /* 10px */ 
+            width: 20em;              
+            height: 200px;
+            background: orange;
+            position: absolute;
+        }
+        .c1 {
+            left: 10px;
+            font-size: 0.5em;           
+            width: 10em;            
+            height: 10em;
+            background: pink;
+            position: absolute;
+        }
+        .d{
+            padding:0 0 0 74px;
+        }
+    </style>
+</head>
+<body>
+    <!-- html标准字体大小16px -->
+    <div class="d">我是标准字体大小</div>
+    <div class="box">
+        <div class="a">
+            我是父元素div
+            <div class="b">
+                我是子元素
+                <div class="c">
+                    我是孙元素
+                </div>
+            </div>
+        </div>
+        分割
+        <div class="a1">
+            我是父元素div
+            <div class="b1">
+                我是子元素
+                <div class="c1">
+                    我是孙元素
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

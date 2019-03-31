@@ -2,12 +2,12 @@
 import obj from "./one"   // es6语法模块引入
 import img from "./ningque.jpg"
 import "./index.css"
-import Vue from "vue/dist/vue.esm"  //得这样引入vue
+import Vue from "vue/dist/vue.esm"  //得在这个路径下引入vue
 import App from "./app"
 import page1 from './page1.vue';
 import router from "./src/router/index"
 // import vuerouter from "vue-router"
-// Vue.use(vuerouter)    也可在index.js 引入
+// Vue.use(vuerouter)    也可在index.js 引入  
 
 document.querySelector("h1").innerHTML = obj.text;
 
@@ -16,7 +16,7 @@ myimg.src=img
 document.querySelector("#container").appendChild(myimg)
 
 new Vue({
-    router,
+    router, // 注入
     el:"#app",
     data:{
 

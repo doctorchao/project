@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            padding: 0 0 0 .88rem;
+            background: url('./logo.png') no-repeat;
+            height: .74rem;
+            background-color: #ff6700;
+            -webkit-background-size: 27px 20px;
+            background-size: 27px 20px;
+            background-position: 9px center;
+            overflow: hidden;
+        }
+        .header a {
+            display: block;
+            margin-top: .12rem;
+            height: .5rem;
+            text-align: center;
+            width: 6.48rem;
+            background-color: #FF4E22;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: .5rem;
+        }
+        /*body {*/
+            /*height: 100%;*/
+            /*background: url('./index.jpg') no-repeat;*/
+            /*-webkit-background-size: 100% 100%;*/
+            /*background-size: 100% 100%;*/
+        /*}*/
+        /*html {*/
+            /*height: 100%;*/
+        /*}*/
+
+
+    </style>
+</head>
+<body>
+<div class="contaienr">
+    <div class="header">
+        <a href="#">寻找宝贝店铺</a>
+    </div>
+</div>
+设备屏宽就是设备css像素
+<!--css = 设备宽度/设计稿宽度*设计稿元素尺寸   ===》 设计稿是750*1334  设计稿上标注一个元素的大小是100px;-->
+
+<!--这么个东西，我要写iphone6上。width?-->
+<!--50px。-->
+
+<!--android 的设备，他的屏宽又不是375怎么办？-->
+<!--假设android 的设备屏宽是800px;-->
+<!--800/750 * 100px。-->
+
+<!--X*rem =  css宽度-->
+
+<!--rem = {设备宽度/设计稿宽度*设计稿元素尺寸}/X;-->
+
+
+<!--             网易的方案，假设X = 设计稿元素尺寸的0.01;            -->
+
+<!--rem = 设备宽度 / 设计稿宽度 * 100-->
+
+<!--以750的设计稿为例。-->
+<!-- rem = 设备宽度/7.5       假设你家的设计师的设计图是750*1334？
+rem = 设备宽度/12        假设你们家的设计师给你1200的宽度的设计图 -->
+
+
+<!--             淘宝的方案设定 1rem的大小为 设备宽度的十分之一。      -->
+<!--X = 10/设计稿宽度 * 设计稿元素尺寸；-->
+
+<!--假设设计稿宽度为750， 元素尺寸为宽度88px;-->
+
+<!--那么我的width要写多少？-->
+
+<!--X = 10/750 * 88 rem;-->
+
+
+</body>
+<script>
+    // 网易方案
+    function setRem() {
+        var html = document.documentElement;
+        var deviceWidth = document.body.clientWidth||document.documentElement.clientWidth;
+        html.style.fontSize = deviceWidth / 7.5 + 'px'; 
+        // 以iPhone6为例 设备宽度为375px  375/7.5 = 50px
+        // 即html font-size 为50px
+        // document.body.style.fontSize = "12px";
+        // body是html子元素  html字体过大  这里设置body优先级高可覆盖html方便观看
+    }
+    setRem();
+    window.onresize = function() {
+        setRem();
+    }
+    // var html1 = document.documentElement
+    // CSSwidth = document.body.clientWidth||document.html1.clientWidth
+    // html.style.fontSize = (CSSwidth/设计稿宽度*设计稿元素尺寸)/X
+
+
+    // 淘宝方案
+    // function setRem() {
+    //     var html = document.documentElement;
+    //     var deviceWidth = document.body.clientWidth || html.clientWidth;
+    //     html.style.fontSize = deviceWidth/10 + 'px';
+    //     //  1rem   设备宽度的十分之一
+    // }
+    // setRem()
+    // window.onresize = function() {
+    //     setRem();
+    // }
+</script>
+</html>
