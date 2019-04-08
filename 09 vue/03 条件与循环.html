@@ -16,10 +16,12 @@
 </head>
 <body>
     <div id="app">
-        <h1 id="a" v-if="purelove">喜欢周青蓉妹子</h1>
+        <!-- <h1 id="a" v-if="purelove">喜欢周青蓉妹子</h1> -->
         <!-- <h1 v-if="!purelove">喜欢蒋林芝妹子</h1> -->
-        <h1 id="b" v-else>喜欢蒋林芝妹子</h1>
+        <!-- <h1 id="b" v-else>喜欢蒋林芝妹子</h1> -->
         <!-- <h1 v-show="purelove">喜欢周青蓉妹子</h1>  -->
+        <h1 id="a" v-show="purelove">喜欢周青蓉妹子</h1> 
+        <h1 id="b" v-show="!purelove">喜欢蒋林芝妹子</h1> 
         
         <!-- v-if因为会重新创建或删除dom元素  v-show不会  所以在性能上没有show这么快速
         当里边的值是false时，会移除dom元素，当是true的时候会创造dom元素移入

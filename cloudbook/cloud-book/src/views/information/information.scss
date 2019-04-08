@@ -1,0 +1,36 @@
+@import '@/globalcss/px-to-rem.scss';
+.header-back {
+    background: white;
+    color: rgb(38, 148, 238);
+	i {
+        font-size: 20px;
+        color: rgb(38, 148, 238)
+	}
+}
+.change-msg {
+    margin-top: px-to-rem(100);
+    li {
+        border-bottom: 2px solid rgb(216, 214, 214);
+        line-height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:nth-child(1) {
+            padding-bottom: 10px;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+        }
+        
+    }
+}
+img{
+	width: px-to-rem(150);
+	height: px-to-rem(150);
+	border-radius: 50%;
+}
+.iconqianjin {
+    font-size: 25px;
+    opacity: 0.5;
+}

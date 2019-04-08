@@ -55,9 +55,9 @@ export default {
     position: relative;
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
+    width: 100%;
     .swiper-img {
       height: px-to-rem(400);
-      // width: 100%; 放init里面了
     }
     .title {
       padding: 4px;

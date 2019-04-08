@@ -38,14 +38,14 @@
 
             }
         },
-        watch:{
-            name(val) {
-                this.result = val + this.reason
-            },
-            reason(val) {
-                this.result = this.name + val;
-            }
-        },
+        // watch:{
+        //     name(val) {
+        //         this.result = val + this.reason
+        //     },
+        //     reason(val) {
+        //         this.result = this.name + val;
+        //     }
+        // },
         computed:{
             result(){
                 return this.name+this.reason

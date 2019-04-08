@@ -17,9 +17,17 @@ npm install mint-ui --save(ui库)
 npm install amfe-flexible --save(淘宝设备适配方案)
 npm install vue-awesome-swiper --save (基于swiper轮播图封装的vue组件)
 npm install swiper --save (还的加个这个)
+npm install showdown --save   (markdown转html)
+npm install validator --save (格式判断)
+npm install vuex --save (使用vuex存储用户数据)
+npm install vuex-persistedstate --save ()
 
 第三步：按需引入
 npm install babel-plugin-component --save-dev(按需引入)
+修改.babelrc中plugins
+
+第四步
+markdown转html   git:  showdown
 
 能够模块化的东西一律模块化
 组件上使用v-for 要 :key='index'
@@ -30,5 +38,15 @@ npm install babel-plugin-component --save-dev(按需引入)
 windows ipconfig
 mac ifconfig
 
-webpack支持手机端查看修改cobfig文件
+webpack支持手机端查看修改config文件
 host:'0.0.0.0'
+router-link对象语法跳转 :to = {name:"",params:{id: }}
+
+scoped 作用在当前模板组件 并不会作用到其他组件 以及 当前组件dom中加载出来的新元素
+
+修改跨域 config/index 里的proxyTable,再config/prod.env里新增变量,然后utils/index里axios
+npm run dev 是'/api' , npm run build 是'/'
+
+果果小师弟
+STM32F103C8T6
+今天要搞 localStorage.removeItem('token')

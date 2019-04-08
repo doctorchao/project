@@ -7,12 +7,12 @@
 
 <script>
 import qlTabbar from '@/components/tab-bar'
-  export default {
-    name:'layout',
-    components: {
-      qlTabbar
-    }
+export default {
+  name: 'ql-layout',
+  components: {
+    qlTabbar
   }
+}
 </script>
 
 <style scoped>

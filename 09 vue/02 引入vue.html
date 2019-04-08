@@ -13,8 +13,10 @@
 </head>
 <body>
     <div id="app" v-cloak>  <!-- v-clock 可在vue.js加载完成前不让{{msg}}文本显示 -->
-        <h1>{{msg}}</h1>   
-        <!-- 只会渲染成文本 即使msg为<h1></h1>等标签元素 -->
+        <h1>{{msg1}}</h1>
+        <div v-html="msg1"></div>
+        <div v-text="msg2"></div>
+        <!-- 只会渲染成文本 即使msg为<h1></h1>等标签元素 可用v-html 或 v-text 显示相应内容-->
         <br><input type="text" v-model="msg">
     </div>
     <div id="app1">
@@ -26,7 +28,8 @@
     var app = new Vue({    // 类似mongose骨架一样
         el:"#app",
         data:{
-            msg:"我叫周青蓉"
+            msg1: "<h1>我叫周青蓉</h1>",
+            msg2:"我是蒋林芝"
         }
     })
     var app1 = new Vue({

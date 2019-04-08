@@ -1,41 +1,43 @@
 <template>
   <div class="content-item">
-    <div class="conten-item-row1">
+    <div class="content-item-row1">
       <h2 class="title">
         {{options.title}}
       </h2>
-      <router-link to="/">更多...</router-link>
+      <router-link :to="{name: 'muchbook', params: {id: options._id}}">更多...</router-link>
     </div>
-    <div class="conten-item-row2" v-for="(item,index) in options.books" :key="index">
-      <div class="img-wrap">
-        <img :src="item.img" :alt="item.img">
-      </div>
-      <div class="article">
-        <div class="article-title">
-          {{item.title}}
+    <div v-for="(item,index) in options.books" :key="index">
+      <router-link :to="{name: 'details',params: {id: item._id}}" class="conten-item-row2">
+        <div class="img-wrap">
+          <img :src="item.img" :alt="item.img">
         </div>
-        <div class="article-preview">
-          {{item.desc}}
+        <div class="article">
+          <div class="article-title">
+            {{item.title}}
+          </div>
+          <div class="article-preview">
+            {{item.desc}}
+          </div>
+          <div class="article-msg">
+            <div class="author">
+              {{item.author}}
+            </div>
+            <div class="date">
+              {{item.updateTime}}
+            </div>
+            <div class="looknums">
+              {{item.looknums}}喜欢看
+            </div>
+          </div>
         </div>
-        <div class="article-msg">
-          <div class="author">
-            {{item.author}}
-          </div>
-          <div class="date">
-            {{item.updateTime}}
-          </div>
-          <div class="looknums">
-            {{item.looknums}}喜欢看
-          </div>
-        </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'content-item',
+  name: 'ql-content-item',
   props: {
     options: Object
   },
@@ -49,7 +51,7 @@ export default {
   @import '@/globalcss/px-to-rem.scss';
   .content-item {
     margin-top: 15px;
-    .conten-item-row1 {
+    .content-item-row1 {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;

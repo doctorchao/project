@@ -1,0 +1,120 @@
+@import '@/globalcss/px-to-rem.scss';
+.person {
+	margin: px-to-rem(18);
+	margin-bottom: px-to-rem(140)
+}
+.top-box {
+	height: px-to-rem(400);
+	background: rgba(98, 166, 243, 0.959);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	h2 {
+		font-size: 18px;
+		font-weight: 500;
+		margin-bottom: 7px;
+	}
+	.login-box {
+		display: flex;
+		justify-content: space-around;
+		height: 50%;
+		.login-box-right {
+			right: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.iconfont {
+				margin-left: 5px;
+				font-size: 30px;
+				font-weight: 600
+			}
+		}
+		.login-box-left {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			white-space: normal;
+			word-break: break-all;
+			height: 100%;
+			.login-desc {
+				// display: -webkit-box;
+				// -webkit-box-orient: vertical;
+				// -webkit-line-clamp: 2;
+				// line-clamp: 3;
+				overflow: hidden;
+				width: px-to-rem(420);
+				height: px-to-rem(32);
+				white-space: normal;
+				word-break: break-all;
+			}
+		}
+	}
+	.online-box {
+		display: flex;
+		margin: 15px;
+		align-items: center;
+		.online-msg {
+			margin-left: 5px;
+			.online-msg-desc {
+				width: px-to-rem(490);
+				height: px-to-rem(32);
+				overflow: hidden;
+				white-space: normal;
+				word-break: break-all;
+			}
+		}
+	}
+	.readdata-box {
+		display: flex;
+		justify-content: space-around;
+		margin-bottom: 15px;
+		text-align: center;
+		.line {
+			border: 1px solid white;
+			border-radius: 1px;
+		}
+	}
+}
+.tabs-box {
+	margin-top: 30px;
+	li {
+		border-bottom: 2px solid rgb(216, 214, 214);
+		line-height: 50px;
+		display: flex;
+		justify-content: space-between;
+		&:nth-child(1) {
+			.iconxiugai {
+				font-size: 30px;
+				color: rgb(28, 145, 240);
+				margin-right: 5px
+			}
+		}
+		&:nth-child(2) {
+			.iconshoucang {
+				font-size: 33px;
+				color: rgb(245, 125, 191);
+				margin-right: 5px
+			}
+		}
+		&:nth-child(3) {
+			.iconaihao- {
+				font-size: 35px;
+				color: rgb(248, 194, 17);
+				margin-right: 5px
+			}
+		}
+		.iconqianjin {
+			font-size: 25px;
+			opacity: 0.5;
+		}
+	}
+}
+.loginout {
+	margin-top: px-to-rem(120);
+}
+img{
+	width: px-to-rem(150);
+	height: px-to-rem(150);
+	border-radius: 50%;
+}

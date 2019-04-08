@@ -4,23 +4,24 @@
               :bottom-method="loadBottom"
               :bottom-all-loaded="allLoaded"
               ref="loadmore">
-      <MySwiper />
+      <Myswiper />
       <div class="content">
-        <contentitem v-for="(item,index) in contentdata" :options="item" :key="index"></contentitem>
+          <Contentitem v-for="(item,index) in contentdata" :options="item" :key="index"></Contentitem>
       </div>
     </Loadmore>
   </div>
 </template>
 
 <script>
-import MySwiper from '@/components/my-swiper'// 引入轮播图
-import contentitem from './components/content-item'// 引入分类图书
-import moment from 'moment'//引入moment时间处理
-import { Loadmore } from 'mint-ui'; // 第三步的 引入loadmore 上下拉刷新
+import Myswiper from '@/components/my-swiper'// 引入轮播图
+import Contentitem from './components/content-item'// 引入分类图书
+import moment from 'moment'// 引入moment时间处理
+import { Loadmore } from 'mint-ui' // 第三步的 引入loadmore 上下拉刷新
 export default {
+  name: 'ql-index',
   components: {
-    MySwiper,
-    contentitem,
+    Myswiper,
+    Contentitem,
     Loadmore
   },
   data () {
@@ -28,8 +29,8 @@ export default {
       contentdata: [],
       querydata: {
         pn: 1,
-        booksSize: 3, //在分类中选取多少本书    2
-        size: 3// 取多少个分类
+        booksSize: 3, // 在分类中选取多少本书    2
+        size: 2// 取多少个分类
       },
       allLoaded: false
     }
@@ -37,7 +38,7 @@ export default {
   methods: {
     getcontent () {
       return new Promise((resolve) => {
-        this.$axios.get(this.$api.getcontent,{
+        this.$axios.get(this.$api.getcontent, {
           // params:{
           //   booksSize: "3", //在分类中选取多少本书    1
           //   size: "5"// 取多少个分类
@@ -58,8 +59,7 @@ export default {
           // this.contentdata = resData
           // console.log(res, '分类图书')
           // this.contentdata = [].concat(this.contentdata,resData) es5
-          this.contentdata = [...this.contentdata,...resData]//  es6
-          
+          this.contentdata = [...this.contentdata, ...resData] //  es6
           resolve()
         })
       })
@@ -82,26 +82,26 @@ export default {
       // })
     },
     loadTop () {
-      // ...加载更多数据  
+      // ...加载更多数据
       this.querydata = {
         pn: 1,
         booksSize: 3,
-        size: 3
+        size: 4
       }
       this.allLoaded = false
       this.getcontent().then(() => {
-        this.$refs.loadmore.onTopLoaded();
+        this.$refs.loadmore.onTopLoaded()
       })
     },
     loadBottom () {
       this.querydata = {
-        pn: this.querydata.pn+1,
+        pn: this.querydata.pn + 1,
         booksSize: 3,
         size: 2
       }
       this.getcontent().then(() => {
         // this.allLoaded = true;// 若数据已全部获取完毕则
-        this.$refs.loadmore.onBottomLoaded();
+        this.$refs.loadmore.onBottomLoaded()
       })
     }
   },
@@ -114,7 +114,7 @@ export default {
 <style scoped lang='scss'>
   @import '@/globalcss/px-to-rem.scss';
   .container {
-    padding: px-to-rem(18); // 0.24rem
-    margin-bottom: 50px
+    // padding: px-to-rem(18); // 0.24rem
+    margin-bottom: px-to-rem(100)
   }
 </style>

@@ -1,6 +1,7 @@
 @import './px-to-rem.scss';
 body {
   font-size: 14px!important;/* 这样能盖住行内样式 */
+  background: white;
 }
 ul {
   padding: 0;
@@ -22,5 +23,5 @@ a {
   text-decoration: none;
 }
 .container {
-  padding: px-to-rem(18);
+  padding: px-to-rem(18)
 }
