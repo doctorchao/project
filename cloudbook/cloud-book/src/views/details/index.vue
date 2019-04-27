@@ -1,12 +1,5 @@
 <template>
   <div class="container">
-    <Header class="header-back">
-      <router-link :to="{name: 'index'}" slot="left">
-        <Button>
-          <i class="iconfont iconBackwardarrowsmall"></i>
-        </Button>
-      </router-link>
-    </Header>
     <div class="book"><!-- 书籍概要-->
       <div class="book-left">
         <img :src="bookdata.img" :alt="bookdata.img" class="img">
@@ -75,11 +68,15 @@ export default {
     getbookdata () {
       const id = this.$route.params.id
       this.$axios.get(this.$api.getbook + id).then(res => {
+        console.log(res)
         let resData = res.data
         resData.updateTime = moment(resData.updateTime).format('YYYY年M月D日')
         this.bookdata = resData
-        this.totaltitles = res.length
+        // this.totaltitles = res.length 个人接口没这个
+        this.totaltitles = res.data.total
         document.title = this.bookdata.title
+        this.$emit('give','书籍详情')
+        // this.$route.meta.title = this.bookdata.title
       })
     },
     handlejump () {
@@ -91,20 +88,28 @@ export default {
       })
     },
     handlecollection () {
-      const bookid = this.$route.params.id
-      this.$axios.post(this.$api.collection, bookid).then(res => {
+      // const bookId = this.$route.params.id
+      this.$axios.post(this.$api.addcollection, {bookId:this.$route.params.id}).then(res => {
         console.log(res.code)
-        Toast({
-          message: res.msg,
-          position: 'center',
-          duration: 1000
-        })
+        if(res.code == 200) {
+          Toast({
+            message: res.msg,
+            position: 'center',
+            duration: 1000
+          })
+        } else {
+          Toast({
+            message: res.msg,
+            position: 'center',
+            duration: 1000
+          })
+        }
       })
     }
   },
-  beforeCreate () {
-    document.title = '书籍详情'
-  },
+  // beforeCreate () {
+  //   document.title = '书籍详情'
+  // },
   created () {
     this.getbookdata()
   }
@@ -113,17 +118,8 @@ export default {
 
 <style scoped lang='scss'>
   @import '@/globalcss/px-to-rem.scss';
-  // .container {
-  //   padding: px-to-rem(20);
-  //   padding-bottom: 52px;
-  // }
-.header-back {
-  background: white;
-  color: rgb(38, 148, 238);
-  margin-bottom: 5px;
-  i {
-    font-size: 20px;
-  }
+.container {
+  overflow: auto;
 }
 .book {
   display: flex;
@@ -168,7 +164,7 @@ export default {
   height: 7px;
   border-radius: 2px;
   background: rgb(160, 148, 148);
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .title1 {
   font-size: 16px;
@@ -181,6 +177,12 @@ export default {
   font-size: 12px;
   line-height: 2;
   color: #333;
+  display: -webkit-box;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 .show-titles {
   margin-top: 20px;
@@ -201,12 +203,9 @@ export default {
   }
 }
 .readbook {
-  margin-top: 40px;
-  // position: fixed;
-  // bottom: 10px;
-  left: 0;
-  right: 0;
-  padding: 0 px-to-rem(50);
+  margin-top: px-to-rem(40);
+  margin-bottom: px-to-rem(40);
+  padding: px-to-rem(50);
   /deep/ .mint-button--large {
     font-size: 16px;
   }

@@ -1,0 +1,25 @@
+创建数据库连接 并引入到app.js
+分别创建book title article 模型
+配置路由
+先爬取一本书 放入book集合中 并根据目录和文章链接 分别将其储存到title和article集合中
+
+
+for if/each  map 等不能随便用 在async里面  因为await可能会进不去 或进去没有用
+用for 或 for of
+
+lsof -i:端口号 kill pid  结束端口进程
+
+使用try catch 是因为用async await 无法捕捉错误
+使用findById(id) 跟 使用mongoose.Types.ObjectId(id) 差不多
+
+浮动造成的父元素高度塌陷 即脱标 父元素会忽略子元素所占的空间
+解决
+1, 父元素加 overflow: hidden;  不推荐使用
+优点：使用简单。缺点：会将超出父元素范围的子元素裁剪掉
+2, 外墙法：在受影响的父元素外下面加一个空的div  然后给这个  div 添加属性clear:both
+优点：方便。缺点：没有撑起父元素高度，添加了一个毫无语义的元素，影响seo 性能
+3, 内墙法：在受影响的父元素内加一个空的div 然后给这个  div 添加属性clear:both
+优点：撑起了父元素高度。缺点：添加了一个毫无语义的html元素，影响seo 性能
+4, 伪类：为受影响的父元素添加 ::after{content:'',display:block,clear:both}
+推荐使用 伪类
+5, display:flex

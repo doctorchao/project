@@ -57,7 +57,7 @@ router.post("/login",async (req,res,next) =>{
       console.log(user)
       if(user){
         if(password==user.password){
-          req.session.user = user
+          req.session.user = user// 设置登录session
           res.json({
             code: 200,
             msg:"登录成功",

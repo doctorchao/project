@@ -1,0 +1,7 @@
+npm init
+npm install request --save
+因为http模块不支持https协议  所以这里利用request 发送请求爬取文章
+
+引入cheerio  node.js中计较著名的爬取库 可使用jquery语法 对响应dom进行操作
+
+创造书籍数据库模型 储存

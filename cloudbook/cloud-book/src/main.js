@@ -9,6 +9,7 @@ import 'amfe-flexible/index'// 引入淘宝移动端适配方案
 import {fetch} from '@/utils/index'// 引入封装好的axios
 import api from '@/utils/api'// 引入所有的api
 import store from './store'
+import './cloudbook-icon/iconfont.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = fetch// 挂载到vue原型上 this指向vue实例本身

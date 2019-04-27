@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/babel">
+    var vm = new Vue({
+        el: '#app',
+        render (h){ // babel一般搭配react使用  这里得再下一个别的插件才能转义 vue脚手架中可以直接支持jsx 它有相关插件
+            return (
+                <div>
+                    <h1>我是大标题</h1>
+                </div>
+            )
+        }
+    })
+</script>
+</html>

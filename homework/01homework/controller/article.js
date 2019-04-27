@@ -1,4 +1,5 @@
 const Router = require("express")
+// const {Router} = require("express") 貌似这样是的
 const router = Router()
 const artmodel = require("../model/article")
 const mongoose = require("mongoose")
@@ -42,11 +43,11 @@ router.get("/", async(req, res, next) => {
 
         const articles = await artmodel
             .find()
-            .populate({
-                path: "author",
+            .populate({// 和model/article.js中模型名要一样
+                path: "author",// 和model/article.js中模型名要一样
                 select: "-password -email"
             })
-            .populate("category")
+            .populate("category")// 和model/article.js中模型名要一样
             .sort({_id: -1})
             .limit(size)
             .skip((pn-1)*size)

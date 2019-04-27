@@ -6,7 +6,7 @@ const articleschema = new Schema({
     content:String,
     contentText:String,
     author:{
-        ref:"user",
+        ref:"user",//关联user集合  可从中获取数据
         type:Schema.Types.ObjectId
     },
     category:[

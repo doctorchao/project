@@ -1,12 +1,5 @@
 <template>
   <div class="container">
-    <Header class="header-back">
-      <router-link :to="{name: 'titles', params: {id: this.bookId}}" slot="left">
-        <Button>
-          <i class="iconfont iconBackwardarrowsmall"></i>
-        </Button>
-      </router-link>
-    </Header>
     <div class="content markdown" v-html="html"
         :style="{fontSize: fontSize + 'px'}"></div>
     <div class="btns">
@@ -52,18 +45,19 @@ export default {
     Header
   },
   methods: {
-    getarticle (itemid) {
+    getarticle (itemid) {// 老师的后台数据多了一层article 得要是res.data.article
       return new Promise((reslove) => {
         const id = itemid ? itemid : this.$route.params.id
         this.$axios.get(this.$api.getarticle + id).then(res => {
           // console.log(res)
           const converter = new Showdown.Converter()
-          this.html = converter.makeHtml(res.data.article.content)
-          this.article = res.data
-          this.bookId = res.data.article.bookId
-          document.title = res.data.title
-          console.log(res)
-          this.index = res.data.article.index
+          this.html = converter.makeHtml(res.data.content.trim())
+          this.article = res.data// 个人接口返回的data是个数组
+          this.bookId = res.data.bookId
+          // document.title = res.data.titleId.title
+          this.$emit('give', res.data.titleId.title)
+          // console.log(res)
+          this.index = res.data.index
           reslove()
         })
       })
@@ -71,7 +65,7 @@ export default {
     handle () {
       console.log('我爱豆沙包')
     },
-    //5be2ce07522f254167830e16
+    // 5be2ce07522f254167830e16
     handleadd () {
       if (this.fontSize >= 74) {
         Toast({
@@ -95,7 +89,7 @@ export default {
       }
     },
     gettitles () { // 得先拿到文章内容再能拿目录 所以要一个promise
-      const id = this.article.article.bookId
+      const id = this.article.bookId
       this.$axios.get(this.$api.gettitle + id).then(res => {
         this.titles = res.data
       })
@@ -124,7 +118,7 @@ export default {
           this.index--
           getarticleByIndex()
         }
-      } else if(isprev == 'next') {
+      } else if (isprev === 'next') {
         if (this.index === this.titles.length - 1) {
           Toast({
             message: '没了！没了！ 走走走！',
@@ -154,9 +148,9 @@ export default {
     }
   },
   created () {
-    this.getarticle().then(() => [
+    this.getarticle().then(() => {
       this.gettitles()
-    ])
+    })
   }
 }
 </script>
@@ -165,14 +159,6 @@ export default {
 @import '@/globalcss/px-to-rem.scss';
 .container {
   padding-bottom: px-to-rem(90)
-}
-.header-back {
-  background: white;
-  color: rgb(38, 148, 238);
-	i {
-    font-size: 20px;
-    color: rgb(38, 148, 238)
-	}
 }
 .btns {
   padding: px-to-rem(20);

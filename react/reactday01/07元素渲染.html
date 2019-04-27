@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    setInterval(() => {
+        const element = (
+            <div>
+                <h1>北京时间：</h1>
+                <p>{new Date().toLocaleString()}</p>
+            </div>
+        )
+        ReactDOM.render(element, document.getElementById('root'));
+    }, 1000);
+// 根据jsx本质createElement 元素只刷新p标签
+// diff算法    得出需要修改的最小部分为children p.innerText = '新的children'
+// 原始的jsx:{
+//     type: 'p',
+//     props: {
+//         children: '2019/4/25 下午4:40:22'
+//     }
+// }
+// 新的的jsx对象:{
+//     type: 'p',
+//     props: {
+//         children: '2019/4/25 下午4:40:30'
+//     }
+// }  只修改children innerText
+
+
+
+
+    // const element = (
+    //     <div>
+    //         <h1>北京时间：</h1>
+    //         <p>{
+    //             setInterval(() =>{
+    //                 new Date().toLocaleString() 这样渲染不出来
+    //             },1000)
+    //         }</p>
+    //     </div>
+    // )
+    // ReactDOM.render(element, document.getElementById('root'));
+    
+</script>
+</html>

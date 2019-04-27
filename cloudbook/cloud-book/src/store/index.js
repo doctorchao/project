@@ -17,8 +17,14 @@ const store = new Vuex.Store({
 	},
 	actions: {
 		getusermsg (context) {
-      fetch.get(api.getuser).then(res => {
-        context.commit('CHANGE_USER_MSG', res.data)
+      return new Promise((resolve) => {
+        fetch.get(api.getuser).then(res => {
+          if(res.code == 200) {
+            this.usermsg = res.data
+            context.commit('CHANGE_USER_MSG', res.data)
+            resolve(res)
+          }
+        })
       })
     }
   },
@@ -33,7 +39,7 @@ const store = new Vuex.Store({
         getItem: key => localStorage.get(key),
         // Please see https://github.com/js-cookie/js-cookie#json, on how to handle JSON.
         setItem: (key, value) =>
-          localStorage.set(key, value, { expires: 3, secure: true }),
+        localStorage.set(key, value, { expires: 3, secure: true }),
         removeItem: key => localStorage.remove(key),
       },
     })

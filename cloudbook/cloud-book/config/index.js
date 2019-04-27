@@ -13,7 +13,9 @@ module.exports = {
     // proxyTable: {},
     proxyTable: {
       '/api': {
-        target: 'https://m.yaojunrong.com',
+        target: 'http://192.168.1.118',// 当访问http://192.168.1.118/swiper时
+        // target: 'https://m.yaojunrong.com',// 当访问http://192.168.1.118/swiper时
+        // 会自动变为http://192.168.1.118/api/swiper 因此要加pathRewrite
         changeOrigin: true,
         pathRewrite: {
           '/api': '/'
@@ -60,7 +62,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './', // 加点，为打包的资源路径改为相对路径
 
     /**
      * Source Maps

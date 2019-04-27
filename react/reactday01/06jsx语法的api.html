@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    const str = '我是字符串'
+    const num = 998
+    const none = String(undefined) // 在jsx中 凡是和错误相关的值都不会渲染 除了数字0；vue中也是
+    const person = {
+        fir: '周',
+        sec: '青蓉'
+    }
+    if (0){
+        console.log('000')
+    }
+    function getName (fir, sec){
+        return fir + sec
+    }
+
+
+    const element = (
+        <div>
+            <ul>
+                <li>{str}</li>
+                <li>{num}</li>
+                <li>{none}</li>
+                <li>{getName(person.fir, person.sec)}</li>
+                <li>我是一个{num == 998 ? '男' : '女'}生</li>
+            </ul>
+        </div>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+</script>
+</html>

@@ -5,7 +5,7 @@
 }
 .top-box {
 	height: px-to-rem(400);
-	background: rgba(98, 166, 243, 0.959);
+	background: rgba(57, 141, 236, 0.959);
 	color: white;
 	display: flex;
 	flex-direction: column;
@@ -58,7 +58,7 @@
 			margin-left: 5px;
 			.online-msg-desc {
 				width: px-to-rem(490);
-				height: px-to-rem(32);
+				height: px-to-rem(64);
 				overflow: hidden;
 				white-space: normal;
 				word-break: break-all;

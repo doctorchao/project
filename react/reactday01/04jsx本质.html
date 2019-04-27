@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    // const demo = <h1>豆沙味包子好吃</h1>
+
+    // ReactDOM.render(demo, document.getElementById('root'))
+    const demo = React.createElement('h1', { // 元素类型缩写{type: 'h1'}
+        className: 'ql',
+        style: {
+            color: 'red'
+        },
+        'data-index': '1' // 这是在js里面 所以不用驼峰
+    }, '我叫周青蓉')
+    ReactDOM.render(demo, document.getElementById('root'))
+</script>
+</html>

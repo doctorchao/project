@@ -1,0 +1,57 @@
+@import '@/globalcss/px-to-rem.scss';
+.study-item {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(102, 99, 99);
+    font-size: 12px;
+    margin-bottom: 15px;
+    .img-wrap {
+    width: px-to-rem(200);
+    height: px-to-rem(260);
+    box-shadow: 0 0 2px 2px rgba(0,0,0, .5);
+    }
+    .book-msg {
+        flex: 1;
+        margin-left: 10px;
+        .title {
+            font-size: 18px;
+            font-weight: 400;
+            height: px-to-rem(36);
+            color: #333;
+            margin-bottom: 5px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            overflow: hidden;
+        }
+        .read-msg {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .progress-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .prev-read-wrap {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            .prev-read-msg{
+                font-size: 14px;
+                color: skyblue;
+            }
+        }
+        .btn-wrap {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+    
+}
+.study {
+    margin-bottom: px-to-rem(80);
+}

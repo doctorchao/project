@@ -49,4 +49,63 @@ npm run dev 是'/api' , npm run build 是'/'
 
 果果小师弟
 STM32F103C8T6
-今天要搞 localStorage.removeItem('token')
+
+打包
+
+把icon全部下载到本地 放入项目中 然后引入
+把config中 index 里做修改 assetsPublicPath: './', // 加点，为打包的资源路径改为相对路径
+
+HBuilder 打包工具 要注册
+
+
+
+
+js预编译中 函数声明提升优先于变量声明提升 function a(){} 提升 var a=function(){} 不提升
+
+基本数据类型是存在栈区，引用数据类型(对象，函数，数组)是存在堆区
+声明基本数据类型时，每声明一个就会在栈区开辟一个新空间，即使声明内容一样
+声明引用数据类型变量时 变量中存储的是数据所在的堆区的空间地址 因此一个数据可以对应多个变量
+修改其中一个变量 数据变了 其它的变量也会跟着变了
+
+var arr1 = [1,2,3]
+var arr2 = arr1
+arr2[0] = 7
+console.log(arr1)
+console.log(arr2)
+
+
+形参不影响实参 所有语言通用
+
+var a='123'
+function demo(b){
+    //var b = a
+    b='456'
+}
+demo(a)
+console.log(a)  //123
+
+var arr1 =[1,2,3]
+function demo(arr) {
+    arr[1]=5
+}
+demo(arr1)
+console.log(arr1) //[1,5,3]  地址没变 但是两者对应同一个空间 牵一发动全身
+
+函数内部 不加var等声明的变量可以被外面引用 它是全局的
+function a() {
+    b=2
+}
+console.log(b) // 2
+
+lsof -i:端口号 kill pid  结束端口进程
+
+
+vue -webkit-box-orient: vertical webpack打包后被过滤掉了 线上没有这行代码
+找到配置文件/build/webpack.prod.conf.js文件，注释掉一下代码
+在打包后有的css不起作用 需要注释掉这些代码并在utils里加代码
+在/build/utils.js文件里加上 minimize:true
+
+或者加以下两个注释
+/*! autoprefixer: off */
+  -webkit-box-orient:vertical;
+  /*! autoprefixer: on */

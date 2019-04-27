@@ -78,9 +78,10 @@ export default {
         .article-preview {
           margin-top: 10px;
           display: -webkit-box;
+          /*! autoprefixer: off */
           -webkit-box-orient: vertical;
+          /* autoprefixer: on */
           -webkit-line-clamp: 3;
-          // line-clamp: 3;
           overflow: hidden;
           font-size: 12px;
           line-height: 1.5;

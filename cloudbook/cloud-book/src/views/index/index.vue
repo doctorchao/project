@@ -16,20 +16,21 @@
 import Myswiper from '@/components/my-swiper'// 引入轮播图
 import Contentitem from './components/content-item'// 引入分类图书
 import moment from 'moment'// 引入moment时间处理
-import { Loadmore } from 'mint-ui' // 第三步的 引入loadmore 上下拉刷新
+import { Loadmore, Toast } from 'mint-ui' // 第三步的 引入loadmore 上下拉刷新
 export default {
   name: 'ql-index',
   components: {
     Myswiper,
     Contentitem,
-    Loadmore
+    Loadmore,
+    Toast
   },
   data () {
     return {
       contentdata: [],
       querydata: {
         pn: 1,
-        booksSize: 3, // 在分类中选取多少本书    2
+        booksSize: 2, // 在一个分类中选取多少本书    2
         size: 2// 取多少个分类
       },
       allLoaded: false
@@ -46,8 +47,13 @@ export default {
           params: this.querydata
         }).then(res => {
           let resData = res.data
+          console.log(res)
           if (resData.length < this.querydata.size) {
-            this.allLoaded = true
+            Toast({
+              message: '分类书籍加载完毕',
+              position:'center',
+              duration: 1000
+            })
           }
           resData = resData.map(item => {
             item.books = item.books.map(it => {
@@ -63,46 +69,31 @@ export default {
           resolve()
         })
       })
-      // this.$axios.get(this.$api.getcontent,{    3
-      //   // params:{
-      //   //   booksSize: "3", //在分类中选取多少本书
-      //   //   size: "5"// 取多少个分类
-      //   // }
-      //   params: this.querydata
-      // }).then(res => {
-      //   let resData = res.data.map(item => {
-      //     item.books = item.books.map(it => {
-      //       it.updateTime = moment(it.updateTime).format('YYYY年MM月DD日')
-      //       return it
-      //     })
-      //     return item
-      //   })
-      //   this.contentdata = resData
-      //   console.log(res, '分类图书')
-      // })
     },
     loadTop () {
+      console.log('我是顶部下拉加载')
       // ...加载更多数据
       this.querydata = {
-        pn: 1,
-        booksSize: 3,
-        size: 4
+        pn: this.querydata.pn + 1,
+        booksSize: 2,
+        size: 2
       }
-      this.allLoaded = false
+      // this.allLoaded = true
       this.getcontent().then(() => {
         this.$refs.loadmore.onTopLoaded()
       })
     },
     loadBottom () {
-      this.querydata = {
-        pn: this.querydata.pn + 1,
-        booksSize: 3,
-        size: 2
-      }
-      this.getcontent().then(() => {
-        // this.allLoaded = true;// 若数据已全部获取完毕则
-        this.$refs.loadmore.onBottomLoaded()
-      })
+    //     console.log('我是底部上拉加载')
+    //     this.querydata = {
+    //       pn: this.querydata.pn + 1,
+    //       booksSize: 2,
+    //       size: 1
+    //     }
+    //     this.allLoaded = false;
+    //     this.getcontent().then(() => {
+    //       this.$refs.loadmore.onBottomLoaded()
+    //     })
     }
   },
   created () {

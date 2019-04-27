@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .abc{
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <div></div>
+</body>
+<script src="./js/babel.js"></script> <!-- 提供一些shiv或es6当中的语法和方法-->
+<script src="./js/react.js"></script> <!-- react的核心包，存在react的核心方法-->
+<script src="./js/react-dom.js"></script> <!-- 提供react操作dom的api-->
+<script type="text/babel">
+    const str = '我是一个字符串';
+    
+    const element = 
+    (<div>
+        <input type='text'/>
+        
+        <h1 className="abc">我是大标题</h1> 
+        <p>周青蓉好好看，我好喜欢</p>
+        <p>{str}</p>
+    </div>)
+    ReactDOM.render(element, document.getElementById('root'));
+</script>
+</html>

@@ -1,0 +1,29 @@
+JSX（JS中XML语法）中  html里用{}渲染js
+
+JSX中
+标签必须要有结束符号
+属性一律使用驼峰命名法 不用data-index这种横杠
+class 在JSX中是保留字 要用className
+
+组件和元素的区别：
+1. 元素更偏向于html/css部分.
+2.组件更偏向于将html/css/js逻辑层封装到一起.
+
+函数组件  修改其中值不会触发修改页面
+类组件    存在生命周期  修改其中某些值会触发修改页面
+1.state 触发页面的更新
+2.props 触发组件的更新
+
+props 或state每次点击变化按钮 如果值不变 dom便不会刷新
+
+组件卸载时钩子componentWillUnmount 执行一些清空定时器， 或是移除事件绑定的功能
+
+1. this 永远指向调用它的对象
+2. this的指向只有在调用时才能知道
+3. 箭头函数是在定义的时候就已经绑定了this的指向
+
+.bind(obj) 改变this的指向到obj 同时返回一个新的函数 obj后面可以传参
+.call(obj) 改变this的指向到obj 同时执行改变后的函数 obj后面可以传参
+.apply(obj) 改变this的指向到obj 同时执行改变后的函数 obj后面可以传参 但参数要用数组包起来
+
+修改了形参 对外来数据变更就不是纯函数 只能return 形参表达式

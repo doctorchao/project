@@ -97,8 +97,9 @@ export default {
       })
     },
     handleloginout () {
-      localStorage.removeItem('token')
+      localStorage.clear()
       this.$store.state.usermsg = {}
+      // this.$store.commit('CHANGE_USER_MSG', {})
     },
     changemsg () {
       this.$router.push('/change')

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+</body>
+<script>
+// var name = 'window'
+
+// var obj = {
+//     name: '小松菜奈',
+//     getName (){
+//         console.log(this.name)
+//     }
+// }
+// obj.getName() // 小松菜奈
+
+// var fun = obj.getName()
+// fun() // window  fun 存的是引用数据类型的地址. 全局变量 无引用的变量都指向window 相当于window.fun
+
+// var girl = {
+//     name: '筱崎爱',
+//     sex: 'girl'
+// }
+// var fun1 = obj.getName.bind(girl)// .bind返回一个函数
+// fun1() // 筱崎爱
+
+// var obj2 = {
+//     name: '小松菜奈',
+//     getName (a, b, c){
+//         console.log(a, b, c)
+//     }
+// }
+// var girl = {
+//     name: '筱崎爱',
+//     sex: 'girl'
+// }
+// var fun2 = obj2.getName.bind(girl, girl.name, 123, '456')// .bind返回一个函数 girl后面都是参数
+// fun2() // 筱崎爱 , 123, 456
+
+// var obj3 = {
+//     name: '小松菜奈',
+//     getName (){
+//         console.log(this.name)
+//     }
+// }
+// // obj3.getName.call(girl) // 筱崎爱
+
+// obj3.getName.apply(girl) // 筱崎爱
+// obj3.getName.apply(girl, [a, b, c]) // 筱崎爱
+
+var name = 'window'
+
+class Demo{
+    constructor(){
+        this.name = 'demo'
+        this.dom = document.getElementById('btn')
+        this.print() // demo
+        // this.dom.onclick = function (){
+        //     this.print() // 错误
+        //     console.log(this) // 事件源本身 btn
+        // }
+        
+        // this.dom.onclick = () =>{
+        //     this.print()
+        //     console.log(this)
+        //     fun()
+        // }
+        let _this = this  //使用_this赋值或箭头函数this指向父级作用域 来执行this.print()
+        // this.dom.onclick = function (){
+        //     this.print()
+        //     console.log(this)
+        // }
+
+        const fun = _this.print // 在react中用变量将函数存起来再执行
+        this.dom.onclick = function (){
+            _this.print()
+            console.log(_this)
+            // fun()
+            fun.bind(_this)() //绑定this指向demo本身
+        }
+    }
+    print(){
+        console.log(this.name)
+    } 
+}
+var obj = new Demo()
+</script>
+</html>

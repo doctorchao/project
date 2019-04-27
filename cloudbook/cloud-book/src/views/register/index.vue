@@ -1,12 +1,5 @@
 <template>
 	<div class="container">
-		<Header class="header-back">
-			<router-link to="" slot="left">
-				<Button @click="$router.back()">
-				<i class="iconfont iconBackwardarrowsmall"></i>
-				</Button>
-			</router-link>
-		</Header>
 		<div class="top-box">
 			<div class="top-item">
 				<i class="iconfont iconbook" slot="icon"></i>

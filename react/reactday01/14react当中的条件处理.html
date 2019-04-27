@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.demo{
+			background: red;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    const {Component} = React
+    
+    class Container extends Component {
+        constructor(props){
+            super(props)
+            this.state = { 
+                isShow: true
+            }
+        }
+        handleClick = () =>{
+			console.log(123)
+			this.setState({
+				isShow: !this.state.isShow
+			})
+        }
+        render() {
+		  const _this = this
+          function change() {
+			if(_this.state.isShow){
+				return <Demo />
+			} else {
+				return null
+			}
+		  }
+          return (
+            <div>
+			  <button onClick={this.handleClick}>红盒子出来</button>
+			  {change()}
+			  {this.state.isShow ? <Demo /> : null}
+			  {this.state.isShow  && <Demo />}
+            </div>
+          )
+        }
+    }
+
+    class Demo extends Component {
+
+        render() {
+          return (
+            <div>
+              <div className ="demo"></div>
+            </div>
+          )
+        }
+    }
+    ReactDOM.render(<Container />, document.getElementById('root'));
+</script>
+</html>

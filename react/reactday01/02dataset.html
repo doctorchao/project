@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li data-index="周青蓉" title="qwe" abcd="abcd">我是第1</li>
+        <li data-abc="蒋林芝">我是第2</li>
+        <li demo-index="史瑞雪">我是第3</li>
+    </ul>
+</body>
+<script>
+    var lis = document.getElementsByTagName('li')
+    console.log(lis[0].title)
+    // console.log(lis[0].abcd)              非官方属性取不到
+    console.log(lis[0].getAttribute('abcd')) // 自定义属性获取
+    console.log(lis[0].dataset.index)
+    console.log(lis[1].dataset.abc)         // data-任意名
+    // console.log(lis[2].demoset.index)    只有dataset
+</script>
+</html>

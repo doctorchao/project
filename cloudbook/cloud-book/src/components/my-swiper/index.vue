@@ -31,12 +31,16 @@ export default {
           el: '.swiper-pagination'
         }
       },
-      swiperdata: []
+      swiperdata: [],
+      query: {
+        pn: 1,
+        size: 4
+      }
     }
   },
   methods: {
     getswiper () {
-      this.$axios.get(this.$api.getswiper).then(res => {
+      this.$axios.get(this.$api.getswiper,{params:this.query}).then(res => {
         this.swiperdata = res.data
         // console.log(res, '轮播图')
       })
@@ -60,6 +64,7 @@ export default {
       height: px-to-rem(400);
     }
     .title {
+      line-height: 30px;
       padding: 4px;
       position: absolute;
       bottom: 0;

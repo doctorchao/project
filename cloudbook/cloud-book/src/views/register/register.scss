@@ -1,11 +1,4 @@
 @import '@/globalcss/px-to-rem.scss';
-.header-back {
-	background: white;
-	color: rgb(38, 148, 238);
-	i {
-		font-size: 20px
-	}
-}
 .top-box {
 	height: px-to-rem(400);
 	display: flex;

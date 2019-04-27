@@ -6,3 +6,5 @@ db.once('open', function() {
   // we're connected!
   console.log("已连接")
 });
+
+module.exports = db

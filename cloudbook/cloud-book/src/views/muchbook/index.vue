@@ -1,8 +1,6 @@
 <template>
 	<div class="container">
 		<Loadmore :top-method="loadTop"
-              :bottom-method="loadBottom"
-              :bottom-all-loaded="allLoaded"
               ref="loadmore">
 			<div class="content-item">
 				<div class="content-item-row1">
@@ -43,11 +41,12 @@
 
 <script>
 import moment from 'moment'
-import {Loadmore} from 'mint-ui'
+import {Loadmore, Toast} from 'mint-ui'
 export default {
 	name: 'ql-content-item',
 	components: {
-		Loadmore
+    Loadmore,
+    Toast
 	},
   data () {
     return {
@@ -57,7 +56,7 @@ export default {
 				pn: 1,
 				size: 2
 			},
-			allLoaded: false
+			// allLoaded: false
     }
   },
   methods: {
@@ -69,7 +68,11 @@ export default {
 				}).then(res => {
 					let resdata = res.data
 					if (resdata.books.length < this.querydata.size) {
-						this.allLoaded = true
+						Toast({
+              message: '只有这么多书喔',
+              position:'center',
+              duration: 1000
+            })
 					}
 					console.log(res)
 					resdata.books = resdata.books.map(it => {
@@ -86,22 +89,11 @@ export default {
 		loadTop () {
       // ...加载更多数据
       this.querydata = {
-        pn: 1,
-        size: 4
+        pn: this.querydata.pn + 1,
+        size: 2
       }
-      this.allLoaded = false
       this.getmuchbooks().then(() => {
         this.$refs.loadmore.onTopLoaded()
-      })
-    },
-    loadBottom () {
-      this.querydata = {
-        pn: this.querydata.pn + 1,
-        size: 4
-      }
-      this.getmuchbooks().then(() => {
-        // this.allLoaded = true;// 若数据已全部获取完毕则
-        this.$refs.loadmore.onBottomLoaded()
       })
     }
   },
@@ -114,7 +106,7 @@ export default {
 <style scoped lang='scss'>
   @import '@/globalcss/px-to-rem.scss';
   .content-item {
-    margin-top: 15px;
+    // margin-top: 15px;
     .content-item-row1 {
       display: flex;
       justify-content: space-between;

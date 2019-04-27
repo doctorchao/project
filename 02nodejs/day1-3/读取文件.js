@@ -16,14 +16,13 @@ const http=require("http");
 // 创建服务器
 //函数嵌套 里面的函数是回调函数
 //re: request 请求 res: response 响应
-const server =http.createServer(function(req,res){
+http.createServer(function(req,res){
     res.writeHead(200,{"content-type":"text/html;charset=utf-8"});//(状态码，{对象})
-    fs.readFile("./out.txt","utf-8",function(err,data){// 回调函数
+    fs.readFile("day1-3/out.txt","utf-8",function(err,data){// 回调函数
         if(err){
             console.log(err)
         }
         else{
-
             console.log(data)
         }
     });

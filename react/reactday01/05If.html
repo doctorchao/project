@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    const sex = 1
+    let str = ''
+    if (sex == 1){
+        str = '我是周青蓉'// 不想显示的话等于null就可以了
+    } else {
+        str = '我是蒋林芝'
+    }
+
+
+    const element = (
+        <div>
+            {sex == 1 ? '周青蓉' : '蒋林芝'}
+            {str}
+        </div>
+    )
+    ReactDOM.render(element, document.getElementById('root'));
+</script>
+</html>

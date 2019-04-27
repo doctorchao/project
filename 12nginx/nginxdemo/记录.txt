@@ -1,0 +1,12 @@
+windows 
+下载nginx压缩包 解压后放到c盘program 下  修改conf文件中listen 80; #注释location
+两行 加上proxy_pass:http://localhost:3003 或127.0.0.1  esc 或 ： 进入命令行 :wq！ 保存退出
+管理员身份运行文件夹中nginx
+
+mac
+brew install nginx
+cd /usr/local/etc/nginx/
+vim nginx.conf
+修改。。。
+第一次启动 sudo ngnix 
+以后 sudo nginx -s reload
