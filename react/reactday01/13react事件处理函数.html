@@ -17,13 +17,13 @@
     const {Component} = React
     class Container extends Component {
 
-        handleDemo (){
+        handleDemo =() =>{
             console.log('父组件中事件函数')
         }
         render() {
           return (
             <div>
-                <Demo onClick ={this.handleDemo}/> //属性传值
+                <Demo abc ={this.handleDemo}/> //属性传值可不绑this
             </div>
           )
         }
@@ -56,7 +56,7 @@
         // }
         render() {
           return (
-            <div onClick ={this.props.onClick}>
+            <div onClick={this.props.abc}>
               <button>子组件按钮</button>
               <a href="https://www.baidu.com" onClick ={this.handleJump}>点击跳转</a>
             </div>

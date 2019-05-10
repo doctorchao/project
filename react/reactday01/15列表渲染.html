@@ -8,14 +8,87 @@
 </head>
 <body>
     <div id="root"></div>
+    
 </body>
 <script src="./js/babel.js"></script>
 <script src="./js/react.js"></script>
 <script src="./js/react-dom.js"></script>
 <script type="text/babel">
     const {Component} = React
+    const arr =[
+        {
+            name: '周青蓉',
+            num: 1
+        },
+        {
+            name: '蒋林芝',
+            num: 2
+        },
+        {
+            name: '史瑞雪',
+            num: 3
+        },
+        {
+            name: '吴芊盈',
+            num: 4
+        },
+        {
+            name: '小松菜奈',
+            num: 5
+        }
+    ]
+    const arr1 = [1, 2, 3]
     
-
-    ReactDOM.render(element, document.getElementById('root'));
+    class Container extends Component {
+        constructor(props){
+            super(props)
+        }
+        // render() {
+        //   return (
+        //     <div>
+        //       <h1>好看的妹子</h1>
+        //       {
+        //         arr.map((item, index) =>(
+        //             <li key={index}>
+        //                 <h2>{item.name}</h2>
+        //                 <p>{item.num}</p>
+        //             </li>
+        //         ))
+        //       }
+        //       {arr1}
+        //     </div>
+            
+        //   )
+        // }
+        // 下面是类似插槽的东西
+        render() {
+          return (
+            <div>
+                <h1>好看的妹子</h1>
+                <ul>
+                    {
+                        arr.map((item, index) =>(
+                            <LiItem key={index}>
+                                <h2>{item.name}</h2>
+                                <p>{item.num}</p>
+                            </LiItem>
+                        ))
+                    }
+                </ul>
+            </div>
+          )
+        }
+    }
+    class LiItem extends Component{
+        constructor(props){
+            super(props)
+        }
+        render() {
+          return (
+            <li>{this.props.children}</li>
+          )
+        }
+    }
+    ReactDOM.render(<Container />, document.getElementById('root'));
 </script>
 </html>

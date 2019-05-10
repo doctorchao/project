@@ -1,0 +1,4 @@
+写路由时  最外面要包一个<Router></Router>
+
+path="/"  path="/route"  /route 时 也满足"/"
+所以要加 exact 精准匹配

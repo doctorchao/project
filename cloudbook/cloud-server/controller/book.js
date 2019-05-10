@@ -10,6 +10,7 @@ async function getBook (req,res,next) {
     try{
         let {url,img,author,title} = req.body
         const data = await rq.get(url)
+        console.log(data)
         const $ = cheerio.load(data)
         let titleEle = []
         titleEle = $('.catalog a')
@@ -56,7 +57,8 @@ async function getBook (req,res,next) {
         }
         res.json({
             code:200,
-            msg:'爬取成功'
+            msg:'爬取成功',
+            data
         })
         
     } catch (err) {

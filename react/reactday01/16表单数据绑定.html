@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="./js/babel.js"></script>
+<script src="./js/react.js"></script>
+<script src="./js/react-dom.js"></script>
+<script type="text/babel">
+    const {Component} = React
+    
+    class Container extends Component{
+        constructor(props){
+            super(props)
+            this.state = {
+                formData: {
+                    username: '周青蓉',
+                    password: '123'
+                }
+            }
+        }
+        change = (e) =>{
+            const name = e.target.name
+            const value= e.target.value
+            this.setState({
+                formData: {
+                    ...this.state.formData,
+                    [name]: value
+                }
+            }, function () {
+                console.log(this.state.formData)
+            })
+        }
+        click = () =>{
+            this.setState({
+                formData: {
+                    ...this.state.formData,
+                    username: '蒋林芝',
+                    password: '456'
+                }
+            }, function () {
+                console.log(this.state.formData)
+                console.log({...this.state.formData})
+            })
+        }
+        render() {
+            const formData = this.state.formData
+            return (
+                <div>
+                    用户名：<input type="text" value={formData.username} name="username" onChange={this.change}/>
+                    <br />
+                    密码：<input type="text" value={formData.password} name="password" onChange={this.change}/>
+                    <br />
+                    <button onClick={this.click}>点击数据更改</button>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Container />, document.getElementById('root'));
+</script>
+</html>

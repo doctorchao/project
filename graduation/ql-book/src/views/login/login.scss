@@ -1,0 +1,43 @@
+@import '@/globalcss/px-to-rem.scss';
+.top-box {
+	height: px-to-rem(400);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	i {
+		color: rgb(82, 130, 219);
+		font-size: 100px;
+	}
+}
+.login {
+	margin-top: px-to-rem(50);
+	li {
+		display: flex;
+		align-items: center;
+		line-height: 2;
+		.field {
+		  width: 100%;
+		  background: white// 不然在手机上会显示有根细线
+		}
+	}
+	i {
+		font-size: 25px;
+		opacity: 0.7;
+	}
+	.bot-line {
+		border: 1px solid rgb(124, 178, 240);
+	}
+	// .register {
+	// 	color: rgb(56, 115, 241);
+	// 	margin: 15px;
+	// 	text-align: end;
+	// }
+	.register-box {
+		margin: 15px;
+		color: rgb(56, 115, 241);
+		text-align: end;
+	}
+}
+.btn-login {
+	margin-top: px-to-rem(150)
+}

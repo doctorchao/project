@@ -1,0 +1,7 @@
+gem源
+https://gems.ruby-china.com
+
+cnpm install node-sass(npm装不上的话 换国内 默认淘宝源)
+
+npm init react-app my-app
+npm i node-sass --save-dev (react项目 自身有sass-loader)

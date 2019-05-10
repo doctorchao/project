@@ -1,0 +1,27 @@
+@import './px-to-rem.scss';
+body {
+  font-size: 14px!important;/* 这样能盖住行内样式 */
+  background: white;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+img{
+  display: block;
+  width: 100%;
+  height: 100%   /* 拉伸图片到指定长度 */
+}
+h1,h2,h3,h4 {
+  margin: 0px
+}
+a {
+  color: rgb(247, 167, 180);
+  text-decoration: none;
+}
+.container {
+  padding: px-to-rem(18)
+}

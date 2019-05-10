@@ -35,7 +35,7 @@ const router = new Router({
             title: '我的学习'
           },
           component: () => import ('@/views/study')
-        },
+        }
       ]
     },
     {
@@ -49,7 +49,7 @@ const router = new Router({
           mata: {
             title: '书籍详情'
           },
-          component: () => import('@/views/details'),
+          component: () => import('@/views/details')
         },
         {
           path: '/titles/:id', // 不传这个刷新后不出来东西

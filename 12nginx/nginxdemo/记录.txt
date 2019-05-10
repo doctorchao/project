@@ -10,3 +10,8 @@ vim nginx.conf
 修改。。。
 第一次启动 sudo ngnix 
 以后 sudo nginx -s reload
+
+sudo nginx -s stop / quit 停止nginx
+
+cd /usr/local/etc/nginx/
+sudo nginx

@@ -1,0 +1,18 @@
+.ql-input {
+	display: flex;
+	border-bottom: 1px solid rgb(130, 203, 245);
+	align-items: center;
+	margin-bottom: 10px;
+	.input {
+		flex: 1;
+		outline: none;
+		border: none;
+		font-size: 14px;
+        color: #333;
+		padding: 4px 5px;
+	}
+	.title {
+		padding: 4px;
+		font-size: 14px;
+	}
+}
